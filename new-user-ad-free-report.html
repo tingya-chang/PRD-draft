@@ -479,6 +479,58 @@
   全年齡 CVR 觀察顯示 Case 8.55% vs Control 9.17%，但該圖未限定 D0–D7，兩組觀察母體不同，不適合直接比較實驗效果。在相同 D0–D7 範圍內，Case 轉換數略少（819 vs 848），但每次轉換平均營收高出 $1.07（+11.9%）。推測原因：Control 用戶常因廣告插播被推向付費頁、傾向衝動月繳；Case 用戶主動進入付費頁，更傾向選年繳等高承諾方案，少量但高價值的轉換反而帶來更高總營收。
 </div>
 
+<h3>年 / 月方案佔比（Plus & Lite 方案，6/5–6/13）</h3>
+<p>以 Amplitude 實驗期間首次訂閱事件拆分年繳（P1Y）與月繳（P1M），驗證 Case 用戶傾向高價值方案的推論。</p>
+<table>
+  <thead>
+    <tr>
+      <th>方案類型</th>
+      <th class="num">Case</th>
+      <th class="num">Control</th>
+      <th class="num">差異</th>
+      <th>方案佔比對比</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>年繳（P1Y）</td>
+      <td class="num positive-cell">38 次（<strong>82.6%</strong>）</td>
+      <td class="num">33 次（63.5%）</td>
+      <td class="num positive-cell">+19.1pp ↑</td>
+      <td>
+        <div style="display:flex;gap:4px;align-items:center;font-size:12px;">
+          <div style="width:82.6%;background:#1a7f37;height:14px;border-radius:3px;"></div>
+          <div style="width:17.4%;background:#d0d7de;height:14px;border-radius:3px;"></div>
+          <span style="color:var(--muted);white-space:nowrap;">Case 82.6%</span>
+        </div>
+        <div style="display:flex;gap:4px;align-items:center;font-size:12px;margin-top:3px;">
+          <div style="width:63.5%;background:#57606a;height:14px;border-radius:3px;"></div>
+          <div style="width:36.5%;background:#d0d7de;height:14px;border-radius:3px;"></div>
+          <span style="color:var(--muted);white-space:nowrap;">Control 63.5%</span>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td>月繳（P1M）</td>
+      <td class="num">8 次（17.4%）</td>
+      <td class="num negative-cell">19 次（<strong>36.5%</strong>）</td>
+      <td class="num negative-cell">−19.1pp</td>
+      <td style="color:var(--muted);font-size:13px;">Control 月繳比例是 Case 的 2.1×</td>
+    </tr>
+    <tr style="font-weight:600;background:var(--row-alt);">
+      <td>合計（Plus / Lite）</td>
+      <td class="num">46 次</td>
+      <td class="num">52 次</td>
+      <td class="num" style="color:var(--muted);">—</td>
+      <td style="color:var(--muted);font-size:12px;">※ 不含 Standard 方案（custom event 限制）</td>
+    </tr>
+  </tbody>
+</table>
+<div class="callout green" style="margin-top:12px;">
+  <strong>Case 用戶年繳比例顯著高於 Control，驗證方案選擇差異假說</strong>
+  Case（免廣告）年繳佔比 82.6%，Control（正常廣告）63.5%，差距 +19.1pp，統計檢定 z = 2.11、p ≈ 0.035，達到 95% 信賴水準。控制組廣告插播帶動更多衝動式月繳，Case 組用戶主動進入付費頁，反而選擇承諾度更高的年繳方案。這直接解釋了 Case 轉換數略少（−3.4%）但每次轉換平均營收高出 11.9% 的核心矛盾。
+</div>
+
 <!-- Statistical Significance -->
 <h2>六、統計顯著性評估</h2>
 <table>
