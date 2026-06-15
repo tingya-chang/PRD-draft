@@ -179,6 +179,7 @@
   .tl-seg.gray  { background: var(--gray-bar); opacity: 0.65; }
   .tl-seg.blue  { background: var(--blue-bar); }
   .tl-seg.green { background: var(--green-bar); }
+  .tl-seg.feature-active { background: #60a5fa; } /* new features active, old billing */
   .tl-seg.dashed {
     background: repeating-linear-gradient(
       90deg,
@@ -446,7 +447,17 @@
         </div>
       </div>
 
-      <div class="tl-legend">
+      <!-- iOS new plan cycle bracket — starts from upgrade point (42%) -->
+      <div class="tl-cycle-bracket" style="margin-left:42%">
+        <div class="tl-cycle-side left"></div>
+        <div class="tl-cycle-mid">
+          <span class="zh">新方案週期（今日起算，1 年後續訂）</span>
+          <span class="en">New plan cycle (starts today, renews in 1 year)</span>
+        </div>
+        <div class="tl-cycle-side right"></div>
+      </div>
+
+      <div class="tl-legend" style="margin-top:12px">
         <div class="tl-legend-item"><div class="leg-bar" style="background:var(--gray-bar);opacity:0.65"></div><span class="zh">舊方案（已用部分）</span><span class="en">Old plan (used)</span></div>
         <div class="tl-legend-item"><div class="leg-bar" style="background:var(--blue-bar)"></div><span class="zh">新方案週期（今日起算）</span><span class="en">New plan cycle (starts today)</span></div>
         <div class="tl-legend-item"><div class="leg-dot" style="background:var(--red-dot)"></div><span class="zh">扣款</span><span class="en">Charge</span></div>
@@ -460,7 +471,7 @@
       <li>
         <span class="s-icon">💳</span>
         <span>
-          <span class="zh"><strong>今日扣款：</strong>新方案全額（例：Standard 年付 $35.99），由 App Store 扣取。</span>
+          <span class="zh"><strong>今日扣款：</strong>新方案全額，由 App Store 扣取。</span>
           <span class="en"><strong>Charged today:</strong> Full new plan price (e.g. Standard Annual $35.99), billed by App Store.</span>
         </span>
       </li>
@@ -494,13 +505,13 @@
     <div class="card-header">
       <span class="platform-tag and">Android</span>
       <span class="card-title">
-        <span class="zh">Lite 月付 → 任意升級方案</span>
-        <span class="en">Lite Monthly → Any Upgrade Plan</span>
+        <span class="zh">月付方案升級</span>
+        <span class="en">Monthly Plan Upgrade</span>
       </span>
     </div>
     <p class="card-desc">
-      <span class="zh">升級當天不收費，你的 Lite 月付週期繼續跑完，下個帳單日才開始按新方案計費。</span>
-      <span class="en">No charge on the day you upgrade. Your current Lite monthly cycle runs to completion, and the new plan billing begins at your next billing date.</span>
+      <span class="zh">升級當天不收費，新方案功能立即啟用。舊方案的帳單週期繼續跑完，下個帳單日才開始按新方案計費。</span>
+      <span class="en">No charge today. New plan features activate immediately. Your current billing cycle runs to completion, then the new plan rate kicks in.</span>
     </p>
 
     <div class="tl-wrap">
@@ -508,39 +519,48 @@
         <span class="zh">費用時間軸</span><span class="en">Billing Timeline</span>
       </div>
 
-      <!-- Bar: old plan continues, then new plan starts -->
+      <!-- Bar: 3 segments — before upgrade / new features active (old billing) / new billing -->
       <div class="tl-bar-row">
-        <div class="tl-seg gray"   style="flex:55"></div>
-        <div class="tl-seg green"  style="flex:45"></div>
+        <div class="tl-seg gray"           style="flex:35"></div>
+        <div class="tl-seg feature-active" style="flex:20"></div>
+        <div class="tl-seg green"          style="flex:45"></div>
       </div>
 
-      <div class="tl-points">
-        <!-- Upgrade today (no charge) -->
+      <div class="tl-points" style="height:68px">
         <div class="tl-pt" style="left:35%">
           <div class="tl-pt-tick"></div>
           <div class="tl-pt-dot neutral"></div>
-          <div class="tl-pt-label"><span class="zh">今日升級</span><span class="en">Upgrade today</span></div>
-          <div class="tl-pt-sub"><span class="zh">扣款：$0</span><span class="en">Charge: $0</span></div>
+          <div class="tl-pt-label"><span class="zh">今日升級・$0</span><span class="en">Upgrade today · $0</span></div>
+          <div class="tl-pt-sub"><span class="zh">新方案功能立即啟用</span><span class="en">New features activate now</span></div>
         </div>
-        <!-- Cycle end = new plan start -->
         <div class="tl-pt" style="left:55%">
           <div class="tl-pt-tick"></div>
           <div class="tl-pt-dot charge"></div>
-          <div class="tl-pt-label"><span class="zh">Lite 月付到期</span><span class="en">Lite cycle ends</span></div>
-          <div class="tl-pt-sub"><span class="zh">新方案首次扣款</span><span class="en">First new plan charge</span></div>
+          <div class="tl-pt-label"><span class="zh">舊方案到期</span><span class="en">Old plan ends</span></div>
+          <div class="tl-pt-sub"><span class="zh">首次新方案扣款</span><span class="en">First new plan charge</span></div>
         </div>
-        <!-- Next renewal of new plan -->
         <div class="tl-pt" style="left:100%">
           <div class="tl-pt-tick"></div>
           <div class="tl-pt-dot neutral"></div>
-          <div class="tl-pt-label"><span class="zh">新方案下次續訂</span><span class="en">New plan renewal</span></div>
+          <div class="tl-pt-label"><span class="zh">下次續訂</span><span class="en">Next renewal</span></div>
           <div class="tl-pt-sub"><span class="zh">新方案全額</span><span class="en">Full new plan price</span></div>
         </div>
       </div>
 
-      <div class="tl-legend">
-        <div class="tl-legend-item"><div class="leg-bar" style="background:var(--gray-bar);opacity:0.65"></div><span class="zh">Lite 月付（繼續使用至到期）</span><span class="en">Lite monthly (runs to end)</span></div>
-        <div class="tl-legend-item"><div class="leg-bar" style="background:var(--green-bar)"></div><span class="zh">新方案</span><span class="en">New plan</span></div>
+      <!-- Feature-active period bracket -->
+      <div class="tl-cycle-bracket" style="margin-left:35%;margin-right:45%">
+        <div class="tl-cycle-side left"></div>
+        <div class="tl-cycle-mid">
+          <span class="zh">新功能已啟用（舊方案費用）</span>
+          <span class="en">New features active (old plan billing)</span>
+        </div>
+        <div class="tl-cycle-side right"></div>
+      </div>
+
+      <div class="tl-legend" style="margin-top:12px">
+        <div class="tl-legend-item"><div class="leg-bar" style="background:var(--gray-bar);opacity:0.65"></div><span class="zh">升級前（舊方案）</span><span class="en">Before upgrade (old plan)</span></div>
+        <div class="tl-legend-item"><div class="leg-bar" style="background:#60a5fa"></div><span class="zh">新功能已啟用・舊方案費用</span><span class="en">New features active · old plan billing</span></div>
+        <div class="tl-legend-item"><div class="leg-bar" style="background:var(--green-bar)"></div><span class="zh">新方案計費開始</span><span class="en">New plan billing</span></div>
         <div class="tl-legend-item"><div class="leg-dot" style="background:var(--red-dot)"></div><span class="zh">扣款</span><span class="en">Charge</span></div>
       </div>
     </div>
@@ -551,22 +571,22 @@
       <li>
         <span class="s-icon">⚡</span>
         <span>
-          <span class="zh"><strong>立即啟用：</strong>升級當天即可使用新方案的所有功能。</span>
-          <span class="en"><strong>Instant access:</strong> New plan features are available immediately on upgrade day.</span>
+          <span class="zh"><strong>立即啟用：</strong>升級當天即可使用新方案的所有功能，不需等到帳單週期結束。</span>
+          <span class="en"><strong>Instant access:</strong> New plan features are available immediately — no need to wait for the billing cycle to end.</span>
         </span>
       </li>
       <li>
         <span class="s-icon">💰</span>
         <span>
-          <span class="zh"><strong>今日費用：$0。</strong>已付費的 Lite 月付剩餘天數繼續有效，週期結束前不另收費。</span>
-          <span class="en"><strong>Charge today: $0.</strong> The remaining days of your paid Lite cycle stay valid — no extra charge until it ends.</span>
+          <span class="zh"><strong>今日費用：$0。</strong>舊方案已付費的剩餘天數繼續有效，週期結束前不另收費。</span>
+          <span class="en"><strong>Charge today: $0.</strong> The remaining days of your current plan stay valid — no extra charge until the cycle ends.</span>
         </span>
       </li>
       <li>
         <span class="s-icon">📅</span>
         <span>
-          <span class="zh"><strong>首次新方案扣款：</strong>Lite 月付到期後的下個帳單日，按新方案全額計費。</span>
-          <span class="en"><strong>First new plan charge:</strong> Full new plan price on the billing date after your Lite cycle ends.</span>
+          <span class="zh"><strong>首次新方案扣款：</strong>舊方案到期後的下個帳單日，按新方案全額計費。</span>
+          <span class="en"><strong>First new plan charge:</strong> Full new plan price on the billing date after your current plan expires.</span>
         </span>
       </li>
     </ul>
@@ -574,8 +594,8 @@
     <div class="callout">
       <span class="callout-icon">✓</span>
       <span>
-        <span class="zh">你已付的剩餘天數<strong>不會損失</strong>——帳單週期不重新起算，只是下個週期開始時改按新方案收費。</span>
-        <span class="en">The days you've already paid for are <strong>not lost</strong> — your billing cycle isn't reset, the new plan rate simply kicks in when the current cycle ends.</span>
+        <span class="zh">你已付的剩餘天數<strong>不會損失</strong>——升級立即享有新功能，帳單週期不重新起算。</span>
+        <span class="en">The days you've already paid for are <strong>not lost</strong> — you get new features immediately, and your billing cycle continues as-is.</span>
       </span>
     </div>
   </div>
@@ -585,8 +605,8 @@
     <div class="card-header">
       <span class="platform-tag and">Android</span>
       <span class="card-title">
-        <span class="zh">Lite 年付 → 年付升級方案</span>
-        <span class="en">Lite Annual → Annual Upgrade Plan</span>
+        <span class="zh">年付方案升級</span>
+        <span class="en">Annual Plan Upgrade</span>
       </span>
     </div>
     <p class="card-desc">
@@ -637,7 +657,7 @@
       </div>
 
       <div class="tl-legend" style="margin-top:12px">
-        <div class="tl-legend-item"><div class="leg-bar" style="background:var(--gray-bar);opacity:0.65"></div><span class="zh">舊方案（已用天數）</span><span class="en">Old plan (used days)</span></div>
+        <div class="tl-legend-item"><div class="leg-bar" style="background:var(--gray-bar);opacity:0.65"></div><span class="zh">舊方案（已用天數）</span><span class="en">Current plan (used days)</span></div>
         <div class="tl-legend-item"><div class="leg-bar" style="background:#f59e0b"></div><span class="zh">過渡訂單</span><span class="en">Proration order</span></div>
         <div class="tl-legend-item"><div class="leg-bar" style="background:var(--green-bar)"></div><span class="zh">新方案（剩餘天數）</span><span class="en">New plan (remaining days)</span></div>
         <div class="tl-legend-item"><div class="leg-dot" style="background:var(--red-dot)"></div><span class="zh">扣款</span><span class="en">Charge</span></div>
@@ -683,22 +703,22 @@
     <!-- Example calculation -->
     <div class="example-box">
       <div class="example-title">
-        <span class="zh">試算範例（以 Lite 年付 → Standard 年付為例）</span>
-        <span class="en">Example: Lite Annual → Standard Annual</span>
+        <span class="zh">試算範例</span>
+        <span class="en">Example Calculation</span>
       </div>
       <span class="zh">
-        假設你的 Lite 年付（$23.99）還剩 <strong>200 天</strong>，升級至 Standard 年付（$35.99）：<br>
-        · Lite 每日費率：$23.99 ÷ 365 ≈ $0.066<br>
-        · Standard 每日費率：$35.99 ÷ 365 ≈ $0.099<br>
+        假設舊方案每日費率為 $0.066，還剩 <strong>200 天</strong>，升級至每日費率 $0.099 的新年付方案：<br>
+        · 舊方案每日費率：$0.066<br>
+        · 新方案每日費率：$0.099<br>
         · 今日差額 = ($0.099 − $0.066) × 200 ≈ <strong>$6.60</strong><br>
-        · 原到期日不變，之後每年按 Standard 年費 $35.99 續訂。
+        · 原到期日不變，之後每年按新方案年費續訂。
       </span>
       <span class="en">
-        Say you have <strong>200 days</strong> left on Lite Annual ($23.99) and upgrade to Standard Annual ($35.99):<br>
-        · Lite daily rate: $23.99 ÷ 365 ≈ $0.066<br>
-        · Standard daily rate: $35.99 ÷ 365 ≈ $0.099<br>
+        Say your current plan has a daily rate of $0.066 and you have <strong>200 days</strong> left, upgrading to a new annual plan at $0.099/day:<br>
+        · Current plan daily rate: $0.066<br>
+        · New plan daily rate: $0.099<br>
         · Today's charge = ($0.099 − $0.066) × 200 ≈ <strong>$6.60</strong><br>
-        · Original renewal date unchanged. Future renewals at $35.99/year.
+        · Original renewal date unchanged. Future renewals at new plan's annual price.
       </span>
     </div>
 
