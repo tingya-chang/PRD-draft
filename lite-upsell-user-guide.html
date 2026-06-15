@@ -327,14 +327,47 @@
 
   hr.div { border: none; border-top: 1px solid var(--border); margin: 18px 0; }
 
-  /* ── Language visibility ── */
-  .zh, .en { display: none; }
-  body.zh .zh { display: inline; }
+  /* ── Android Annual — 3-segment timeline + cycle bracket ── */
+  .tl-seg.prorate { background: #f59e0b; }
+  .tl-cycle-bracket {
+    display: flex;
+    align-items: center;
+    margin-top: 4px;
+    height: 22px;
+  }
+  .tl-cycle-side {
+    flex: 1;
+    height: 1.5px;
+    background: #9ca3af;
+    position: relative;
+  }
+  .tl-cycle-side.left::before {
+    content: '';
+    position: absolute;
+    left: 0; top: -5px;
+    width: 1.5px; height: 11px;
+    background: #9ca3af;
+  }
+  .tl-cycle-side.right::after {
+    content: '';
+    position: absolute;
+    right: 0; top: -5px;
+    width: 1.5px; height: 11px;
+    background: #9ca3af;
+  }
+  .tl-cycle-mid {
+    padding: 0 8px;
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* ── Language visibility — zh visible by default, en hidden ── */
+  .en { display: none; }
   body.en .en { display: inline; }
-  body.zh p.zh, body.zh div.zh, body.zh ul.zh, body.zh li.zh,
-  body.zh span.zh.blk { display: block; }
-  body.en p.en, body.en div.en, body.en ul.en, body.en li.en,
-  body.en span.en.blk { display: block; }
+  body.en .zh { display: none; }
 </style>
 </head>
 <body class="zh">
@@ -566,44 +599,48 @@
         <span class="zh">費用時間軸（重點概念）</span><span class="en">Billing Timeline (Key Concept)</span>
       </div>
 
-      <!--
-        Timeline layout:
-        [==== Lite Annual used ====][============= New plan (remaining days) =============]
-             0%                   38%                                                   100%
-                                   ↑ upgrade today: prorated charge                      ↑ original renewal date (unchanged)
-      -->
+      <!-- Bar: 舊方案 / 過渡訂單 / 新方案 -->
       <div class="tl-bar-row">
-        <div class="tl-seg gray"  style="flex:38"></div>
-        <div class="tl-seg green" style="flex:62"></div>
+        <div class="tl-seg gray"    style="flex:37"></div>
+        <div class="tl-seg prorate" style="flex:8"></div>
+        <div class="tl-seg green"   style="flex:55"></div>
       </div>
 
-      <div class="tl-points">
-        <!-- Cycle start -->
+      <div class="tl-points" style="height:64px">
         <div class="tl-pt" style="left:0%">
           <div class="tl-pt-tick"></div>
           <div class="tl-pt-dot neutral"></div>
-          <div class="tl-pt-label"><span class="zh">訂閱起始</span><span class="en">Cycle start</span></div>
+          <div class="tl-pt-label"><span class="zh">訂閱起始</span><span class="en">Subscribed</span></div>
         </div>
-        <!-- Upgrade today -->
-        <div class="tl-pt" style="left:38%">
+        <div class="tl-pt" style="left:37%">
           <div class="tl-pt-tick"></div>
           <div class="tl-pt-dot charge"></div>
           <div class="tl-pt-label"><span class="zh">今日升級</span><span class="en">Upgrade today</span></div>
-          <div class="tl-pt-sub"><span class="zh">僅收剩餘差額</span><span class="en">Prorated diff charged</span></div>
+          <div class="tl-pt-sub"><span class="zh">過渡訂單扣款</span><span class="en">Proration order charged</span></div>
         </div>
-        <!-- Original renewal -->
         <div class="tl-pt" style="left:100%">
           <div class="tl-pt-tick"></div>
           <div class="tl-pt-dot neutral"></div>
           <div class="tl-pt-label"><span class="zh">原到期日（不變）</span><span class="en">Original renewal (unchanged)</span></div>
-          <div class="tl-pt-sub"><span class="zh">新方案年費全額</span><span class="en">Full new annual price</span></div>
+          <div class="tl-pt-sub"><span class="zh">新方案年費續訂</span><span class="en">New annual plan renews</span></div>
         </div>
       </div>
 
-      <div class="tl-legend">
-        <div class="tl-legend-item"><div class="leg-bar" style="background:var(--gray-bar);opacity:0.65"></div><span class="zh">Lite 年付（已用天數）</span><span class="en">Lite annual (used days)</span></div>
-        <div class="tl-legend-item"><div class="leg-bar" style="background:var(--green-bar)"></div><span class="zh">新方案（剩餘天數，原週期延續）</span><span class="en">New plan (remaining days, same cycle)</span></div>
-        <div class="tl-legend-item"><div class="leg-dot" style="background:var(--red-dot)"></div><span class="zh">差額扣款</span><span class="en">Prorated charge</span></div>
+      <!-- Cycle bracket -->
+      <div class="tl-cycle-bracket">
+        <div class="tl-cycle-side left"></div>
+        <div class="tl-cycle-mid">
+          <span class="zh">舊方案訂單週期（一年）</span>
+          <span class="en">Original subscription cycle (1 year)</span>
+        </div>
+        <div class="tl-cycle-side right"></div>
+      </div>
+
+      <div class="tl-legend" style="margin-top:12px">
+        <div class="tl-legend-item"><div class="leg-bar" style="background:var(--gray-bar);opacity:0.65"></div><span class="zh">舊方案（已用天數）</span><span class="en">Old plan (used days)</span></div>
+        <div class="tl-legend-item"><div class="leg-bar" style="background:#f59e0b"></div><span class="zh">過渡訂單</span><span class="en">Proration order</span></div>
+        <div class="tl-legend-item"><div class="leg-bar" style="background:var(--green-bar)"></div><span class="zh">新方案（剩餘天數）</span><span class="en">New plan (remaining days)</span></div>
+        <div class="tl-legend-item"><div class="leg-dot" style="background:var(--red-dot)"></div><span class="zh">扣款</span><span class="en">Charge</span></div>
       </div>
     </div>
 
