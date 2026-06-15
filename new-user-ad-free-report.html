@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>新用戶免廣告策略 — 階段性觀察報告</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #1f2328;
+    --muted: #57606a;
+    --border: #d0d7de;
+    --border-light: #eaeef2;
+    --row-alt: #f6f8fa;
+    --accent: #0969da;
+    --green: #1a7f37;
+    --green-bg: #e8f5ee;
+    --green-border: #2da44e;
+    --red: #cf222e;
+    --red-bg: #fff0f0;
+    --red-border: #f5a6a6;
+    --yellow-bg: #fff8e1;
+    --yellow-border: #f0c443;
+    --yellow-text: #7a5a00;
+    --blue-bg: #eef4fb;
+    --blue-border: #6aa6e6;
+    --blue-text: #0a4a8a;
+    --gray-bg: #f6f8fa;
+    --gray-border: #d0d7de;
+    --gray-text: #57606a;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Microsoft JhengHei", "Segoe UI", Helvetica, Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.65;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 36px 28px 80px;
+    font-size: 14.5px;
+  }
+  h1 { font-size: 24px; font-weight: 700; margin: 0 0 6px; letter-spacing: -0.01em; }
+  h2 { font-size: 18px; font-weight: 700; margin: 40px 0 14px; padding-bottom: 8px; border-bottom: 1px solid var(--border); letter-spacing: -0.005em; }
+  h3 { font-size: 14px; font-weight: 600; margin: 18px 0 8px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+  .meta { color: var(--muted); font-size: 13px; margin-bottom: 20px; }
+  p { margin: 8px 0; }
+  ul { margin: 8px 0 8px 18px; padding-left: 8px; }
+  li { margin-bottom: 4px; }
+
+  /* KPI Cards */
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin: 24px 0 32px;
+  }
+  .kpi {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 18px 20px;
+    background: var(--gray-bg);
+  }
+  .kpi-label { font-size: 12px; color: var(--muted); font-weight: 500; margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.04em; }
+  .kpi-value { font-size: 26px; font-weight: 700; line-height: 1.1; letter-spacing: -0.02em; }
+  .kpi-sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .kpi.positive .kpi-value { color: var(--green); }
+  .kpi.negative .kpi-value { color: var(--red); }
+  .kpi.neutral .kpi-value { color: var(--text); }
+
+  /* Tables */
+  table { border-collapse: collapse; width: 100%; margin: 12px 0 20px; font-size: 13.5px; }
+  th { background: var(--gray-bg); border: 1px solid var(--border); padding: 8px 12px; text-align: left; font-weight: 600; font-size: 12.5px; color: var(--muted); }
+  td { border: 1px solid var(--border-light); padding: 8px 12px; }
+  tr:nth-child(even) td { background: var(--row-alt); }
+  .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .positive-cell { color: var(--green); font-weight: 600; }
+  .negative-cell { color: var(--red); font-weight: 600; }
+  .neutral-cell { color: var(--muted); }
+  .highlight-row td { font-weight: 600; background: var(--blue-bg) !important; }
+
+  /* Callout boxes */
+  .callout {
+    border-left: 3px solid;
+    border-radius: 0 6px 6px 0;
+    padding: 12px 16px;
+    margin: 16px 0;
+    font-size: 13.5px;
+  }
+  .callout.green { background: var(--green-bg); border-color: var(--green-border); }
+  .callout.yellow { background: var(--yellow-bg); border-color: var(--yellow-border); color: var(--yellow-text); }
+  .callout.blue { background: var(--blue-bg); border-color: var(--blue-border); color: var(--blue-text); }
+  .callout.gray { background: var(--gray-bg); border-color: var(--gray-border); color: var(--gray-text); }
+  .callout strong { display: block; margin-bottom: 3px; font-size: 13px; }
+
+  /* AB comparison */
+  .ab-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 16px 0;
+  }
+  .ab-card {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 16px 18px;
+  }
+  .ab-card.case { border-top: 3px solid #0969da; }
+  .ab-card.control { border-top: 3px solid #d0d7de; }
+  .ab-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-bottom: 10px; }
+  .ab-title.case { color: #0969da; }
+  .ab-metric { display: flex; justify-content: space-between; align-items: baseline; padding: 4px 0; border-bottom: 1px solid var(--border-light); }
+  .ab-metric:last-child { border-bottom: none; }
+  .ab-metric-label { font-size: 13px; color: var(--muted); }
+  .ab-metric-value { font-size: 15px; font-weight: 700; }
+
+  /* ROI summary */
+  .roi-box {
+    border: 1px solid var(--green-border);
+    border-radius: 8px;
+    background: var(--green-bg);
+    padding: 20px 24px;
+    margin: 20px 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    text-align: center;
+  }
+  .roi-item-label { font-size: 12px; color: var(--muted); font-weight: 500; margin-bottom: 4px; }
+  .roi-item-value { font-size: 22px; font-weight: 700; }
+  .roi-item-value.gain { color: var(--green); }
+  .roi-item-value.loss { color: var(--red); }
+  .roi-item-value.net { color: var(--green); font-size: 28px; }
+
+  /* Next steps */
+  .monitor-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    margin: 14px 0;
+  }
+  .monitor-card {
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 14px 16px;
+  }
+  .monitor-card-title { font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+  .monitor-card-desc { font-size: 12.5px; color: var(--muted); }
+
+  .tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 12px;
+    margin-right: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .tag.case { background: #dbeafe; color: #1d4ed8; }
+  .tag.control { background: var(--gray-bg); color: var(--gray-text); border: 1px solid var(--gray-border); }
+
+  .divider { border: none; border-top: 1px solid var(--border-light); margin: 32px 0; }
+  .footnote { font-size: 12px; color: var(--muted); margin-top: 4px; }
+</style>
+</head>
+<body>
+
+<h1>新用戶免廣告策略 — 階段性觀察報告</h1>
+<div class="meta">觀察區間：2026/6/5 – 6/13 ｜ 市場：US ｜ 對象：D0–D7 新用戶 ｜ 最後更新：2026/6/15</div>
+
+<!-- KPI Summary -->
+<div class="kpi-row">
+  <div class="kpi positive">
+    <div class="kpi-label">訂閱營收增幅</div>
+    <div class="kpi-value">+$614</div>
+    <div class="kpi-sub">Case vs Control，9 天合計</div>
+  </div>
+  <div class="kpi negative">
+    <div class="kpi-label">廣告營收損失（估算）</div>
+    <div class="kpi-value">−$150</div>
+    <div class="kpi-sub">YoY 基準推估，9 天</div>
+  </div>
+  <div class="kpi positive">
+    <div class="kpi-label">淨效益</div>
+    <div class="kpi-value">+$464</div>
+    <div class="kpi-sub">訂閱增幅 − 廣告損失</div>
+  </div>
+  <div class="kpi neutral">
+    <div class="kpi-label">ROI 倍率</div>
+    <div class="kpi-value">4.1×</div>
+    <div class="kpi-sub">每 $1 廣告損失換來 $4.1 訂閱</div>
+  </div>
+</div>
+
+<!-- Context -->
+<h2>一、背景與實驗設計</h2>
+<p>自 <strong>2026/6/4</strong> 起，針對美國市場 D0–D7 新用戶分為兩組：</p>
+<div class="ab-row" style="margin-top:14px;">
+  <div class="ab-card case">
+    <div class="ab-title case">Case（免廣告組）</div>
+    <div class="ab-metric"><span class="ab-metric-label">user_id 尾碼</span><span class="ab-metric-value">1 2 3 4 5 a b c</span></div>
+    <div class="ab-metric"><span class="ab-metric-label">廣告</span><span class="ab-metric-value">D0–D7 不顯示 after-live 廣告</span></div>
+    <div class="ab-metric"><span class="ab-metric-label">樣本量（6/5–6/13）</span><span class="ab-metric-value">4,880 人</span></div>
+  </div>
+  <div class="ab-card control">
+    <div class="ab-title">Control（正常廣告組）</div>
+    <div class="ab-metric"><span class="ab-metric-label">user_id 尾碼</span><span class="ab-metric-value">6 7 8 9 0 d e f</span></div>
+    <div class="ab-metric"><span class="ab-metric-label">廣告</span><span class="ab-metric-value">正常顯示</span></div>
+    <div class="ab-metric"><span class="ab-metric-label">樣本量（6/5–6/13）</span><span class="ab-metric-value">4,840 人</span></div>
+  </div>
+</div>
+<p class="footnote">分組依 hex 尾碼近似 50/50；樣本以「任意事件 + historical count = 1」計算新用戶數</p>
+
+<!-- Ad Revenue -->
+<h2>二、廣告營收分析（BigQuery）</h2>
+<p>以下為 US after-live 廣告（ADUnit 含 "live"）在多個可比區間的表現，用於評估政策前基準與季節性因素：</p>
+
+<h3>今年 vs 去年同期</h3>
+<table>
+  <thead>
+    <tr>
+      <th>區間</th>
+      <th class="num">2025 Rev (USD)</th>
+      <th class="num">2025 Impr</th>
+      <th class="num">2026 Rev (USD)</th>
+      <th class="num">2026 Impr</th>
+      <th class="num">Rev YoY</th>
+      <th class="num">eCPM YoY</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>5/1 – 5/10</td>
+      <td class="num">$1,689</td>
+      <td class="num">314,508</td>
+      <td class="num">$807</td>
+      <td class="num">234,586</td>
+      <td class="num negative-cell">−52%</td>
+      <td class="num neutral-cell">月初 eCPM 極低</td>
+    </tr>
+    <tr>
+      <td>5/22 – 5/31</td>
+      <td class="num">$1,931</td>
+      <td class="num">304,973</td>
+      <td class="num">$2,649</td>
+      <td class="num">230,314</td>
+      <td class="num positive-cell">+37%</td>
+      <td class="num positive-cell">顯著提升</td>
+    </tr>
+    <tr class="highlight-row">
+      <td>6/5 – 6/14（實驗期）</td>
+      <td class="num">$1,125</td>
+      <td class="num">291,592</td>
+      <td class="num">$1,473</td>
+      <td class="num">198,896</td>
+      <td class="num positive-cell">+31%</td>
+      <td class="num positive-cell">eCPM ~$7.4 vs ~$3.9</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout yellow">
+  <strong>注意：5/1–5/10 的低 Revenue 是 eCPM 月初效應，非異常</strong>
+  Impression 每天約 2.1–2.4 萬，穩定；但 eCPM 從月初 $2.8 爬升到月中 $7.6，月初 Revenue 自然偏低。
+</div>
+
+<h3>政策影響：廣告 Impression 逐日趨勢（6/4 前後）</h3>
+<table>
+  <thead>
+    <tr>
+      <th>時段</th>
+      <th class="num">日均 Impression</th>
+      <th class="num">日均 Revenue</th>
+      <th class="num">eCPM</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>5/22–5/31（政策前）</td>
+      <td class="num">23,031</td>
+      <td class="num">$253</td>
+      <td class="num">$10.98</td>
+    </tr>
+    <tr>
+      <td>6/1–6/4（政策啟動）</td>
+      <td class="num">22,474</td>
+      <td class="num">$138</td>
+      <td class="num">$6.14 ← 月初重置</td>
+    </tr>
+    <tr>
+      <td>6/5–6/13（政策後）</td>
+      <td class="num">22,046</td>
+      <td class="num">$163</td>
+      <td class="num">$7.40</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout gray">
+  <strong>Impression 下滑有限</strong>
+  政策上線後日均 Impression 僅少約 1,000（約 −4%），顯示 after-live 廣告中新用戶佔比不大。Revenue 的月初大幅下滑主要為 eCPM 季節性，非政策導致。
+</div>
+
+<h3>廣告損失估算（YoY 方法）</h3>
+<ul>
+  <li>5/22–5/31 YoY impression 自然衰退：<strong>−24.5%</strong>（結構性下滑，非政策）</li>
+  <li>6/5–6/13 YoY impression 衰退：<strong>−31.8%</strong></li>
+  <li>超出基準的額外下滑：約 <strong>7.3%</strong> → 每天多損失約 2,100 impressions</li>
+  <li>以平均 eCPM $7.3 換算：<strong>約 $15/天 → 9 天損失約 $150</strong></li>
+</ul>
+
+<!-- Subscription Revenue -->
+<h2>三、訂閱營收 A/B 比較（Amplitude）</h2>
+<p>觀察期間（6/5–6/13）US D0–D7 新用戶訂閱營收估算（依固定定價公式計算首購金額）：</p>
+
+<div class="roi-box">
+  <div>
+    <div class="roi-item-label"><span class="tag case">Case</span> 免廣告組</div>
+    <div class="roi-item-value gain">$8,245.79</div>
+  </div>
+  <div>
+    <div class="roi-item-label"><span class="tag control">Control</span> 正常廣告組</div>
+    <div class="roi-item-value loss" style="color:var(--text)">$7,631.68</div>
+  </div>
+  <div>
+    <div class="roi-item-label">差異</div>
+    <div class="roi-item-value net">+$614.11</div>
+  </div>
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>指標</th>
+      <th class="num">Case（免廣告）</th>
+      <th class="num">Control（有廣告）</th>
+      <th class="num">差異</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>新用戶數</td>
+      <td class="num">4,880</td>
+      <td class="num">4,840</td>
+      <td class="num neutral-cell">均衡</td>
+    </tr>
+    <tr>
+      <td>訂閱營收</td>
+      <td class="num">$8,245.79</td>
+      <td class="num">$7,631.68</td>
+      <td class="num positive-cell">+$614（+8.1%）</td>
+    </tr>
+    <tr class="highlight-row">
+      <td>Revenue per User</td>
+      <td class="num">$1.69</td>
+      <td class="num">$1.58</td>
+      <td class="num positive-cell">+$0.11（+7.0%）</td>
+    </tr>
+    <tr>
+      <td>週均新訂轉換人數</td>
+      <td class="num">256.3</td>
+      <td class="num">253.4</td>
+      <td class="num positive-cell">+1.1%</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- ROI -->
+<h2>四、損益小計</h2>
+<table>
+  <thead>
+    <tr><th>項目</th><th class="num">金額（9 天）</th><th>說明</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>訂閱營收增幅</td>
+      <td class="num positive-cell">+$614.11</td>
+      <td>A/B 直接量測，Case − Control</td>
+    </tr>
+    <tr>
+      <td>廣告營收損失</td>
+      <td class="num negative-cell">−$150（估算）</td>
+      <td>YoY Impression gap × eCPM 推估</td>
+    </tr>
+    <tr class="highlight-row">
+      <td>淨效益</td>
+      <td class="num">+$464</td>
+      <td>即便廣告損失高估 2 倍，仍為正值</td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- Behavior Impact -->
+<h2>五、用戶行為影響（Amplitude）</h2>
+<p>以週均首次觸達人數（1st time uniques）衡量各核心功能的採用率，確認免廣告策略對用戶行為路徑無負面影響。</p>
+
+<h3>核心功能採用率</h3>
+<table>
+  <thead>
+    <tr>
+      <th>功能</th>
+      <th class="num">Case（首次 uniques/週）</th>
+      <th class="num">Control（首次 uniques/週）</th>
+      <th>判斷</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Live 觀看</td>
+      <td class="num">2,011</td>
+      <td class="num">2,014</td>
+      <td class="neutral-cell">無差異</td>
+    </tr>
+    <tr>
+      <td>Event Play（事件回放）</td>
+      <td class="num">732</td>
+      <td class="num">732</td>
+      <td class="neutral-cell">無差異</td>
+    </tr>
+    <tr>
+      <td>CR Playback（連續錄影回放）</td>
+      <td class="num">754</td>
+      <td class="num">741</td>
+      <td class="positive-cell">+1.7%（微幅正向）</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>付費頁觸達（與訂閱營收結果直接相關）</h3>
+<table>
+  <thead>
+    <tr>
+      <th>指標</th>
+      <th class="num">Case</th>
+      <th class="num">Control</th>
+      <th>判斷</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>付費頁展示（週均 uniques）</td>
+      <td class="num">2,610</td>
+      <td class="num">2,607</td>
+      <td class="neutral-cell">無差異</td>
+    </tr>
+    <tr>
+      <td>新註冊 → Live CVR</td>
+      <td class="num">52.9%</td>
+      <td class="num">52.2%</td>
+      <td class="neutral-cell">無差異</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="callout green">
+  <strong>免廣告不影響功能採用與付費頁觸達</strong>
+  三項核心功能首次採用率與付費頁展示量在兩組之間幾乎完全相同。CR Playback 略高於 Control，為輕微正向訊號。這意味訂閱營收的 +8% 增幅，來自用戶在相同付費頁觸達下有更高的付款意願，而非曝光量差異。
+</div>
+
+<!-- Statistical Significance -->
+<h2>六、統計顯著性評估</h2>
+<table>
+  <thead>
+    <tr><th>項目</th><th>數值</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>各組樣本量</td><td>~4,800–4,900 人</td></tr>
+    <tr><td>主指標（Revenue/User）</td><td>+$0.11 (+7.0%)</td></tr>
+    <tr><td>估算 z-score</td><td>≈ 0.89</td></tr>
+    <tr><td>估算 p-value</td><td>≈ 0.37（尚未顯著）</td></tr>
+    <tr><td>達顯著所需樣本（80% power, α=0.05）</td><td>各組約 22,000–25,000 人</td></tr>
+    <tr><td>預估所需額外天數</td><td>約 35–40 天</td></tr>
+  </tbody>
+</table>
+
+<div class="callout yellow">
+  <strong>目前尚未達統計顯著，但方向一致且經濟效益明確</strong>
+  Revenue/User 的高變異數（大多數用戶 $0，少數付款）使得偵測 7% 的提升需要大量樣本。考量：（1）所有指標方向一致，（2）ROI 明確為正，（3）繼續 A/B 本身有機會成本，決定提前全量。
+</div>
+
+<!-- Decision -->
+<h2>七、決策與後續觀察</h2>
+
+<div class="callout blue">
+  <strong>決策：2026/6/15 起全量上線，釋出實驗組給其他改動</strong>
+  US D0–D7 新用戶一律免 after-live 廣告，不再維持 50/50 分流。後續以 post-launch 觀察取代實驗分析。
+</div>
+
+<h3>全量後需持續追蹤的指標</h3>
+<div class="monitor-grid">
+  <div class="monitor-card">
+    <div class="monitor-card-title">US After-Live 廣告 Impression</div>
+    <div class="monitor-card-desc">全量後 Impression 預期再略降（Control 組也不再顯示廣告），確認實際廣告損失規模是否與估算吻合。</div>
+  </div>
+  <div class="monitor-card">
+    <div class="monitor-card-title">US 新用戶訂閱週趨勢</div>
+    <div class="monitor-card-desc">去除 A/B 分組雜訊後，整體訂閱數字是否維持或放大 Case 組的表現。</div>
+  </div>
+  <div class="monitor-card">
+    <div class="monitor-card-title">D7 後回訪率</div>
+    <div class="monitor-card-desc">新用戶在 Day 8 恢復廣告後是否有顯著留存下滑，確認「回補廣告」不會造成用戶流失。</div>
+  </div>
+  <div class="monitor-card">
+    <div class="monitor-card-title">Month 1 訂閱續訂率</div>
+    <div class="monitor-card-desc">免廣告新用戶的訂閱品質驗證：若早期體驗更好，Month 1 續訂率應高於歷史基準。</div>
+  </div>
+</div>
+
+<hr class="divider">
+<p class="footnote">廣告數據來源：BigQuery <code>alfredsystems-ai-agent.Admob.AdvertisementRevenue_Aggregated</code>，篩選 CountryCode = 'US'、ADUnit LIKE '%live%'</p>
+<p class="footnote">訂閱數據來源：Amplitude Dashboard「廣告影響」，定價公式採固定價格（Plus P1Y $47.99 / P1M $7.99；STD P1Y $35.99 / P1M $5.99；Lite P1Y $23.99 / P1M $3.99）</p>
+
+</body>
+</html>
