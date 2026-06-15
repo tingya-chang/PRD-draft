@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>Lite Upsell Paywall — 各情境行為盤點與提示文案</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --text: #1f2328;
+    --muted: #57606a;
+    --border: #d0d7de;
+    --border-light: #eaeef2;
+    --row-alt: #f6f8fa;
+    --code-bg: #f3f4f6;
+    --code-border: #e5e7eb;
+    --accent: #0969da;
+    --warn-bg: #fff8e1;
+    --warn-border: #f0c443;
+    --warn-text: #7a5a00;
+    --ok-bg: #e8f5ee;
+    --ok-border: #2da44e;
+    --ok-text: #1a7f37;
+    --gone-bg: #f3f4f6;
+    --gone-border: #d0d7de;
+    --gone-text: #57606a;
+    --case-a-bg: #eef4fb;
+    --case-a-border: #6aa6e6;
+    --case-a-text: #0a4a8a;
+    --case-b-bg: #fdf2e6;
+    --case-b-border: #f0a040;
+    --case-b-text: #8a4a00;
+    --case-c-bg: #f0eafa;
+    --case-c-border: #9b7fd1;
+    --case-c-text: #563d8a;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Microsoft JhengHei", "Segoe UI", Helvetica, Arial, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.65;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 32px 28px 80px;
+    font-size: 14.5px;
+  }
+  h1 {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 0 0 6px;
+    letter-spacing: -0.01em;
+  }
+  h2 {
+    font-size: 19px;
+    font-weight: 700;
+    margin: 36px 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+    letter-spacing: -0.005em;
+  }
+  h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 16px 0 8px;
+    color: var(--muted);
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+  hr {
+    border: none;
+    border-top: 1px solid var(--border-light);
+    margin: 28px 0;
+  }
+  p { margin: 8px 0; }
+  ul {
+    margin: 8px 0 8px 18px;
+    padding-left: 8px;
+  }
+  ul li { margin: 4px 0; }
+
+  code {
+    font-family: "SF Mono", "Consolas", "Monaco", monospace;
+    background: var(--code-bg);
+    padding: 1.5px 6px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    border: 1px solid var(--code-border);
+  }
+  .var {
+    color: var(--accent);
+    background: #ddf4ff;
+    border-color: #b6e3ff;
+    font-weight: 600;
+  }
+  .price {
+    background: #fff8c5;
+    border-color: #f3d775;
+    font-weight: 600;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0;
+    font-size: 13px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  thead th {
+    background: #f6f8fa;
+    font-weight: 600;
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border);
+    font-size: 12.5px;
+    color: var(--text);
+    vertical-align: top;
+  }
+  tbody td {
+    padding: 10px 12px;
+    border-top: 1px solid var(--border-light);
+    vertical-align: top;
+    line-height: 1.55;
+  }
+  tbody tr:nth-child(even) {
+    background: var(--row-alt);
+  }
+
+  /* Status cell */
+  .status-cell {
+    text-align: center;
+    font-weight: 700;
+    width: 38px;
+  }
+  .badge {
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.6;
+    border: 1px solid;
+    white-space: nowrap;
+  }
+  .badge.ok    { background: var(--ok-bg);   border-color: var(--ok-border);   color: var(--ok-text); }
+  .badge.warn  { background: var(--warn-bg); border-color: var(--warn-border); color: var(--warn-text); }
+  .badge.gone  { background: var(--gone-bg); border-color: var(--gone-border); color: var(--gone-text); }
+
+  .case-tag {
+    display: inline-block;
+    padding: 1px 8px;
+    border-radius: 4px;
+    font-size: 11.5px;
+    font-weight: 600;
+    line-height: 1.7;
+    border: 1px solid;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .case-tag.a { background: var(--case-a-bg); border-color: var(--case-a-border); color: var(--case-a-text); }
+  .case-tag.b { background: var(--case-b-bg); border-color: var(--case-b-border); color: var(--case-b-text); }
+  .case-tag.c { background: var(--case-c-bg); border-color: var(--case-c-border); color: var(--case-c-text); }
+
+  /* Removed paths */
+  .removed td {
+    background: var(--gone-bg) !important;
+    color: var(--gone-text);
+  }
+  .removed s {
+    text-decoration: line-through;
+    text-decoration-thickness: 1.5px;
+  }
+
+  /* Section card */
+  .scenario {
+    margin: 28px 0;
+    padding: 20px 22px 18px;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: #fcfcfd;
+  }
+  .scenario h2 { margin-top: 0; border-bottom: none; padding-bottom: 0; }
+  .scenario .meta { margin-bottom: 4px; }
+  .calc {
+    background: #f6f8fa;
+    border-left: 3px solid var(--accent);
+    padding: 8px 12px;
+    margin: 10px 0;
+    font-size: 13px;
+    color: var(--muted);
+    border-radius: 0 6px 6px 0;
+  }
+
+  /* Template box */
+  .template-box {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin: 12px 0 16px;
+  }
+  .template-box .template-label {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    margin-bottom: 6px;
+  }
+  .template-box .template-copy {
+    font-size: 13.5px;
+    background: #fafbfc;
+    border-left: 3px solid var(--accent);
+    padding: 10px 12px;
+    margin: 4px 0 8px;
+    border-radius: 0 4px 4px 0;
+  }
+  .template-box + .template-box {
+    margin-top: 8px;
+  }
+  .vars-list {
+    font-size: 12px;
+    color: var(--muted);
+    margin: 4px 0 0;
+  }
+  .vars-list li { margin: 2px 0; }
+
+  /* Blockquote */
+  blockquote {
+    background: #f6f8fa;
+    border-left: 4px solid var(--accent);
+    padding: 12px 16px;
+    margin: 16px 0;
+    color: var(--text);
+    border-radius: 0 6px 6px 0;
+    font-size: 13.5px;
+  }
+  blockquote ul { margin: 6px 0 0 18px; }
+  blockquote p { margin: 6px 0; }
+
+  /* Inline note */
+  .note {
+    color: var(--muted);
+    font-size: 12.5px;
+    font-style: italic;
+  }
+  .pending {
+    color: var(--warn-text);
+    background: var(--warn-bg);
+    border: 1px solid var(--warn-border);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 11.5px;
+    font-weight: 600;
+  }
+  .decision {
+    color: var(--gone-text);
+    background: #f0eafa;
+    border: 1px solid #c4b3e0;
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 11.5px;
+    font-weight: 600;
+  }
+
+  /* Bilingual copy */
+  .bi-copy { font-size: 12.5px; line-height: 1.55; }
+  .bi-copy .lang {
+    display: block;
+    margin: 6px 0;
+  }
+  .bi-copy .lang:first-child { margin-top: 0; }
+  .bi-copy .lang:last-child { margin-bottom: 0; }
+  .lang-label {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--muted);
+    background: #eaeef2;
+    border-radius: 3px;
+    padding: 1px 5px;
+    margin-right: 6px;
+    vertical-align: 2px;
+    letter-spacing: 0.04em;
+  }
+  .template-box .bi-copy {
+    background: #fafbfc;
+    border-left: 3px solid var(--accent);
+    padding: 10px 12px;
+    margin: 4px 0 8px;
+    border-radius: 0 4px 4px 0;
+    font-size: 13.5px;
+  }
+
+  /* Scenario rows for dual example rendering */
+  .scenario-row {
+    margin: 4px 0;
+    padding: 2px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+  .scenario-tag {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 600;
+    border-radius: 3px;
+    padding: 1px 6px;
+    flex-shrink: 0;
+    line-height: 1.5;
+  }
+  .scenario-tag.a {
+    background: #fff8e1;
+    color: var(--warn-text);
+    border: 1px solid var(--warn-border);
+  }
+  .scenario-tag.b {
+    background: #e8f5ee;
+    color: var(--ok-text);
+    border: 1px solid var(--ok-border);
+  }
+  .scenario-row .render-example {
+    flex: 1;
+    min-width: 0;
+  }
+
+  /* Note column styling */
+  .note-cell { font-size: 12.5px; }
+  .note-cell .label {
+    display: inline-block;
+    font-weight: 600;
+    color: var(--muted);
+    margin-right: 4px;
+    min-width: 64px;
+  }
+  .note-cell .item {
+    padding: 3px 0;
+    border-top: 1px dashed var(--border-light);
+  }
+  .note-cell .item:first-child { border-top: none; padding-top: 0; }
+  .note-cell .render-example {
+    background: #fff;
+    border: 1px dashed var(--border);
+    padding: 6px 8px;
+    margin-top: 4px;
+    border-radius: 4px;
+    font-style: normal;
+    color: var(--text);
+  }
+  .note-cell .render-example::before {
+    content: "「";
+    color: var(--muted);
+  }
+  .note-cell .render-example::after {
+    content: "」";
+    color: var(--muted);
+  }
+
+  /* Legend */
+  .legend ul { list-style: none; padding-left: 0; margin: 8px 0; }
+  .legend li {
+    display: inline-block;
+    margin: 4px 12px 4px 0;
+    font-size: 13px;
+  }
+
+  /* Pricing table — compact horizontal */
+  .pricing-table { max-width: 720px; }
+  .pricing-table td.num { font-variant-numeric: tabular-nums; }
+</style>
+</head>
+<body>
+
+<h1>Lite Upsell Paywall — 各情境行為盤點與提示文案</h1>
+<p class="meta"><strong>CAMERA-7056 / 7122</strong> · Paywall 同時展示：STD月 · STD年 · Plus月 · Plus年（四方案） · Updated 2025/06/01</p>
+
+<hr>
+
+<h2 id="pricing">方案定價對照</h2>
+<p class="note">日均換算：月付 ÷ 30、年付 ÷ 365；後續所有「升 / 降級」判定皆以日均比較。</p>
+<table class="pricing-table">
+  <thead>
+    <tr>
+      <th style="width:18%">方案</th>
+      <th>月付定價</th>
+      <th>月付日均</th>
+      <th>年付定價</th>
+      <th>年付日均</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td><strong>Lite</strong></td><td class="num">$3.99</td><td class="num">$0.133</td><td class="num">$23.99</td><td class="num">$0.066</td></tr>
+    <tr><td><strong>Standard</strong></td><td class="num">$5.99</td><td class="num">$0.200</td><td class="num">$35.99</td><td class="num">$0.099</td></tr>
+    <tr><td><strong>Plus</strong></td><td class="num">$7.99</td><td class="num">$0.267</td><td class="num">$47.99</td><td class="num">$0.131</td></tr>
+  </tbody>
+</table>
+<p class="note"><span class="pending">⚠ 待確認</span> 上述定價以原文件數字為準，如有區域定價差異請補充。</p>
+
+<h2 id="paywall-config">Paywall 配置概覽（共 4 組）</h2>
+<p class="note">因 iOS（情況 A）與 Android（情況 B / C）的計費邏輯不同，提示文案無法共用，RC 端需為四個情境分別建立獨立 Paywall。</p>
+<table>
+  <thead>
+    <tr>
+      <th style="width:20%"></th>
+      <th>iOS · Lite月 Paywall</th>
+      <th>Android · Lite月 Paywall</th>
+      <th>iOS · Lite年 Paywall</th>
+      <th>Android · Lite年 Paywall</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>RC Targeting</strong></td>
+      <td>platform = iOS<br>active product = Lite月</td>
+      <td>platform = Android<br>active product = Lite月</td>
+      <td>platform = iOS<br>active product = Lite年</td>
+      <td>platform = Android<br>active product = Lite年</td>
+    </tr>
+    <tr>
+      <td><strong>Offering ID</strong></td>
+      <td><code>lite-monthly-ios</code></td>
+      <td><code>lite-monthly-and</code></td>
+      <td><code>lite-annual-ios</code></td>
+      <td><code>lite-annual-and</code></td>
+    </tr>
+    <tr>
+      <td><strong>Paywall 顯示方案</strong></td>
+      <td>STD月 · STD年<br>Plus月 · Plus年</td>
+      <td>STD月 · STD年<br>Plus月 · Plus年</td>
+      <td>STD年 · Plus年<br><span class="note">（月付移除）</span></td>
+      <td>STD年 · Plus年<br><span class="note">（月付移除）</span></td>
+    </tr>
+    <tr>
+      <td><strong>Google Play <code>upgrade_mode</code></strong></td>
+      <td><span class="note">不適用</span></td>
+      <td><code>without_proration</code></td>
+      <td><span class="note">不適用</span></td>
+      <td><code>charge_prorated_price</code></td>
+    </tr>
+    <tr>
+      <td><strong>Google Play <code>downgrade_mode</code></strong></td>
+      <td><span class="note">不適用</span></td>
+      <td><code>without_proration</code></td>
+      <td><span class="note">不適用</span></td>
+      <td><code>without_proration</code><br><span class="note pending">⚠ 待確認</span> <span class="note">理論不觸發，僅為必填 fallback</span></td>
+    </tr>
+    <tr>
+      <td><strong>計費邏輯</strong></td>
+      <td>IAP 收新方案全款 + 舊方案剩餘價值另行退款</td>
+      <td>不收即時費用，下個帳單週期扣全額</td>
+      <td>IAP 收新方案全款 + 舊方案剩餘價值另行退款</td>
+      <td>立即收等比例差額</td>
+    </tr>
+    <tr>
+      <td><strong>適用提示文案情況</strong></td>
+      <td><span class="case-tag a">情況 A</span><br>iOS 等比例</td>
+      <td><span class="case-tag c">情況 C</span><br>Android 無即時扣款</td>
+      <td><span class="case-tag a">情況 A</span><br>iOS 等比例</td>
+      <td><span class="case-tag b">情況 B</span><br>Android 即時差額</td>
+    </tr>
+    <tr>
+      <td><strong>文案模板數</strong></td>
+      <td>1 組（共用四方案）</td>
+      <td>1 組（共用四方案）</td>
+      <td>1 組（共用二方案）</td>
+      <td>1 組（共用二方案）</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="background">雙平台升級計費邏輯對照</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th style="width:18%"></th>
+      <th style="width:27%">iOS（Apple）</th>
+      <th style="width:27%">Android <code>CHARGE_PRORATED_PRICE</code> 模式</th>
+      <th style="width:28%">Android <code>WITHOUT_PRORATION</code> 模式</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>商業計費邏輯</strong></td>
+      <td>Apple 將升級視為<strong>兩個獨立動作</strong>：<br><br><strong>(1) 馬上收新方案全款</strong>（IAP 彈窗顯示的就是新方案全額）<br><strong>(2) 退款舊方案剩餘價值</strong>（另行處理，退至原付款方式，可能 1–3 天後入帳）<br><br>新訂閱週期由今日起算。Apple 不對外公開退款金額計算，需 Paywall 端自行估算給用戶心裡有底。</td>
+      <td>立即升級，<strong>立即收費</strong>。Google 依剩餘天數等比例計算差額，邏輯與 iOS 相同：<br><code>淨差額 =（新日均 − 舊日均）× 剩餘天數</code><br><br>差額為<strong>負值</strong>時：今日收 $0，餘額轉為抵用金，<strong>延伸後續付費週期</strong>（產生免費期）。<br><br><strong>適用情境：</strong> Lite年 Paywall（年→年升級，剩餘抵用金額有限不會 overflow）。</td>
+      <td>立即升級功能，<strong>今日不收費</strong>。現有帳單週期結束後，下個計費日起按新方案<strong>全額</strong>收取，舊方案剩餘天數<strong>不另行折算信用</strong>。<br><br><strong>適用情境：</strong> Lite月 Paywall 的 upgrade 與 downgrade 皆套用此模式（與 STD月→Plus 現有體驗一致，避免跨計費週期的不確定性）。</td>
+    </tr>
+    <tr>
+      <td><strong>官方 IAP 彈窗顯示價格</strong></td>
+      <td>顯示新方案<strong>全額</strong>（例：$5.99、$35.99）。退款金額不顯示於彈窗，由 Apple 另行處理。<br><span class="note">※ 建議 Sandbox 確認</span></td>
+      <td>顯示實際需立即支付的<strong>折算差額</strong>。差額為負值（信用覆蓋）時顯示 $0。<br><span class="note">※ Google Play 不說明差額計算方式</span></td>
+      <td>顯示新方案<strong>全額</strong>（即下個計費週期起將收取的費用）。今日不扣款。<br><span class="note">※ 是否同時顯示「今日 $0」及「下次帳單金額」待確認</span></td>
+    </tr>
+    <tr>
+      <td><strong>官方 IAP 彈窗核心提示</strong></td>
+      <td>確認服務<strong>立即升級</strong>，顯示新方案全額。<strong>不顯示</strong>舊方案退款金額，需在 Paywall 補充退款估算讓用戶心裡有底。</td>
+      <td>確認服務<strong>立即升級</strong>，並立即按顯示金額收費。<strong>不說明</strong>差額如何計算，需在 Paywall 頁面補充折算說明。</td>
+      <td>確認服務<strong>立即升級</strong>，今日<strong>不扣款</strong>；現有週期結束後開始按新方案計費。<strong>不顯示</strong>具體帳單到期日，需在 Paywall 頁面補充金額與到期日。</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="cases">提示文案適用情況</h2>
+
+<ul>
+  <li><span class="case-tag a">情況 A</span> <strong>iOS · Apple Upgrade</strong>：兩個獨立動作 — IAP 立即收新方案全款 + 舊方案剩餘價值另行退款。商店不公開退款金額，需 Paywall 端自行估算。<br>退款估算公式：<code>原方案日均 × max(0, floor((expiration_date − today) / 1 day))</code>（UTC、floor、clamp 0）</li>
+  <li><span class="case-tag b">情況 B</span> <strong>Android · <code>CHARGE_PRORATED_PRICE</code></strong>：依剩餘天數等比例計算差額，立即收費。公式同上。<span class="note">僅用於 Lite年 Paywall（年→年升級）</span></li>
+  <li><span class="case-tag c">情況 C</span> <strong>Android · <code>WITHOUT_PRORATION</code></strong>：立即升級功能，下個帳單週期才收新方案費用。<span class="note">Lite月 Paywall 升降級皆套用此模式</span></li>
+</ul>
+
+<blockquote>
+  <strong>通用文案原則：</strong>
+  <p>因 Paywall 同時陳列多個方案，無法即時針對使用者「當下點選的方案」動態切換文案內容；除可由 RC 變數（如 <code class="var">{{ product.price }}</code>、<code class="var">{{ product.price_per_period_abbreviated }}</code>）反應的價格資訊外，<strong>所有比例計算只能以「估算的剩餘價值」表達，並明確告知「實際扣款金額以商店彈窗為準」</strong>。</p>
+</blockquote>
+
+<blockquote>
+  <strong>範例渲染基準（用於下方各情境表格的 Note 欄位）：</strong>
+  <p>今日基準：<strong>2025/06/01</strong></p>
+  <ul>
+    <li><span class="scenario-tag a">A · 快要到期</span> Lite月：起始 <strong>2025/05/01</strong>（next renewal ≈ 2025/06/02、剩 ~1 天）／Lite年：起始 <strong>2024/06/02</strong>（next renewal ≈ 2025/06/02、剩 ~1 天）</li>
+    <li><span class="scenario-tag b">B · 才剛開始</span> Lite月：起始 <strong>2025/05/31</strong>（next renewal ≈ 2025/06/30、剩 ~29 天）／Lite年：起始 <strong>2025/05/31</strong>（next renewal ≈ 2026/05/31、剩 ~364 天）</li>
+  </ul>
+  <p class="note">Lite年 的「快要到期」採用類比 1 天剩餘的起始日（2024/06/02）；如需改用其他日期請告知。</p>
+</blockquote>
+
+<!-- ============ Android · Lite 月付 ============ -->
+<div class="scenario">
+  <h2 id="and-lite-monthly">Android · Lite 月付用戶 <span class="case-tag c">情況 C</span></h2>
+  <p class="meta"><strong>模式：</strong> <code>upgrade_mode = downgrade_mode = without_proration</code>（升降級皆統一）</p>
+  <div class="calc">Lite月日均：$3.99 / 30 = <strong>$0.133/day</strong></div>
+
+  <div class="template-box">
+    <div class="template-label">Paywall 提示文案模板（共用於四方案）</div>
+    <div class="bi-copy">
+      <div class="lang"><span class="lang-label">ZH</span>立即升級，今天不收費。自 <code class="var">{{ custom.next_renewal_date }}</code> 起按 <code class="var">{{ product.price_per_period_abbreviated }}</code> 扣款。</div>
+      <div class="lang"><span class="lang-label">EN</span>Upgrade now, pay later. <code class="var">{{ product.price_per_period_abbreviated }}</code> starts on <code class="var">{{ custom.next_renewal_date }}</code>. No charge today.</div>
+    </div>
+    <ul class="vars-list">
+      <li><code class="var">{{ product.price_per_period_abbreviated }}</code> — RC 內建變數，渲染含計費週期的價格（如 <code>$5.99/月</code>、<code>$35.99/年</code>）</li>
+      <li><code class="var">{{ custom.next_renewal_date }}</code> — 當前 Lite月 訂閱的下個續訂日<span class="note">（RC 內建可用性待確認，否則由前端傳入）</span></li>
+    </ul>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th class="status-cell">狀態</th>
+        <th style="width:10%">選購方案</th>
+        <th style="width:22%">Google 判定 → RC 套用</th>
+        <th style="width:11%">今日扣款</th>
+        <th style="width:14%">下次扣款</th>
+        <th>Note</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="status-cell"><span class="badge ok">✓</span></td>
+        <td>STD 月</td>
+        <td>↑ 升級（$0.200 &gt; $0.133）<br>→ <code>without_proration</code></td>
+        <td>$0</td>
+        <td><span class="price">$5.99</span> / 月<br><span class="note">於下個帳單日</span></td>
+        <td class="note-cell">
+          <div class="item"><span class="label">計算：</span>無比例計算，舊方案剩餘天數結束後切換</div>
+          <div class="item"><span class="label">行為：</span>立即升級功能，當前 Lite月 cycle 結束後切換</div>
+          <div class="item">
+            <span class="label">範例渲染：</span>
+            <div class="scenario-row"><span class="scenario-tag a">A · 快要到期</span><div class="render-example">立即升級，今天不收費。自 2025/06/02 起按 $5.99/月 扣款。</div></div>
+            <div class="scenario-row"><span class="scenario-tag b">B · 才剛開始</span><div class="render-example">立即升級，今天不收費。自 2025/06/30 起按 $5.99/月 扣款。</div></div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="status-cell"><span class="badge ok">✓</span></td>
+        <td>Plus 月</td>
+        <td>↑ 升級（$0.267 &gt; $0.133）<br>→ <code>without_proration</code></td>
+        <td>$0</td>
+        <td><span class="price">$7.99</span> / 月<br><span class="note">於下個帳單日</span></td>
+        <td class="note-cell">
+          <div class="item"><span class="label">計算：</span>同上，無比例計算</div>
+          <div class="item">
+            <span class="label">範例渲染：</span>
+            <div class="scenario-row"><span class="scenario-tag a">A · 快要到期</span><div class="render-example">立即升級，今天不收費。自 2025/06/02 起按 $7.99/月 扣款。</div></div>
+            <div class="scenario-row"><span class="scenario-tag b">B · 才剛開始</span><div class="render-example">立即升級，今天不收費。自 2025/06/30 起按 $7.99/月 扣款。</div></div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="status-cell"><span class="badge warn">⚠</span></td>
+        <td>STD 年</td>
+        <td>↓ 降級（$0.099 &lt; $0.133）<br>→ <code>without_proration</code>（自然套用）</td>
+        <td>$0</td>
+        <td><span class="price">$35.99</span> / 年<br><span class="note">於下個帳單日</span></td>
+        <td class="note-cell">
+          <div class="item"><span class="label">計算：</span>無比例計算，舊方案剩餘天數結束後切換為年付</div>
+          <div class="item"><span class="label">⚠ 注意：</span>$35.99 將於當前 Lite月 cycle 結束時一次性扣款（最短 ~1 天、最長 ~30 天），金額較月付方案高出 6 倍以上，文案需確保使用者理解 <strong>/年</strong> 計費週期</div>
+          <div class="item">
+            <span class="label">範例渲染：</span>
+            <div class="scenario-row"><span class="scenario-tag a">A · 快要到期</span><div class="render-example">立即升級，今天不收費。自 2025/06/02 起按 $35.99/年 扣款。</div></div>
+            <div class="scenario-row"><span class="scenario-tag b">B · 才剛開始</span><div class="render-example">立即升級，今天不收費。自 2025/06/30 起按 $35.99/年 扣款。</div></div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="status-cell"><span class="badge warn">⚠</span></td>
+        <td>Plus 年</td>
+        <td>↓ 降級（$0.131 &lt; $0.133）<br>→ <code>without_proration</code>（自然套用）</td>
+        <td>$0</td>
+        <td><span class="price">$47.99</span> / 年<br><span class="note">於下個帳單日</span></td>
+        <td class="note-cell">
+          <div class="item"><span class="label">計算：</span>同上</div>
+          <div class="item"><span class="label">⚠ 注意：</span>$47.99 將於當前 Lite月 cycle 結束時一次性扣款（最短 ~1 天、最長 ~30 天），衝擊感最大，文案需明確帶出 /年</div>
+          <div class="item">
+            <span class="label">範例渲染：</span>
+            <div class="scenario-row"><span class="scenario-tag a">A · 快要到期</span><div class="render-example">立即升級，今天不收費。自 2025/06/02 起按 $47.99/年 扣款。</div></div>
+            <div class="scenario-row"><span class="scenario-tag b">B · 才剛開始</span><div class="render-example">立即升級，今天不收費。自 2025/06/30 起按 $47.99/年 扣款。</div></div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ============ Android · Lite 年付 ============ -->
+<div class="scenario">
+  <h2 id="and-lite-annual">Android · Lite 年付用戶 <span class="case-tag b">情況 B</span></h2>
+  <p class="meta"><strong>模式：</strong> <code>upgrade_mode = charge_prorated_price</code> · <code>downgrade_mode = without_proration</code>（理論不觸發）</p>
+  <div class="calc">Lite年日均：$23.99 / 365 = <strong>$0.066/day</strong> &nbsp;·&nbsp; Paywall 僅顯示年付選項（STD年 · Plus年）</div>
+
+  <div class="template-box">
+    <div class="template-label">Paywall 提示文案模板（共用於 STD年 · Plus年）</div>
+    <div class="bi-copy">
+      <div class="lang"><span class="lang-label">ZH</span>你目前方案約有 <code class="var">{{ custom.current_plan_remaining_value }}</code> 折抵升級費用，實際扣款以 Google Play 為準。不會重複扣款。</div>
+      <div class="lang"><span class="lang-label">EN</span>~<code class="var">{{ custom.current_plan_remaining_value }}</code> from your current plan applies as credit toward your upgrade. See Google Play for the exact amount. No double charges.</div>
+    </div>
+    <ul class="vars-list">
+      <li><code class="var">{{ custom.current_plan_remaining_value }}</code> — 當前 Lite年 訂閱剩餘價值估算<span class="note">（需自訂計算或由後端傳入，非 RC 內建變數）</span></li>
+    </ul>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th class="status-cell">狀態</th>
+        <th style="width:10%">選購方案</th>
+        <th style="width:24%">Google 判定 → RC 套用</th>
+        <th style="width:14%">今日扣款</th>
+        <th style="width:14%">下次扣款</th>
+        <th>Note</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="status-cell"><span class="badge ok">✓</span></td>
+        <td>STD 年</td>
+        <td>↑ 升級（$0.099 &gt; $0.066）<br>→ <code>charge_prorated_price</code></td>
+        <td><span class="price">$0.03 ~ $12.01</span><br><span class="note">（依剩餘天數）</span></td>
+        <td><span class="price">$35.99</span> / 年<br><span class="note">於新年付到期日</span></td>
+        <td class="note-cell">
+          <div class="item"><span class="label">計算：</span>（新日均 $0.099 − 舊日均 $0.066）× 剩餘天數 = $0.033/day × 剩餘天</div>
+          <div class="item">
+            <span class="label">範例（兩極端）：</span>
+            <div class="scenario-row"><span class="scenario-tag a">A · 快要到期</span>剩 ~1 天 → $0.033 × 1 ≈ <strong>$0.03</strong></div>
+            <div class="scenario-row"><span class="scenario-tag b">B · 才剛開始</span>剩 ~364 天 → $0.033 × 364 ≈ <strong>$12.01</strong></div>
+          </div>
+          <div class="item"><span class="label">行為：</span>差額立即扣款，新年付週期由今日起算</div>
+          <div class="item">
+            <span class="label">範例渲染：</span>
+            <div class="scenario-row"><span class="scenario-tag a">A · 快要到期</span><div class="render-example">你目前方案約有 $0.07 折抵升級費用，實際扣款以 Google Play 為準。不會重複扣款。</div></div>
+            <div class="scenario-row"><span class="scenario-tag b">B · 才剛開始</span><div class="render-example">你目前方案約有 $23.92 折抵升級費用，實際扣款以 Google Play 為準。不會重複扣款。</div></div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="status-cell"><span class="badge ok">✓</span></td>
+        <td>Plus 年</td>
+        <td>↑ 升級（$0.131 &gt; $0.066）<br>→ <code>charge_prorated_price</code></td>
+        <td><span class="price">$0.07 ~ $23.66</span><br><span class="note">（依剩餘天數）</span></td>
+        <td><span class="price">$47.99</span> / 年<br><span class="note">於新年付到期日</span></td>
+        <td class="note-cell">
+          <div class="item"><span class="label">計算：</span>（$0.131 − $0.066）× 剩餘天數 = $0.065/day × 剩餘天</div>
+          <div class="item">
+            <span class="label">範例（兩極端）：</span>
+            <div class="scenario-row"><span class="scenario-tag a">A · 快要到期</span>剩 ~1 天 → $0.065 × 1 ≈ <strong>$0.07</strong></div>
+            <div class="scenario-row"><span class="scenario-tag b">B · 才剛開始</span>剩 ~364 天 → $0.065 × 364 ≈ <strong>$23.66</strong></div>
+          </div>
+          <div class="item">
+            <span class="label">範例渲染：</span>
+            <div class="scenario-row"><span class="scenario-tag a">A · 快要到期</span><div class="render-example">你目前方案約有 $0.07 折抵升級費用，實際扣款以 Google Play 為準。不會重複扣款。</div></div>
+            <div class="scenario-row"><span class="scenario-tag b">B · 才剛開始</span><div class="render-example">你目前方案約有 $23.92 折抵升級費用，實際扣款以 Google Play 為準。不會重複扣款。</div></div>
+          </div>
+        </td>
+      </tr>
+      <tr class="removed">
+        <td class="status-cell"><span class="badge gone">—</span></td>
+        <td><s>STD 月</s></td>
+        <td>↑ 升級（$0.200 &gt; $0.066）<br>→ <em>若套用</em> <code>charge_prorated_price</code></td>
+        <td>—</td>
+        <td>—</td>
+        <td class="note-cell">
+          <div class="item"><span class="label">預期問題：</span>年付剩餘信用（最高 ~$23.99）抵掉首期月費 $5.99 後，餘額會自動延伸後續多個月份，產生<strong>未揭露的免費期</strong>（可達 3–4 個月）</div>
+          <div class="item"><span class="decision">設計決策</span> 從 Lite年 Paywall 移除月付選項。用戶如需轉月付，需等年約到期後重新訂閱</div>
+        </td>
+      </tr>
+      <tr class="removed">
+        <td class="status-cell"><span class="badge gone">—</span></td>
+        <td><s>Plus 月</s></td>
+        <td>↑ 升級（$0.267 &gt; $0.066）<br>→ <em>若套用</em> <code>charge_prorated_price</code></td>
+        <td>—</td>
+        <td>—</td>
+        <td class="note-cell">
+          <div class="item"><span class="label">預期問題：</span>同上，年付剩餘信用會抵掉 Plus月 $7.99，產生免費期（可達 2–3 個月）</div>
+          <div class="item"><span class="decision">設計決策</span> 同 STD月，移除路徑</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ============ iOS · Lite 月付 ============ -->
+<div class="scenario">
+  <h2 id="ios-lite-monthly">iOS · Lite 月付用戶 <span class="case-tag a">情況 A</span></h2>
+  <p class="meta"><strong>模式：</strong> Apple Upgrade（tier 提升）— 兩個獨立動作：IAP 收新方案全款 + 舊方案剩餘價值另行退款</p>
+  <div class="calc">Lite月日均：$3.99 / 30 = <strong>$0.133/day</strong></div>
+
+  <div class="template-box">
+    <div class="template-label">Paywall 提示文案模板（共用於四方案）</div>
+    <div class="bi-copy">
+      <div class="lang"><span class="lang-label">ZH</span>今日將收取新方案全額，舊方案剩餘約 <code class="var">{{ custom.current_plan_remaining_value }}</code> 將退款至原付款方式。不會重複扣款。</div>
+      <div class="lang"><span class="lang-label">EN</span>New plan billed in full today. ~<code class="var">{{ custom.current_plan_remaining_value }}</code> from your current plan will be refunded to your original payment method. No double charges.</div>
+    </div>
+    <ul class="vars-list">
+      <li><code class="var">{{ custom.current_plan_remaining_value }}</code> — 自訂變數，由 Paywall 端估算（App Store 不會顯示此值），公式：
+        <br><code>原方案日均 × max(0, floor((expiration_date − today) / 1 day))</code>
+        <br>注意事項：(1) <code>floor</code> 無條件捨去讓估算略低於實際以減少爭議；(2) 日期皆以 <strong>UTC</strong> 計算；(3) 過期用戶 <code>expiration_date &lt; today</code> 時 clamp 到 0，避免負值。
+      </li>
+    </ul>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th class="status-cell">狀態</th>
+        <th style="width:10%">選購方案</th>
+        <th style="width:20%">Apple 處理</th>
+        <th style="width:11%">今日 IAP 扣款</th>
+        <th style="width:16%">舊方案另行退款</th>
+        <th style="width:13%">下次扣款</th>
+        <th>Note</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="status-cell"><span class="badge ok">✓</span></td>
+        <td>STD 月</td>
+        <td>Upgrade，即時生效</td>
+        <td><span class="price">$5.99</span><br><span class="note">新方案全額</span></td>
+        <td>
+          <div class="scenario-row"><span class="scenario-tag a">A</span>~$0.13</div>
+          <div class="scenario-row"><span class="scenario-tag b">B</span>~$3.86</div>
+        </td>
+        <td><span class="price">$5.99</span> / 月<br><span class="note">於 2025/07/01</span></td>
+        <td class="note-cell">
+          <div class="item"><span class="label">退款估算：</span>$0.133/day × 剩餘天</div>
+          <div class="item">
+            <span class="label">範例（兩極端）：</span>
+            <div class="scenario-row"><span class="scenario-tag a">A · 快要到期</span>剩 ~1 天 → $0.133 × 1 ≈ <strong>$0.13</strong> 退款</div>
+            <div class="scenario-row"><span class="scenario-tag b">B · 才剛開始</span>剩 ~29 天 → $0.133 × 29 ≈ <strong>$3.86</strong> 退款</div>
+          </div>
+          <div class="item">
+            <span class="label">範例渲染：</span>
+            <div class="scenario-row"><span class="scenario-tag a">A · 快要到期</span><div class="render-example">今日將收取新方案全額，舊方案剩餘約 $0.13 將退款至原付款方式。不會重複扣款。</div></div>
+            <div class="scenario-row"><span class="scenario-tag b">B · 才剛開始</span><div class="render-example">今日將收取新方案全額，舊方案剩餘約 $3.86 將退款至原付款方式。不會重複扣款。</div></div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="status-cell"><span class="badge ok">✓</span></td>
+        <td>Plus 月</td>
+        <td>Upgrade，即時生效</td>
+        <td><span class="price">$7.99</span><br><span class="note">新方案全額</span></td>
+        <td>
+          <div class="scenario-row"><span class="scenario-tag a">A</span>~$0.13</div>
+          <div class="scenario-row"><span class="scenario-tag b">B</span>~$3.86</div>
+        </td>
+        <td><span class="price">$7.99</span> / 月<br><span class="note">於 2025/07/01</span></td>
+        <td class="note-cell">
+          <div class="item"><span class="label">退款估算：</span>同上（依舊方案 Lite月 剩餘天數）</div>
+          <div class="item">
+            <span class="label">範例：</span>退款金額同 STD月 列（$0.13 ~ $3.86）
+          </div>
+          <div class="item">
+            <span class="label">範例渲染：</span>
+            <div class="scenario-row"><span class="scenario-tag a">A · 快要到期</span><div class="render-example">今日將收取新方案全額，舊方案剩餘約 $0.13 將退款至原付款方式。不會重複扣款。</div></div>
+            <div class="scenario-row"><span class="scenario-tag b">B · 才剛開始</span><div class="render-example">今日將收取新方案全額，舊方案剩餘約 $3.86 將退款至原付款方式。不會重複扣款。</div></div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="status-cell"><span class="badge warn">⚠</span></td>
+        <td>STD 年</td>
+        <td>Upgrade，即時生效<br><span class="note">新年付週期由今日起算</span></td>
+        <td><span class="price">$35.99</span><br><span class="note">新方案全額</span></td>
+        <td>
+          <div class="scenario-row"><span class="scenario-tag a">A</span>~$0.13</div>
+          <div class="scenario-row"><span class="scenario-tag b">B</span>~$3.86</div>
+        </td>
+        <td><span class="price">$35.99</span> / 年<br><span class="note">於 2026/06/01</span></td>
+        <td class="note-cell">
+          <div class="item"><span class="label">⚠ 注意：</span>今日 IAP 直接收 <strong>$35.99 全額</strong>，金額較月付方案高出 6 倍以上；退款 ~$0.13–$3.86 另行處理，可能 1–3 天後才入帳，用戶須有心理準備</div>
+          <div class="item"><span class="label">退款估算：</span>同 STD月 列（$0.13 ~ $3.86）</div>
+          <div class="item"><span class="pending">⚠ 待 Sandbox 實測</span> 確認 IAP 彈窗顯示金額與年付週期起算日</div>
+          <div class="item">
+            <span class="label">範例渲染：</span>
+            <div class="scenario-row"><span class="scenario-tag a">A · 快要到期</span><div class="render-example">今日將收取新方案全額，舊方案剩餘約 $0.13 將退款至原付款方式。不會重複扣款。</div></div>
+            <div class="scenario-row"><span class="scenario-tag b">B · 才剛開始</span><div class="render-example">今日將收取新方案全額，舊方案剩餘約 $3.86 將退款至原付款方式。不會重複扣款。</div></div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="status-cell"><span class="badge warn">⚠</span></td>
+        <td>Plus 年</td>
+        <td>Upgrade，即時生效<br><span class="note">新年付週期由今日起算</span></td>
+        <td><span class="price">$47.99</span><br><span class="note">新方案全額</span></td>
+        <td>
+          <div class="scenario-row"><span class="scenario-tag a">A</span>~$0.13</div>
+          <div class="scenario-row"><span class="scenario-tag b">B</span>~$3.86</div>
+        </td>
+        <td><span class="price">$47.99</span> / 年<br><span class="note">於 2026/06/01</span></td>
+        <td class="note-cell">
+          <div class="item"><span class="label">⚠ 注意：</span>今日 IAP 直接收 <strong>$47.99 全額</strong>，衝擊感最大；退款金額有限，文案需明確說明「新方案全額 + 舊方案退款」兩個動作</div>
+          <div class="item"><span class="label">退款估算：</span>同上</div>
+          <div class="item"><span class="pending">⚠ 待 Sandbox 實測</span> 同 STD年</div>
+          <div class="item">
+            <span class="label">範例渲染：</span>
+            <div class="scenario-row"><span class="scenario-tag a">A · 快要到期</span><div class="render-example">今日將收取新方案全額，舊方案剩餘約 $0.13 將退款至原付款方式。不會重複扣款。</div></div>
+            <div class="scenario-row"><span class="scenario-tag b">B · 才剛開始</span><div class="render-example">今日將收取新方案全額，舊方案剩餘約 $3.86 將退款至原付款方式。不會重複扣款。</div></div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ============ iOS · Lite 年付 ============ -->
+<div class="scenario">
+  <h2 id="ios-lite-annual">iOS · Lite 年付用戶 <span class="case-tag a">情況 A</span></h2>
+  <p class="meta"><strong>模式：</strong> Apple Upgrade（tier 提升）— 兩個獨立動作：IAP 收新方案全款 + 舊方案剩餘價值另行退款</p>
+  <div class="calc">Lite年日均：$23.99 / 365 = <strong>$0.066/day</strong> &nbsp;·&nbsp; Paywall 僅顯示年付選項（STD年 · Plus年）</div>
+
+  <div class="template-box">
+    <div class="template-label">Paywall 提示文案模板（共用於 STD年 · Plus年）</div>
+    <div class="bi-copy">
+      <div class="lang"><span class="lang-label">ZH</span>今日將收取新方案全額，舊方案剩餘約 <code class="var">{{ custom.current_plan_remaining_value }}</code> 將退款至原付款方式。不會重複扣款。</div>
+      <div class="lang"><span class="lang-label">EN</span>New plan billed in full today. ~<code class="var">{{ custom.current_plan_remaining_value }}</code> from your current plan will be refunded to your original payment method. No double charges.</div>
+    </div>
+    <ul class="vars-list">
+      <li><code class="var">{{ custom.current_plan_remaining_value }}</code> — 自訂變數，由 Paywall 端估算（App Store 不會顯示此值），公式：
+        <br><code>原方案日均 × max(0, floor((expiration_date − today) / 1 day))</code>
+        <br>注意事項：(1) <code>floor</code> 無條件捨去；(2) 日期皆以 <strong>UTC</strong> 計算；(3) 過期用戶 clamp 到 0。
+      </li>
+    </ul>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th class="status-cell">狀態</th>
+        <th style="width:10%">選購方案</th>
+        <th style="width:18%">Apple 處理</th>
+        <th style="width:11%">今日 IAP 扣款</th>
+        <th style="width:18%">舊方案另行退款</th>
+        <th style="width:13%">下次扣款</th>
+        <th>Note</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="status-cell"><span class="badge ok">✓</span></td>
+        <td>STD 年</td>
+        <td>Upgrade，即時生效<br><span class="note">新年付週期由今日起算</span></td>
+        <td><span class="price">$35.99</span><br><span class="note">新方案全額</span></td>
+        <td>
+          <div class="scenario-row"><span class="scenario-tag a">A</span>~$0.07</div>
+          <div class="scenario-row"><span class="scenario-tag b">B</span>~$23.92</div>
+        </td>
+        <td><span class="price">$35.99</span> / 年<br><span class="note">於 2026/06/01</span></td>
+        <td class="note-cell">
+          <div class="item"><span class="label">退款估算：</span>$0.066/day × 剩餘天</div>
+          <div class="item">
+            <span class="label">範例（兩極端）：</span>
+            <div class="scenario-row"><span class="scenario-tag a">A · 快要到期</span>剩 ~1 天 → $0.066 × 1 ≈ <strong>$0.07</strong> 退款</div>
+            <div class="scenario-row"><span class="scenario-tag b">B · 才剛開始</span>剩 ~364 天 → $0.066 × 364 ≈ <strong>$23.92</strong> 退款</div>
+          </div>
+          <div class="item"><span class="label">⚠ 注意：</span>B 情境退款金額可達 $23.92（接近舊方案全款），但今日仍需先扣 $35.99 全額，退款另行入帳</div>
+          <div class="item">
+            <span class="label">範例渲染：</span>
+            <div class="scenario-row"><span class="scenario-tag a">A · 快要到期</span><div class="render-example">今日將收取新方案全額，舊方案剩餘約 $0.07 將退款至原付款方式。不會重複扣款。</div></div>
+            <div class="scenario-row"><span class="scenario-tag b">B · 才剛開始</span><div class="render-example">今日將收取新方案全額，舊方案剩餘約 $23.92 將退款至原付款方式。不會重複扣款。</div></div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="status-cell"><span class="badge ok">✓</span></td>
+        <td>Plus 年</td>
+        <td>Upgrade，即時生效<br><span class="note">新年付週期由今日起算</span></td>
+        <td><span class="price">$47.99</span><br><span class="note">新方案全額</span></td>
+        <td>
+          <div class="scenario-row"><span class="scenario-tag a">A</span>~$0.07</div>
+          <div class="scenario-row"><span class="scenario-tag b">B</span>~$23.92</div>
+        </td>
+        <td><span class="price">$47.99</span> / 年<br><span class="note">於 2026/06/01</span></td>
+        <td class="note-cell">
+          <div class="item"><span class="label">退款估算：</span>同 STD年 列（依舊方案 Lite年 剩餘天數）</div>
+          <div class="item"><span class="label">範例：</span>退款金額同 STD年 列（$0.07 ~ $23.92）</div>
+          <div class="item">
+            <span class="label">範例渲染：</span>
+            <div class="scenario-row"><span class="scenario-tag a">A · 快要到期</span><div class="render-example">今日將收取新方案全額，舊方案剩餘約 $0.07 將退款至原付款方式。不會重複扣款。</div></div>
+            <div class="scenario-row"><span class="scenario-tag b">B · 才剛開始</span><div class="render-example">今日將收取新方案全額，舊方案剩餘約 $23.92 將退款至原付款方式。不會重複扣款。</div></div>
+          </div>
+        </td>
+      </tr>
+      <tr class="removed">
+        <td class="status-cell"><span class="badge gone">—</span></td>
+        <td><s>STD 月</s></td>
+        <td>Upgrade，即時生效<br><span class="note">（若提供）</span></td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+        <td class="note-cell">
+          <div class="item"><span class="label">考量：</span>年→月 的計費週期轉換對使用者意圖不明確；舊年付剩餘退款金額（最高 ~$23.92）可能遠大於新月付全額（$5.99），用戶會困惑「為什麼還倒收錢」</div>
+          <div class="item"><span class="decision">設計決策</span> 與 Android 對齊，統一從 Lite年 Paywall 移除月付選項</div>
+        </td>
+      </tr>
+      <tr class="removed">
+        <td class="status-cell"><span class="badge gone">—</span></td>
+        <td><s>Plus 月</s></td>
+        <td>Upgrade，即時生效<br><span class="note">（若提供）</span></td>
+        <td>—</td>
+        <td>—</td>
+        <td>—</td>
+        <td class="note-cell">
+          <div class="item"><span class="label">考量：</span>同上，舊年付剩餘退款（最高 ~$23.92）大於 Plus月 $7.99 全額</div>
+          <div class="item"><span class="decision">設計決策</span> 同 STD 月</div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<h2 id="open-items">問題彙整（更新後狀態）</h2>
+
+<ul>
+  <li><span class="badge ok">✅ 已解決</span> <strong>Lite年 → 月付方案（Android &amp; iOS）</strong>：年付信用覆蓋月費的免費期問題透過<strong>設計層</strong>解決——Lite年 Paywall 僅提供 STD年 · Plus年，月付路徑直接移除。</li>
+  <li><span class="badge warn">⚠ Android</span> <strong>Lite月 → 全部方案</strong>：RC Paywall <code>upgrade_mode</code> 與 <code>downgrade_mode</code> 皆設 <code>without_proration</code>，所有方案統一使用情況 C 模板。需確保 <code class="var">{{ product.price_per_period_abbreviated }}</code> 與 <code class="var">{{ custom.next_renewal_date }}</code> 在 RC 端可正確帶入；尤其年付方案（$35.99 / $47.99）的 ~30 天後大額扣款需透過 <strong>/年</strong> 計費週期顯示讓使用者明確認知。</li>
+  <li><span class="badge warn">⚠ iOS</span> <strong>Lite月 → STD年 / Plus年</strong>：今日 IAP 直接收新方案全額（$35.99 / $47.99），舊 Lite月 退款金額有限（最高 ~$3.86，剛開始的用戶才有），用戶體感是「先扣大額、退款另外處理」。Paywall 文案已明確切出「新方案全額 + 舊方案退款」兩個動作，仍需 Sandbox 實測確認 IAP 彈窗顯示金額。</li>
+  <li><span class="badge warn">⚠ iOS</span> <strong>Lite年 → STD年 / Plus年</strong>：B 情境（才剛開始的年付用戶）退款可達 ~$23.92，但今日仍需先扣新方案全額（$35.99 / $47.99）。文案需強調「退款另行入帳」，避免用戶以為被多收。</li>
+  <li><span class="badge warn">⚠ 待確認</span> <strong>RC 變數可用性</strong>：<code class="var">{{ custom.next_renewal_date }}</code>、<code class="var">{{ custom.current_plan_remaining_value }}</code> 為自訂變數，需確認 RC Paywall 是否能正確接收前端 / 後端傳入；<code class="var">{{ custom.current_plan_remaining_value }}</code> 的估算邏輯（UTC、floor、clamp 0）需在帶入前完成計算。</li>
+  <li><span class="badge warn">⚠ 待確認</span> <strong>Lite年 Paywall 的 <code>downgrade_mode</code></strong>：欄位必填但理論不觸發，目前設為 <code>without_proration</code> 作為 fallback，需確認是否符合預期。</li>
+</ul>
+
+<h2 id="legend">圖例</h2>
+<div class="legend">
+  <ul>
+    <li><span class="badge ok">✓</span> 行為正常</li>
+    <li><span class="badge warn">⚠</span> 需注意或待確認</li>
+    <li><span class="badge gone">—</span> 此路徑已移除（設計決策）</li>
+  </ul>
+  <ul>
+    <li><span class="case-tag a">A</span> iOS Apple Upgrade（退款舊 + 收新全款）</li>
+    <li><span class="case-tag b">B</span> Android <code>CHARGE_PRORATED_PRICE</code></li>
+    <li><span class="case-tag c">C</span> Android <code>WITHOUT_PRORATION</code></li>
+  </ul>
+  <ul>
+    <li>↑ 升級：新日均 &gt; 舊日均</li>
+    <li>↓ 降級：新日均 &lt; 舊日均</li>
+    <li><code class="var">{{ variable }}</code> Paywall 動態變數</li>
+    <li><code class="price">$NN.NN</code> 將收取金額</li>
+  </ul>
+</div>
+
+</body>
+</html>
