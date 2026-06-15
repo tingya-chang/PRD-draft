@@ -407,34 +407,38 @@
 <h2>五、用戶行為影響（Amplitude）</h2>
 <p>以週均首次觸達人數（1st time uniques）衡量各核心功能的採用率，確認免廣告策略對用戶行為路徑無負面影響。</p>
 
-<h3>核心功能採用率</h3>
+<h3>核心功能採用率（新註冊 → 首次使用 CVR，since 6/5）</h3>
 <table>
   <thead>
     <tr>
       <th>功能</th>
-      <th class="num">Case（首次 uniques/週）</th>
-      <th class="num">Control（首次 uniques/週）</th>
+      <th class="num">Case CVR</th>
+      <th class="num">Control CVR</th>
+      <th class="num">差異</th>
       <th>判斷</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>Live 觀看</td>
-      <td class="num">2,011</td>
-      <td class="num">2,014</td>
-      <td class="neutral-cell">無差異</td>
+      <td class="num">52.8%（2,523）</td>
+      <td class="num">52.4%（2,479）</td>
+      <td class="num positive-cell">+0.4pp</td>
+      <td class="neutral-cell">誤差範圍內</td>
     </tr>
     <tr>
       <td>Event Play（事件回放）</td>
-      <td class="num">732</td>
-      <td class="num">732</td>
+      <td class="num">14.2%（680）</td>
+      <td class="num">14.2%（673）</td>
+      <td class="num neutral-cell">0</td>
       <td class="neutral-cell">無差異</td>
     </tr>
     <tr>
       <td>CR Playback（連續錄影回放）</td>
-      <td class="num">754</td>
-      <td class="num">741</td>
-      <td class="positive-cell">+1.7%（微幅正向）</td>
+      <td class="num">14.8%（705）</td>
+      <td class="num">15.5%（731）</td>
+      <td class="num negative-cell">−0.7pp</td>
+      <td class="neutral-cell">未達顯著（p ≈ 0.34）</td>
     </tr>
   </tbody>
 </table>
@@ -466,8 +470,8 @@
 </table>
 
 <div class="callout green">
-  <strong>免廣告不影響功能採用與付費頁觸達</strong>
-  三項核心功能首次採用率與付費頁展示量在兩組之間幾乎完全相同。CR Playback 略高於 Control，為輕微正向訊號。這意味訂閱營收的 +8% 增幅，來自用戶在相同付費頁觸達下有更高的付款意願，而非曝光量差異。
+  <strong>免廣告不影響核心功能採用</strong>
+  Live 與 Event Play 採用率兩組完全一致；CR Playback Case 略低（−0.7pp），但未達統計顯著（z = −0.95，p ≈ 0.34），屬雜訊範圍，不構成負面訊號。付費頁展示量兩組亦相同，訂閱營收的 +8% 增幅來自相同觸達下更高的付款意願，而非曝光量差異。
 </div>
 
 <div class="callout blue">
