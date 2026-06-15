@@ -481,67 +481,120 @@
 
 <h3>年 / 月方案佔比（所有方案，6/5–6/13）</h3>
 <p>以 Amplitude 實驗期間訂閱交易事件拆分年繳（P1Y）與月繳（P1M）。Standard 方案為最大組成來源，Case 佔 63%、Control 佔 56%。</p>
-<table>
-  <thead>
-    <tr>
-      <th>方案層級</th>
-      <th class="num">Case 年繳</th>
-      <th class="num">Case 月繳</th>
-      <th class="num">Control 年繳</th>
-      <th class="num">Control 月繳</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Plus（$47.99 / $7.99）</td>
-      <td class="num">64</td>
-      <td class="num">7</td>
-      <td class="num">60</td>
-      <td class="num negative-cell">32</td>
-    </tr>
-    <tr class="alt">
-      <td>Standard（$35.99 / $5.99）</td>
-      <td class="num">136</td>
-      <td class="num">4</td>
-      <td class="num">120</td>
-      <td class="num negative-cell">9</td>
-    </tr>
-    <tr>
-      <td>Lite（$23.99 / $3.99）</td>
-      <td class="num">8</td>
-      <td class="num">2</td>
-      <td class="num">4</td>
-      <td class="num negative-cell">7</td>
-    </tr>
-    <tr style="font-weight:700;background:var(--row-alt);">
-      <td>合計</td>
-      <td class="num positive-cell">208</td>
-      <td class="num">13</td>
-      <td class="num">184</td>
-      <td class="num negative-cell">48</td>
-    </tr>
-    <tr style="font-weight:700;">
-      <td>年繳佔比</td>
-      <td class="num positive-cell" colspan="2">
-        <strong>94.1%</strong>
-        <div style="display:flex;gap:3px;margin-top:4px;">
-          <div style="width:94.1%;background:#1a7f37;height:10px;border-radius:2px;"></div>
-          <div style="width:5.9%;background:#d0d7de;height:10px;border-radius:2px;"></div>
-        </div>
-      </td>
-      <td class="num" colspan="2">
-        79.3%
-        <div style="display:flex;gap:3px;margin-top:4px;">
-          <div style="width:79.3%;background:#57606a;height:10px;border-radius:2px;"></div>
-          <div style="width:20.7%;background:#d0d7de;height:10px;border-radius:2px;"></div>
-        </div>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<div class="callout green" style="margin-top:12px;">
+
+<div style="max-width:600px;margin:16px 0;">
+  <canvas id="planMixChart" height="130"></canvas>
+</div>
+
+<details style="margin:10px 0 16px;">
+  <summary style="cursor:pointer;color:var(--muted);font-size:13px;user-select:none;">▸ 各方案層級明細</summary>
+  <table style="margin-top:10px;">
+    <thead>
+      <tr>
+        <th>方案層級</th>
+        <th class="num">Case 年繳</th>
+        <th class="num">Case 月繳</th>
+        <th class="num">Control 年繳</th>
+        <th class="num">Control 月繳</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Plus（$47.99 / $7.99）</td>
+        <td class="num">64</td>
+        <td class="num">7</td>
+        <td class="num">60</td>
+        <td class="num negative-cell">32</td>
+      </tr>
+      <tr class="alt">
+        <td>Standard（$35.99 / $5.99）</td>
+        <td class="num">136</td>
+        <td class="num">4</td>
+        <td class="num">120</td>
+        <td class="num negative-cell">9</td>
+      </tr>
+      <tr>
+        <td>Lite（$23.99 / $3.99）</td>
+        <td class="num">8</td>
+        <td class="num">2</td>
+        <td class="num">4</td>
+        <td class="num negative-cell">7</td>
+      </tr>
+      <tr style="font-weight:700;background:var(--row-alt);">
+        <td>合計</td>
+        <td class="num positive-cell">208（94.1%）</td>
+        <td class="num">13（5.9%）</td>
+        <td class="num">184（79.3%）</td>
+        <td class="num negative-cell">48（20.7%）</td>
+      </tr>
+    </tbody>
+  </table>
+</details>
+
+<script>
+(function() {
+  var ctx = document.getElementById('planMixChart').getContext('2d');
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Case（免廣告）', 'Control（正常廣告）'],
+      datasets: [
+        {
+          label: '年繳 P1Y',
+          data: [94.1, 79.3],
+          backgroundColor: ['#1a7f37', '#1a7f37'],
+          borderRadius: 0,
+          barPercentage: 0.55,
+        },
+        {
+          label: '月繳 P1M',
+          data: [5.9, 20.7],
+          backgroundColor: ['#cf222e', '#cf222e'],
+          borderRadius: 0,
+          barPercentage: 0.55,
+        }
+      ]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      plugins: {
+        legend: { position: 'bottom', labels: { font: { size: 12 }, boxWidth: 14, padding: 16 } },
+        tooltip: {
+          callbacks: {
+            label: function(ctx) {
+              var counts = ctx.datasetIndex === 0
+                ? [208, 184] : [13, 48];
+              return ' ' + ctx.dataset.label + ': ' + ctx.raw + '% (' + counts[ctx.dataIndex] + ' 次)';
+            }
+          }
+        },
+        datalabels: false
+      },
+      scales: {
+        x: {
+          stacked: true,
+          max: 100,
+          grid: { color: '#eaeef2' },
+          ticks: { callback: function(v) { return v + '%'; }, font: { size: 12 } },
+          border: { display: false }
+        },
+        y: {
+          stacked: true,
+          grid: { display: false },
+          ticks: { font: { size: 13 } },
+          border: { display: false }
+        }
+      },
+      layout: { padding: { right: 8 } }
+    }
+  });
+})();
+</script>
+
+<div class="callout green" style="margin-top:4px;">
   <strong>Case 用戶年繳比例大幅高於 Control，+14.8pp，高度統計顯著</strong>
-  Case 年繳佔比 94.1%（208/221），Control 79.3%（184/232），差距 +14.8pp，z = 4.62，p &lt; 0.0001。三個方案層級（Plus / Standard / Lite）方向一致，其中 Control 的 Plus 月繳（32 次）是 Case（7 次）的 4.6×。廣告插播在用戶尚未充分體驗產品價值前觸發付費意圖，傾向衝動月繳；Case 用戶無廣告干擾，主動進入付費頁時承諾度更高，傾向選年繳。此結果直接解釋 Case 轉換數略少（−3.4%）但每次轉換平均營收高出 11.9% 的核心矛盾，且可透過跨驗算確認：各方案 count × 定價的加總精確還原 Case $8,245.79 / Control $7,631.68 的訂閱營收數字。
+  Case 年繳佔比 94.1%（208/221），Control 79.3%（184/232），差距 +14.8pp，z = 4.62，p &lt; 0.0001。三個方案層級（Plus / Standard / Lite）方向一致，其中 Control 的 Plus 月繳（32 次）是 Case（7 次）的 4.6×。廣告插播在用戶尚未充分體驗產品價值前觸發付費意圖，傾向衝動月繳；Case 用戶無廣告干擾，主動進入付費頁時承諾度更高，傾向選年繳。此結果直接解釋 Case 轉換數略少（−3.4%）但每次轉換平均營收高出 11.9% 的核心矛盾。
 </div>
 
 <!-- Statistical Significance -->
