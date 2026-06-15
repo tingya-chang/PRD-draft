@@ -586,6 +586,61 @@
   .tabs { display: none; }
   .content { display: block !important; }
 }
+
+/* 國別差異 block layout */
+.diff-block { background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:14px 16px; margin-bottom:10px; }
+.diff-header { font-weight:700; font-size:14px; color:#111; margin-bottom:10px; }
+.diff-metrics-row { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:10px; }
+.diff-stat { background:#f9fafb; border-radius:6px; padding:8px 10px; text-align:center; }
+.diff-stat-label { font-size:10px; color:#6b7280; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:5px; }
+.diff-stat-nums { font-size:11px; color:#374151; margin-bottom:4px; }
+.diff-stat-nums span { font-weight:600; }
+.diff-stat-nums .case-num { color:#15803d; }
+.diff-stat-nums .ctrl-num { color:#dc2626; }
+.diff-badge { display:inline-block; font-size:11px; font-weight:700; padding:2px 7px; border-radius:99px; }
+.diff-badge.win  { background:#dcfce7; color:#15803d; }
+.diff-badge.lose { background:#fee2e2; color:#dc2626; }
+.diff-badge.neutral { background:#f3f4f6; color:#9ca3af; }
+.diff-text { font-size:12.5px; color:#374151; line-height:1.65; border-top:1px solid #f3f4f6; padding-top:9px; }
+
+/* Pricing collapsible */
+.pricing-collapsible { list-style: none; }
+.pricing-summary { cursor: pointer; display: flex; align-items: center; gap: 10px; user-select: none; padding: 4px 0; }
+.pricing-summary::-webkit-details-marker { display: none; }
+.pricing-summary::before { content: "▶"; font-size: 10px; color: #9ca3af; transition: transform 0.2s; flex-shrink: 0; }
+details[open] .pricing-summary::before { transform: rotate(90deg); }
+.pricing-summary-hint { font-size: 11px; color: #9ca3af; font-weight: 400; }
+details[open] .pricing-summary-hint { display: none; }
+
+.insight-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; align-items:stretch; }
+.insight-row > * { box-sizing:border-box; margin-bottom:0; }
+.insight-next { background:#f0fdf4; border:1px solid #bbf7d0; border-radius:8px; padding:12px 16px 12px 24px; }
+.insight-next .insight-label { font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:0.06em; color:#6b7280; margin-bottom:5px; }
+.insight-next ul li { font-size:12.5px; color:#374151; line-height:1.65; margin-bottom:8px; }
+.insight-next ul li:last-child { margin-bottom:0; }
+
+/* Pricing recommendation cards */
+.pr-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:12px; }
+.pr-card { background:#fff; border:1px solid #e5e7eb; border-radius:10px; padding:16px; }
+.pr-card.conservative { border-color:#fbbf24; background:#fffbeb; }
+.pr-header { display:flex; align-items:center; gap:8px; margin-bottom:12px; }
+.pr-flag { font-size:20px; }
+.pr-country { font-weight:700; font-size:14px; color:#111; }
+.pr-badge { margin-left:auto; font-size:10px; font-weight:700; padding:2px 7px; border-radius:99px; background:#dcfce7; color:#15803d; }
+.pr-badge.conservative { background:#fef9c3; color:#92400e; }
+.pr-table { width:100%; border-collapse:collapse; font-size:11.5px; margin-bottom:10px; }
+.pr-table th { color:#6b7280; font-weight:600; padding:3px 6px; text-align:left; border-bottom:1px solid #f3f4f6; }
+.pr-table th.right { text-align:right; }
+.pr-table td { padding:4px 6px; color:#374151; border-bottom:1px solid #f9fafb; }
+.pr-table td.plan { font-weight:600; color:#111; }
+.pr-table td.before { text-align:right; color:#9ca3af; }
+.pr-table td.after { text-align:right; font-weight:700; color:#15803d; }
+.pr-table td.change { text-align:right; }
+.pr-badge-inline { font-size:10px; font-weight:700; padding:1px 5px; border-radius:99px; background:#dcfce7; color:#15803d; }
+.pr-badge-inline.cons { background:#fef9c3; color:#92400e; }
+.pr-note { font-size:11.5px; color:#6b7280; line-height:1.6; border-top:1px solid #f3f4f6; padding-top:8px; }
+.pr-note strong { color:#374151; }
+.pr-note .warn { color:#d97706; }
 </style>
 </head>
 <body>
@@ -623,8 +678,9 @@
 
   <!-- Part 2: 各國方案定價 -->
   <div class="section">
-    <div class="section-title">各國方案定價</div>
-    <div style="font-size:12px; color:#6b7280; margin-bottom:10px;">Case Lite 及 STD 定價全 T3 國家統一；Control STD 各國定價差異顯著，是解讀 CVR 與效益差距時的關鍵背景</div>
+    <details class="pricing-collapsible">
+    <summary class="pricing-summary"><span class="section-title" style="display:inline;">各國方案定價</span><span class="pricing-summary-hint">點擊展開</span></summary>
+    <div style="font-size:12px; color:#6b7280; margin:8px 0 10px;">Case Lite 及 STD 定價全 T3 國家統一；Control STD 各國定價差異顯著，是解讀 CVR 與效益差距時的關鍵背景</div>
     <div class="country-pricing-grid">
 
       <!-- BR -->
@@ -815,6 +871,7 @@
 
     </div>
     <div style="font-size:12px; color:#9ca3af; margin-top:8px;">⚠️ ID Control STD 年方案 $4.71/yr 低於 Case Lite 年方案 $5.99/yr，形成定價倒置</div>
+    </details>
   </div>
 
   <!-- Part 3: 成效分析架構 + 觀察指標 -->
@@ -924,22 +981,22 @@
         <tbody>
           <tr style="border-bottom:1px solid #f3f4f6;">
             <td style="padding:6px 8px; color:#374151; font-weight:500; font-size:12px; white-space:nowrap;">訂閱規模（CVR 倍數）</td>
-            <td style="padding:6px 8px; text-align:center; font-weight:600; color:#15803d; font-size:12px;">2.73×</td>
-            <td style="padding:6px 8px; text-align:center; font-weight:600; color:#15803d; font-size:12px;">1.76×</td>
-            <td style="padding:6px 8px; text-align:center; font-weight:600; color:#15803d; font-size:12px;">2.53×</td>
-            <td style="padding:6px 8px; text-align:center; font-weight:600; color:#15803d; font-size:12px;">3.00×</td>
-            <td style="padding:6px 8px; text-align:center; font-weight:600; color:#15803d; font-size:12px;">2.54×</td>
-            <td style="padding:6px 8px; text-align:center; font-weight:600; color:#15803d; font-size:12px;">2.02×</td>
-            <td style="padding:6px 8px; text-align:center; font-weight:600; color:#15803d; font-size:12px;">1.26×</td>
-            <td style="padding:6px 8px; text-align:center; font-weight:600; color:#15803d; font-size:12px;">2.41×</td>
-            <td style="padding:6px 8px; text-align:center; font-weight:600; color:#15803d; font-size:12px;">1.71×</td>
+            <td style="padding:6px 8px; text-align:center;"><span class="verdict verdict-win" style="font-size:10px; padding:2px 5px;">Case 2.73×</span></td>
+            <td style="padding:6px 8px; text-align:center;"><span class="verdict verdict-win" style="font-size:10px; padding:2px 5px;">Case 1.76×</span></td>
+            <td style="padding:6px 8px; text-align:center;"><span class="verdict verdict-win" style="font-size:10px; padding:2px 5px;">Case 2.53×</span></td>
+            <td style="padding:6px 8px; text-align:center;"><span class="verdict verdict-win" style="font-size:10px; padding:2px 5px;">Case 3.00×</span></td>
+            <td style="padding:6px 8px; text-align:center;"><span class="verdict verdict-win" style="font-size:10px; padding:2px 5px;">Case 2.54×</span></td>
+            <td style="padding:6px 8px; text-align:center;"><span class="verdict verdict-win" style="font-size:10px; padding:2px 5px;">Case 2.02×</span></td>
+            <td style="padding:6px 8px; text-align:center;"><span class="verdict verdict-win" style="font-size:10px; padding:2px 5px;">Case 1.26×</span></td>
+            <td style="padding:6px 8px; text-align:center;"><span class="verdict verdict-win" style="font-size:10px; padding:2px 5px;">Case 2.41×</span></td>
+            <td style="padding:6px 8px; text-align:center;"><span class="verdict verdict-win" style="font-size:10px; padding:2px 5px;">Case 1.71×</span></td>
           </tr>
           <tr style="border-bottom:1px solid #f3f4f6;">
             <td style="padding:6px 8px; color:#374151; font-weight:500; font-size:12px; white-space:nowrap;">短期效益（Rev./主活）</td>
             <td style="padding:6px 8px; text-align:center;"><span class="verdict verdict-win" style="font-size:10px; padding:2px 5px;">Case +26%</span></td>
             <td style="padding:6px 8px; text-align:center;"><span class="verdict verdict-lose" style="font-size:10px; padding:2px 5px;">Ctrl +14%</span></td>
             <td style="padding:6px 8px; text-align:center;"><span class="verdict verdict-lose" style="font-size:10px; padding:2px 5px;">Ctrl +68%</span></td>
-            <td style="padding:6px 8px; text-align:center;"><span class="verdict verdict-lose" style="font-size:10px; padding:2px 5px;">平手</span></td>
+            <td style="padding:6px 8px; text-align:center;"><span style="font-size:10px; padding:2px 5px; background:#f3f4f6; color:#9ca3af; border-radius:4px; font-weight:600;">平手</span></td>
             <td style="padding:6px 8px; text-align:center;"><span class="verdict verdict-lose" style="font-size:10px; padding:2px 5px;">Ctrl +91%</span></td>
             <td style="padding:6px 8px; text-align:center;"><span class="verdict verdict-lose" style="font-size:10px; padding:2px 5px;">Ctrl +7%</span></td>
             <td style="padding:6px 8px; text-align:center;"><span class="verdict verdict-win" style="font-size:10px; padding:2px 5px;">Case +36%</span></td>
@@ -948,7 +1005,7 @@
           </tr>
           <tr style="border-bottom:1px solid #f3f4f6;">
             <td style="padding:6px 8px; color:#374151; font-weight:500; font-size:12px; white-space:nowrap;">長期效益（D30 LTV 總量）</td>
-            <td style="padding:6px 8px; text-align:center;"><span style="font-size:10px; padding:2px 5px; background:#f3f4f6; color:#9ca3af; border-radius:4px; font-weight:600;">+2%（無顯著）</span></td>
+            <td style="padding:6px 8px; text-align:center;"><span style="font-size:10px; padding:2px 5px; background:#f3f4f6; color:#9ca3af; border-radius:4px; font-weight:600;">Case +2%</span></td>
             <td style="padding:6px 8px; text-align:center;"><span class="verdict verdict-win" style="font-size:10px; padding:2px 5px;">Case +29%</span></td>
             <td style="padding:6px 8px; text-align:center;"><span class="verdict verdict-win" style="font-size:10px; padding:2px 5px;">Case +22%</span></td>
             <td style="padding:6px 8px; text-align:center;"><span class="verdict verdict-win" style="font-size:10px; padding:2px 5px;">Case +94%</span></td>
@@ -963,38 +1020,554 @@
       </table>
     </div>
 
-    <div class="insight positive">
-      <div class="insight-label">通用洞察</div>
-      <ul>
-        <li><strong>Lite 確實降低訂閱門檻</strong>：九國均驗證核心假設第一層，且定價差距越大、門檻效應越顯著——這個正相關是跨國一致的結構性規律</li>
-        <li><strong>短期效率是訂閱量倍數與 ARPU 讓步倍數的競爭結果</strong>：哪邊倍數更大，決定短期誰勝；這個機制跨國一致，各國結論不同只是因為兩個倍數的相對比例不同</li>
-        <li><strong>訂閱廣度在 D30 後普遍反超 LTV 總量</strong>：短期效率不一定 Case 勝，但 30 天後訂閱基數效應讓總量翻轉是 8 國共同現象（VN 為例外）</li>
-        <li><strong>LTV/人均 是量策略長期能否自持的風險指標</strong>：Lite 引入更多中低意願用戶，每人貢獻低於 STD 是結構性現象。當 LTV/人均 差距大、廣度優勢又不顯著時（如 BR），策略的長期成立完全依賴訂閱規模不萎縮——這是風險集中點。upsell 能否縮小這個差距，決定量策略是真正可持續，還是只是以空間換時間</li>
-        <li><strong>Upsell 意願普遍存在，入口數量才是瓶頸</strong>：九國在單一入口下均有實質升級率，這是下限而非天花板——入口不足是可解決的設計問題，而非市場意願不足</li>
-      </ul>
+    <div class="insight-row">
+      <div class="insight positive">
+        <div class="insight-label">通用洞察</div>
+        <ul>
+          <li><strong>量策略核心假設成立，但長期能否自持取決於 upsell</strong>：九國 CVR 全勝確認降門檻效果，8 國 D30 LTV 總量 Case 勝確認廣度補深度的機制有效；然而 LTV/人均 差距反映 Lite 客群付費深度結構性偏低，策略長期不能只靠維持訂閱規模</li>
+          <li><strong>短期效率的系統性讓步，是定價設計問題而非策略失敗</strong>：7/9 國短期 Rev./主活 Control 勝，機制是 ARPU 讓步倍數大於訂閱量倍數；這個比例在各國不同，但可以透過定價調整改善</li>
+        </ul>
+      </div>
+      <div class="insight-next">
+        <div class="insight-label">下一步優化</div>
+        <ul>
+          <li><strong>補足 upsell 導購入口</strong>：九國在單一入口下已有實質升級率，入口擴張是縮小人均差距、讓量策略真正自持的關鍵動作</li>
+          <li><strong>全面測試 Lite 新定價</strong>：在保有 CVR 優勢的前提下提高 ARPU 基準，各國漲幅依定價差距與彈性差異化設計</li>
+        </ul>
+      </div>
     </div>
   </div>
 
   <!-- Part 6: 國別差異關鍵洞察 -->
   <div class="section">
     <div class="section-title">國別差異關鍵洞察</div>
-    <div class="insight neutral">
-      <div class="insight-label">各國特殊現象</div>
-      <ul>
-        <li><strong>[🇧🇷 BR]</strong> 量策略在最大定價差距市場的全面驗證：BR 是定價差距相對最大的市場，門檻效應和廣度效益同步最大化；短長期均 Case 勝，upsell 擴張是讓量策略長期自持的補強方向</li>
-        <li><strong>[🇮🇳 IN]</strong> 年方案折扣深度差異是結構性原因，而非用戶偏好：IN 是四國中兩組年方案折扣比例差距最懸殊的市場，直接導致 Control 年訂比例反高於 Case；調整折扣設計是同步提升年訂比例與 upsell 效益的關鍵槓桿</li>
-        <li><strong>[🇹🇷 TR]</strong> Trial 高取消率是 Lite 策略正確性的反向佐證：TR 是定價最高的市場，高篩選效應讓完成訂閱的用戶付費意願最強；但 Trial 的高取消率揭示大量中低意願用戶在試用後流失，正是 Lite 可以轉化的潛在族群</li>
-        <li><strong>[🇮🇩 ID]</strong> 定價倒置創造唯一短期、廣度、深度三維全勝格局：Control 年方案定價低於 Case Lite 年方案，讓 Case 在年方案 ARPU 上反而不遜色；這個倒置結構是 ID 成為 9 國中唯一三維全勝市場的根源，但也是需要持續關注的結構性風險</li>
-        <li><strong>[🇦🇷 AR]</strong> 短期收入精確平衡，是量策略定價臨界點的清晰示範：AR 是兩組 Rev/主活 幾乎完全相等的市場，代表訂閱量倍數恰好補回 ARPU 讓步；這個臨界狀態意味著 upsell 的邊際效益在 AR 最高，最容易翻轉結果</li>
-        <li><strong>[🇨🇱 CL]</strong> 21% upsell 率揭示最強的進階功能付費需求：CL 是目前 upsell 率最高的市場之一，超過五分之一 Lite 用戶在單一入口下主動升級；入口擴張在 CL 的預期效益最確定，也是分析升級觸發行為的最佳市場</li>
-        <li><strong>[🇨🇴 CO]</strong> Control 年訂率異常低，使人均深度差距幾近消失：CO Control 用戶幾乎全選月方案（年訂率 11%，9 國最低），直接削弱 Control 的 LTV 深度優勢；這讓 CO 成為量策略長期結構最健康的市場——廣度、深度雙優</li>
-        <li><strong>[🇹🇭 TH]</strong> 25% upsell 率為 9 國最高，月方案主導是市場結構特性：四分之一 Lite 訂閱者在單一入口下主動升級，進階功能付費意願最強；同時兩組年訂率均偏低，反映 TH 用戶的訂閱習慣偏好月方案，提升年訂比例是改善 LTV 深度的機會</li>
-        <li><strong>[🇻🇳 VN]</strong> 唯一短長期均 Control 勝，但樣本量最小，結論應保守解讀：VN 是 9 國中量策略最難成立的市場，CVR 倍數最低、短期差距最大；但訂閱樣本量遠少於其他市場，現有數字波動區間大，延後決策、持續觀察是最優先的行動</li>
-      </ul>
+    <div class="diff-block">
+      <div class="diff-header">🇧🇷 BR</div>
+      <div class="diff-metrics-row">
+        <div class="diff-stat">
+          <div class="diff-stat-label">訂閱規模（CVR）</div>
+          <div class="diff-stat-nums"><span class="case-num">11.32%</span> vs <span class="ctrl-num">4.05%</span></div>
+          <span class="diff-badge win">Case 2.73×</span>
+        </div>
+        <div class="diff-stat">
+          <div class="diff-stat-label">短期效益（Rev./主活）</div>
+          <div class="diff-stat-nums"><span class="case-num">$0.58</span> vs <span class="ctrl-num">$0.46</span></div>
+          <span class="diff-badge win">Case +26%</span>
+        </div>
+        <div class="diff-stat">
+          <div class="diff-stat-label">長期效益（D30 LTV）</div>
+          <div class="diff-stat-nums"><span class="case-num">$2,008</span> vs <span class="ctrl-num">$1,976</span></div>
+          <span class="diff-badge neutral">Case +2%</span>
+        </div>
+      </div>
+      <div class="diff-text"><ul>
+        <li><strong>量策略全面成立</strong>：BR 是定價差距最大的市場，門檻效應與廣度效益同步最大化，三個商業維度均 Case 勝</li>
+        <li><strong>早期 cohort 更 price-driven</strong>：D0-D7 CVR 倍數（3.3×）高於全期（2.73×），確認低定價的門檻驅動力在訂閱初期最強，早期用戶對定價最敏感</li>
+        <li><strong>upsell 是長期自持的補強方向</strong>：LTV 總量差距未達統計顯著，擴張 upsell 入口是鞏固量策略長期效益的關鍵動作</li>
+      </ul></div>
+    </div>
+    <div class="diff-block">
+      <div class="diff-header">🇮🇳 IN</div>
+      <div class="diff-metrics-row">
+        <div class="diff-stat">
+          <div class="diff-stat-label">訂閱規模（CVR）</div>
+          <div class="diff-stat-nums"><span class="case-num">3.28%</span> vs <span class="ctrl-num">1.86%</span></div>
+          <span class="diff-badge win">Case 1.76×</span>
+        </div>
+        <div class="diff-stat">
+          <div class="diff-stat-label">短期效益（Rev./主活）</div>
+          <div class="diff-stat-nums"><span class="case-num">$0.07</span> vs <span class="ctrl-num">$0.08</span></div>
+          <span class="diff-badge lose">Ctrl +14%</span>
+        </div>
+        <div class="diff-stat">
+          <div class="diff-stat-label">長期效益（D30 LTV）</div>
+          <div class="diff-stat-nums"><span class="case-num">$1,807</span> vs <span class="ctrl-num">$1,405</span></div>
+          <span class="diff-badge win">Case +29%</span>
+        </div>
+      </div>
+      <div class="diff-text"><ul>
+        <li><strong>年方案結構出現反轉</strong>：Control 年訂比例反高於 Case，使 Control ARPU 不如預期落後——推測兩組年方案折扣深度差距是主要原因，但需要確認定價設計細節才能確定</li>
+        <li><strong>折扣設計是優先檢視方向</strong>：若年方案折扣差距確為結構性原因，調整折扣深度可同步改善年訂比例與 upsell 效益——這是推測性結論，需對照定價設計數據驗證後再決策</li>
+      </ul></div>
+    </div>
+    <div class="diff-block">
+      <div class="diff-header">🇹🇷 TR</div>
+      <div class="diff-metrics-row">
+        <div class="diff-stat">
+          <div class="diff-stat-label">訂閱規模（CVR）</div>
+          <div class="diff-stat-nums"><span class="case-num">6.03%</span> vs <span class="ctrl-num">2.38%</span></div>
+          <span class="diff-badge win">Case 2.53×</span>
+        </div>
+        <div class="diff-stat">
+          <div class="diff-stat-label">短期效益（Rev./主活）</div>
+          <div class="diff-stat-nums"><span class="case-num">$0.22</span> vs <span class="ctrl-num">$0.37</span></div>
+          <span class="diff-badge lose">Ctrl +68%</span>
+        </div>
+        <div class="diff-stat">
+          <div class="diff-stat-label">長期效益（D30 LTV）</div>
+          <div class="diff-stat-nums"><span class="case-num">$1,322</span> vs <span class="ctrl-num">$1,084</span></div>
+          <span class="diff-badge win">Case +22%</span>
+        </div>
+      </div>
+      <div class="diff-text"><ul>
+        <li><strong>高定價市場篩選效應強</strong>：TR Control 定價最高，完成訂閱的用戶付費意願最強，使 Case 訂閱者 LTV/人均仍具競爭力</li>
+        <li><strong>高定價雙面效應</strong>：Control 定價最高帶來 ARPU 領先，但訂閱門檻也最高；Case 以 2.53× 的訂閱規模補回 ARPU 讓步，LTV 總量仍達 22% 優勢——推測高定價門檻排除的中低付費意願用戶，正是 Lite 能夠觸及的潛在族群</li>
+      </ul></div>
+    </div>
+    <div class="diff-block">
+      <div class="diff-header">🇦🇷 AR</div>
+      <div class="diff-metrics-row">
+        <div class="diff-stat">
+          <div class="diff-stat-label">訂閱規模（CVR）</div>
+          <div class="diff-stat-nums"><span class="case-num">3.15%</span> vs <span class="ctrl-num">1.05%</span></div>
+          <span class="diff-badge win">Case 3.00×</span>
+        </div>
+        <div class="diff-stat">
+          <div class="diff-stat-label">短期效益（Rev./主活）</div>
+          <div class="diff-stat-nums" style="color:#9ca3af;">$0.12 vs $0.12</div>
+          <span class="diff-badge neutral">平手</span>
+        </div>
+        <div class="diff-stat">
+          <div class="diff-stat-label">長期效益（D30 LTV）</div>
+          <div class="diff-stat-nums"><span class="case-num">$407</span> vs <span class="ctrl-num">$210</span></div>
+          <span class="diff-badge win">Case +94%</span>
+        </div>
+      </div>
+      <div class="diff-text"><ul>
+        <li><strong>量策略定價臨界點</strong>：訂閱量倍數恰好補回 ARPU 讓步，短期收入精確平衡——這是量策略成立的邊界條件</li>
+        <li><strong>upsell 邊際效益最高</strong>：臨界狀態下任何 upsell 轉換都直接翻轉短期結果，AR 是最值得優先試點 upsell 擴張的市場</li>
+      </ul></div>
+    </div>
+    <div class="diff-block">
+      <div class="diff-header">🇨🇱 CL</div>
+      <div class="diff-metrics-row">
+        <div class="diff-stat">
+          <div class="diff-stat-label">訂閱規模（CVR）</div>
+          <div class="diff-stat-nums"><span class="case-num">6.62%</span> vs <span class="ctrl-num">2.61%</span></div>
+          <span class="diff-badge win">Case 2.54×</span>
+        </div>
+        <div class="diff-stat">
+          <div class="diff-stat-label">短期效益（Rev./主活）</div>
+          <div class="diff-stat-nums"><span class="case-num">$0.23</span> vs <span class="ctrl-num">$0.44</span></div>
+          <span class="diff-badge lose">Ctrl +91%</span>
+        </div>
+        <div class="diff-stat">
+          <div class="diff-stat-label">長期效益（D30 LTV）</div>
+          <div class="diff-stat-nums"><span class="case-num">$507</span> vs <span class="ctrl-num">$363</span></div>
+          <span class="diff-badge win">Case +39%</span>
+        </div>
+      </div>
+      <div class="diff-text"><ul>
+        <li><strong>upsell 需求最確定</strong>：五分之一 Lite 用戶在單一入口下主動升級，進階功能付費意願在 9 國中最高</li>
+        <li><strong>入口擴張效益最可預期</strong>：需求已充分驗證，擴充觸達路徑是預期效益最確定、執行優先度最高的優化方向</li>
+      </ul></div>
+    </div>
+    <div class="diff-block">
+      <div class="diff-header">🇨🇴 CO</div>
+      <div class="diff-metrics-row">
+        <div class="diff-stat">
+          <div class="diff-stat-label">訂閱規模（CVR）</div>
+          <div class="diff-stat-nums"><span class="case-num">4.54%</span> vs <span class="ctrl-num">2.25%</span></div>
+          <span class="diff-badge win">Case 2.02×</span>
+        </div>
+        <div class="diff-stat">
+          <div class="diff-stat-label">短期效益（Rev./主活）</div>
+          <div class="diff-stat-nums"><span class="case-num">$0.15</span> vs <span class="ctrl-num">$0.16</span></div>
+          <span class="diff-badge lose">Ctrl +7%</span>
+        </div>
+        <div class="diff-stat">
+          <div class="diff-stat-label">長期效益（D30 LTV）</div>
+          <div class="diff-stat-nums"><span class="case-num">$419</span> vs <span class="ctrl-num">$213</span></div>
+          <span class="diff-badge win">Case +97%</span>
+        </div>
+      </div>
+      <div class="diff-text"><ul>
+        <li><strong>Control 年訂率異常低是結構性因素</strong>：Control 用戶幾乎全選月方案，直接削弱其 LTV 深度優勢，並非 Case 主動拉高所致</li>
+        <li><strong>廣度、深度雙優格局</strong>：Lite 既提升訂閱規模，又在 LTV 總量上大幅領先，是量策略長期結構最健康的市場</li>
+      </ul></div>
+    </div>
+    <div class="diff-block">
+      <div class="diff-header">🇮🇩 ID</div>
+      <div class="diff-metrics-row">
+        <div class="diff-stat">
+          <div class="diff-stat-label">訂閱規模（CVR）</div>
+          <div class="diff-stat-nums"><span class="case-num">5.93%</span> vs <span class="ctrl-num">4.72%</span></div>
+          <span class="diff-badge win">Case 1.26×</span>
+        </div>
+        <div class="diff-stat">
+          <div class="diff-stat-label">短期效益（Rev./主活）</div>
+          <div class="diff-stat-nums"><span class="case-num">$0.15</span> vs <span class="ctrl-num">$0.11</span></div>
+          <span class="diff-badge win">Case +36%</span>
+        </div>
+        <div class="diff-stat">
+          <div class="diff-stat-label">長期效益（D30 LTV）</div>
+          <div class="diff-stat-nums"><span class="case-num">$636</span> vs <span class="ctrl-num">$348</span></div>
+          <span class="diff-badge win">Case +83%</span>
+        </div>
+      </div>
+      <div class="diff-text"><ul>
+        <li><strong>定價倒置創造三維全勝</strong>：Control 年方案定價低於 Case Lite 年方案，讓 Case 年方案 ARPU 反不遜色，形成 9 國唯一短期、廣度、深度全勝格局</li>
+        <li><strong>定價結構是持續性風險</strong>：三維全勝格局依賴現有定價設計，需持續追蹤以確認結構穩定性不因定價調整而反轉</li>
+      </ul></div>
+    </div>
+    <div class="diff-block">
+      <div class="diff-header">🇹🇭 TH</div>
+      <div class="diff-metrics-row">
+        <div class="diff-stat">
+          <div class="diff-stat-label">訂閱規模（CVR）</div>
+          <div class="diff-stat-nums"><span class="case-num">7.17%</span> vs <span class="ctrl-num">2.97%</span></div>
+          <span class="diff-badge win">Case 2.41×</span>
+        </div>
+        <div class="diff-stat">
+          <div class="diff-stat-label">短期效益（Rev./主活）</div>
+          <div class="diff-stat-nums"><span class="case-num">$0.19</span> vs <span class="ctrl-num">$0.24</span></div>
+          <span class="diff-badge lose">Ctrl +26%</span>
+        </div>
+        <div class="diff-stat">
+          <div class="diff-stat-label">長期效益（D30 LTV）</div>
+          <div class="diff-stat-nums"><span class="case-num">$478</span> vs <span class="ctrl-num">$250</span></div>
+          <span class="diff-badge win">Case +91%</span>
+        </div>
+      </div>
+      <div class="diff-text"><ul>
+        <li><strong>進階功能付費意願最強</strong>：四分之一 Lite 訂閱者在單一入口下主動升級，upsell 轉換率為 9 國最高</li>
+        <li><strong>月方案主導是市場結構特性</strong>：兩組年訂率均偏低，提升年訂比例是改善 LTV 深度的主要機會</li>
+      </ul></div>
+    </div>
+    <div class="diff-block">
+      <div class="diff-header">🇻🇳 VN</div>
+      <div class="diff-metrics-row">
+        <div class="diff-stat">
+          <div class="diff-stat-label">訂閱規模（CVR）</div>
+          <div class="diff-stat-nums"><span class="case-num">5.63%</span> vs <span class="ctrl-num">3.30%</span></div>
+          <span class="diff-badge win">Case 1.71×</span>
+        </div>
+        <div class="diff-stat">
+          <div class="diff-stat-label">短期效益（Rev./主活）</div>
+          <div class="diff-stat-nums"><span class="case-num">$0.16</span> vs <span class="ctrl-num">$0.38</span></div>
+          <span class="diff-badge lose">Ctrl +138%</span>
+        </div>
+        <div class="diff-stat">
+          <div class="diff-stat-label">長期效益（D30 LTV）</div>
+          <div class="diff-stat-nums"><span class="case-num">$154</span> vs <span class="ctrl-num">$171</span></div>
+          <span class="diff-badge lose">Ctrl +11%</span>
+        </div>
+      </div>
+      <div class="diff-text"><ul>
+        <li><strong>唯一短長期均 Control 勝</strong>：CVR 倍數最低、短期 ARPU 差距最大，量策略在 VN 最難成立</li>
+        <li><strong>樣本量最小，結論應保守解讀</strong>：訂閱樣本量遠少於其他市場，現有數字波動區間大，延後決策、持續觀察是最優先的行動</li>
+      </ul></div>
     </div>
   </div>
 
-</div>
+  <!-- Part 7: 定價調整建議 (collapsible) -->
+  <div class="section">
+    <details class="pricing-collapsible">
+    <summary class="pricing-summary"><span class="section-title" style="display:inline;">定價調整建議</span><span class="pricing-summary-hint">點擊展開</span></summary>
+    <div style="font-size:12px; color:#6b7280; margin:8px 0 12px;">各國漲幅依據舊 Control STD 定價與實驗數據獨立推算；Lite、STD、Plus 月費漲幅一致，年費漲幅一致。</div>
+    <div class="pr-grid">
+    <div class="pr-card">
+      <div class="pr-header">
+        <span class="pr-flag">🇧🇷</span>
+        <span class="pr-country">BR</span>
+        <span class="pr-badge">+150%月 · +100%年</span>
+      </div>
+      <table class="pr-table">
+        <thead><tr>
+          <th>方案</th><th class="right">調整前</th><th class="right">調整後</th><th class="right">漲幅</th>
+        </tr></thead>
+        <tbody>
+        <tr>
+          <td class="plan">Lite</td>
+          <td class="before">$0.99/mo<br>$5.99/yr</td>
+          <td class="after">$2.49/mo<br>$11.99/yr</td>
+          <td class="change"><span class="pr-badge-inline">月+150%<br>年+100%</span></td>
+        </tr>
+        <tr>
+          <td class="plan">STD</td>
+          <td class="before">$1.49/mo<br>$8.99/yr</td>
+          <td class="after">$3.49/mo<br>$17.99/yr</td>
+          <td class="change"><span class="pr-badge-inline">月+150%<br>年+100%</span></td>
+        </tr>
+        <tr>
+          <td class="plan">Plus</td>
+          <td class="before">$1.99/mo<br>$11.99/yr</td>
+          <td class="after">$4.99/mo<br>$23.99/yr</td>
+          <td class="change"><span class="pr-badge-inline">月+150%<br>年+100%</span></td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="pr-note"><div>· Control STD $3.36/mo，新 Lite $2.49/mo 為舊 Control 的 74%，差距仍顯著</div><div>· 短期已 Case 勝（+26%），定價彈性高於 IN，漲幅可超過 IN 基準</div></div>
+    </div>
+    <div class="pr-card">
+      <div class="pr-header">
+        <span class="pr-flag">🇮🇳</span>
+        <span class="pr-country">IN</span>
+        <span class="pr-badge">+100%月 · +50%年</span>
+      </div>
+      <table class="pr-table">
+        <thead><tr>
+          <th>方案</th><th class="right">調整前</th><th class="right">調整後</th><th class="right">漲幅</th>
+        </tr></thead>
+        <tbody>
+        <tr>
+          <td class="plan">Lite</td>
+          <td class="before">$0.99/mo<br>$5.99/yr</td>
+          <td class="after">$1.99/mo<br>$8.99/yr</td>
+          <td class="change"><span class="pr-badge-inline">月+100%<br>年+50%</span></td>
+        </tr>
+        <tr>
+          <td class="plan">STD</td>
+          <td class="before">$1.49/mo<br>$8.99/yr</td>
+          <td class="after">$2.99/mo<br>$13.49/yr</td>
+          <td class="change"><span class="pr-badge-inline">月+100%<br>年+50%</span></td>
+        </tr>
+        <tr>
+          <td class="plan">Plus</td>
+          <td class="before">$1.99/mo<br>$11.99/yr</td>
+          <td class="after">$3.99/mo<br>$17.99/yr</td>
+          <td class="change"><span class="pr-badge-inline">月+100%<br>年+50%</span></td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="pr-note"><div>· 舊 IN Control STD $2.39/mo 為明確參考基準，新 Lite $1.99/mo 落在其 83%</div><div>· 9 國中 Control 定價最低（除 ID），調幅相對保守但空間有限</div></div>
+    </div>
+    <div class="pr-card">
+      <div class="pr-header">
+        <span class="pr-flag">🇹🇷</span>
+        <span class="pr-country">TR</span>
+        <span class="pr-badge">+200%月 · +100%年</span>
+      </div>
+      <table class="pr-table">
+        <thead><tr>
+          <th>方案</th><th class="right">調整前</th><th class="right">調整後</th><th class="right">漲幅</th>
+        </tr></thead>
+        <tbody>
+        <tr>
+          <td class="plan">Lite</td>
+          <td class="before">$0.99/mo<br>$5.99/yr</td>
+          <td class="after">$2.99/mo<br>$11.99/yr</td>
+          <td class="change"><span class="pr-badge-inline">月+200%<br>年+100%</span></td>
+        </tr>
+        <tr>
+          <td class="plan">STD</td>
+          <td class="before">$1.49/mo<br>$8.99/yr</td>
+          <td class="after">$4.49/mo<br>$17.99/yr</td>
+          <td class="change"><span class="pr-badge-inline">月+200%<br>年+100%</span></td>
+        </tr>
+        <tr>
+          <td class="plan">Plus</td>
+          <td class="before">$1.99/mo<br>$11.99/yr</td>
+          <td class="after">$5.99/mo<br>$23.99/yr</td>
+          <td class="change"><span class="pr-badge-inline">月+200%<br>年+100%</span></td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="pr-note"><div>· Control STD 定價最高（$6.25/mo），新 Lite $2.99/mo 仍僅為舊 Control 的 48%</div><div>· 定價空間最大，月費 +200% 後短期 ARPU 讓步幅度預期顯著縮小</div><div>· 年費 +100%（非 +150%），配合年訂結構調整需求</div></div>
+    </div>
+    <div class="pr-card">
+      <div class="pr-header">
+        <span class="pr-flag">🇦🇷</span>
+        <span class="pr-country">AR</span>
+        <span class="pr-badge">+150%月 · +100%年</span>
+      </div>
+      <table class="pr-table">
+        <thead><tr>
+          <th>方案</th><th class="right">調整前</th><th class="right">調整後</th><th class="right">漲幅</th>
+        </tr></thead>
+        <tbody>
+        <tr>
+          <td class="plan">Lite</td>
+          <td class="before">$0.99/mo<br>$5.99/yr</td>
+          <td class="after">$2.49/mo<br>$11.99/yr</td>
+          <td class="change"><span class="pr-badge-inline">月+150%<br>年+100%</span></td>
+        </tr>
+        <tr>
+          <td class="plan">STD</td>
+          <td class="before">$1.49/mo<br>$8.99/yr</td>
+          <td class="after">$3.49/mo<br>$17.99/yr</td>
+          <td class="change"><span class="pr-badge-inline">月+150%<br>年+100%</span></td>
+        </tr>
+        <tr>
+          <td class="plan">Plus</td>
+          <td class="before">$1.99/mo<br>$11.99/yr</td>
+          <td class="after">$4.99/mo<br>$23.99/yr</td>
+          <td class="change"><span class="pr-badge-inline">月+150%<br>年+100%</span></td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="pr-note"><div>· Control STD $4.99/mo，新 Lite $2.49/mo 為舊 Control 的 50%</div><div>· 短期 Rev./主活 精確平衡，漲價直接改善短期效益；長期 Case +94% 風險低</div></div>
+    </div>
+    <div class="pr-card">
+      <div class="pr-header">
+        <span class="pr-flag">🇨🇱</span>
+        <span class="pr-country">CL</span>
+        <span class="pr-badge">+200%月 · +100%年</span>
+      </div>
+      <table class="pr-table">
+        <thead><tr>
+          <th>方案</th><th class="right">調整前</th><th class="right">調整後</th><th class="right">漲幅</th>
+        </tr></thead>
+        <tbody>
+        <tr>
+          <td class="plan">Lite</td>
+          <td class="before">$0.99/mo<br>$5.99/yr</td>
+          <td class="after">$2.99/mo<br>$11.99/yr</td>
+          <td class="change"><span class="pr-badge-inline">月+200%<br>年+100%</span></td>
+        </tr>
+        <tr>
+          <td class="plan">STD</td>
+          <td class="before">$1.49/mo<br>$8.99/yr</td>
+          <td class="after">$4.49/mo<br>$17.99/yr</td>
+          <td class="change"><span class="pr-badge-inline">月+200%<br>年+100%</span></td>
+        </tr>
+        <tr>
+          <td class="plan">Plus</td>
+          <td class="before">$1.99/mo<br>$11.99/yr</td>
+          <td class="after">$5.99/mo<br>$23.99/yr</td>
+          <td class="change"><span class="pr-badge-inline">月+200%<br>年+100%</span></td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="pr-note"><div>· Control STD $5.54/mo，新 Lite $2.99/mo 為舊 Control 的 54%</div><div>· 短期 Control 勝 91% 主因 ARPU 差距，+200% 後差距縮小幅度在 9 國最顯著</div><div>· upsell 率 21%，補足入口後整體效益可望同步提升</div></div>
+    </div>
+    <div class="pr-card">
+      <div class="pr-header">
+        <span class="pr-flag">🇨🇴</span>
+        <span class="pr-country">CO</span>
+        <span class="pr-badge">+150%月 · +100%年</span>
+      </div>
+      <table class="pr-table">
+        <thead><tr>
+          <th>方案</th><th class="right">調整前</th><th class="right">調整後</th><th class="right">漲幅</th>
+        </tr></thead>
+        <tbody>
+        <tr>
+          <td class="plan">Lite</td>
+          <td class="before">$0.99/mo<br>$5.99/yr</td>
+          <td class="after">$2.49/mo<br>$11.99/yr</td>
+          <td class="change"><span class="pr-badge-inline">月+150%<br>年+100%</span></td>
+        </tr>
+        <tr>
+          <td class="plan">STD</td>
+          <td class="before">$1.49/mo<br>$8.99/yr</td>
+          <td class="after">$3.49/mo<br>$17.99/yr</td>
+          <td class="change"><span class="pr-badge-inline">月+150%<br>年+100%</span></td>
+        </tr>
+        <tr>
+          <td class="plan">Plus</td>
+          <td class="before">$1.99/mo<br>$11.99/yr</td>
+          <td class="after">$4.99/mo<br>$23.99/yr</td>
+          <td class="change"><span class="pr-badge-inline">月+150%<br>年+100%</span></td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="pr-note"><div>· Control STD $4.87/mo，新 Lite $2.49/mo 為舊 Control 的 51%</div><div>· 長期效益 9 國最高（+97%），短期幾乎平衡（Ctrl +7%），調價風險低</div></div>
+    </div>
+    <div class="pr-card conservative">
+      <div class="pr-header">
+        <span class="pr-flag">🇮🇩</span>
+        <span class="pr-country">ID</span>
+        <span class="pr-badge conservative">+50%月 · +50%年</span>
+      </div>
+      <table class="pr-table">
+        <thead><tr>
+          <th>方案</th><th class="right">調整前</th><th class="right">調整後</th><th class="right">漲幅</th>
+        </tr></thead>
+        <tbody>
+        <tr>
+          <td class="plan">Lite</td>
+          <td class="before">$0.99/mo<br>$5.99/yr</td>
+          <td class="after">$1.49/mo<br>$8.99/yr</td>
+          <td class="change"><span class="pr-badge-inline cons">月+50%<br>年+50%</span></td>
+        </tr>
+        <tr>
+          <td class="plan">STD</td>
+          <td class="before">$1.49/mo<br>$8.99/yr</td>
+          <td class="after">$1.99/mo<br>$13.49/yr</td>
+          <td class="change"><span class="pr-badge-inline cons">月+50%<br>年+50%</span></td>
+        </tr>
+        <tr>
+          <td class="plan">Plus</td>
+          <td class="before">$1.99/mo<br>$11.99/yr</td>
+          <td class="after">$2.99/mo<br>$17.99/yr</td>
+          <td class="change"><span class="pr-badge-inline cons">月+50%<br>年+50%</span></td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="pr-note"><div>· <span class="warn">⚠ 定價倒置：現有 Control STD 年費 $4.71 低於 Lite $5.99</span></div><div>· 月費 +50% 後 $1.49 已超過舊 Control $1.21，需確認新 Control 一併調整後再執行</div><div>· 9 國唯一三維全勝市場，CVR 倍數最低（1.26×），格外謹慎</div></div>
+    </div>
+    <div class="pr-card">
+      <div class="pr-header">
+        <span class="pr-flag">🇹🇭</span>
+        <span class="pr-country">TH</span>
+        <span class="pr-badge">+150%月 · +100%年</span>
+      </div>
+      <table class="pr-table">
+        <thead><tr>
+          <th>方案</th><th class="right">調整前</th><th class="right">調整後</th><th class="right">漲幅</th>
+        </tr></thead>
+        <tbody>
+        <tr>
+          <td class="plan">Lite</td>
+          <td class="before">$0.99/mo<br>$5.99/yr</td>
+          <td class="after">$2.49/mo<br>$11.99/yr</td>
+          <td class="change"><span class="pr-badge-inline">月+150%<br>年+100%</span></td>
+        </tr>
+        <tr>
+          <td class="plan">STD</td>
+          <td class="before">$1.49/mo<br>$8.99/yr</td>
+          <td class="after">$3.49/mo<br>$17.99/yr</td>
+          <td class="change"><span class="pr-badge-inline">月+150%<br>年+100%</span></td>
+        </tr>
+        <tr>
+          <td class="plan">Plus</td>
+          <td class="before">$1.99/mo<br>$11.99/yr</td>
+          <td class="after">$4.99/mo<br>$23.99/yr</td>
+          <td class="change"><span class="pr-badge-inline">月+150%<br>年+100%</span></td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="pr-note"><div>· Control STD $5.53/mo，新 Lite $2.49/mo 為舊 Control 的 45%</div><div>· upsell 率最高（25%），月方案主導市場，月費調整影響最直接</div></div>
+    </div>
+    <div class="pr-card conservative">
+      <div class="pr-header">
+        <span class="pr-flag">🇻🇳</span>
+        <span class="pr-country">VN</span>
+        <span class="pr-badge conservative">+50%月 · +50%年</span>
+      </div>
+      <table class="pr-table">
+        <thead><tr>
+          <th>方案</th><th class="right">調整前</th><th class="right">調整後</th><th class="right">漲幅</th>
+        </tr></thead>
+        <tbody>
+        <tr>
+          <td class="plan">Lite</td>
+          <td class="before">$0.99/mo<br>$5.99/yr</td>
+          <td class="after">$1.49/mo<br>$8.99/yr</td>
+          <td class="change"><span class="pr-badge-inline cons">月+50%<br>年+50%</span></td>
+        </tr>
+        <tr>
+          <td class="plan">STD</td>
+          <td class="before">$1.49/mo<br>$8.99/yr</td>
+          <td class="after">$1.99/mo<br>$13.49/yr</td>
+          <td class="change"><span class="pr-badge-inline cons">月+50%<br>年+50%</span></td>
+        </tr>
+        <tr>
+          <td class="plan">Plus</td>
+          <td class="before">$1.99/mo<br>$11.99/yr</td>
+          <td class="after">$2.99/mo<br>$17.99/yr</td>
+          <td class="change"><span class="pr-badge-inline cons">月+50%<br>年+50%</span></td>
+        </tr>
+        </tbody>
+      </table>
+      <div class="pr-note"><div>· 唯一短長期均 Control 勝、樣本量最小，策略方向未明確前保守調整</div><div>· 推測 VN 對定價最敏感；待 upsell 補足、數據增加後再評估追加漲幅</div></div>
+    </div>
+    </div>
+    </details>
+  </div>
+</div><!-- /country-overview -->
+
 
 <!-- ===== BR ===== -->
 <div id="country-BR" class="content">
@@ -1055,6 +1628,7 @@
       <ul>
         <li>兩組主活人數相近（Case 10,991 vs Control 11,233，差距僅 2%）<span class="interp">排除流量不均衡的干擾，CVR 差距 2.8× 是真實的實驗效果</span></li>
         <li>Control 配備 Dual Trial 仍僅達 4.05% CVR；Case 無 Trial 機制卻達 11.32%<span class="interp">在 BR 市場，降價對轉化的驅動力遠強於 Trial 吸引力；價格門檻才是 BR 用戶訂閱的核心障礙，Trial 無法解決這個根本問題</span></li>
+        <li>D0-D7 試用窗口對比（Lite vs Dual Trial）：Case 4.42% vs Control 1.34% = <strong>3.3×</strong>，高於全期 2.73×<span class="interp">試用窗口內 CVR 差距更大，進一步確認低定價對門檻的驅動力在訂閱初期就已顯現</span></li>
       </ul>
     </div>
   </div>
@@ -1185,7 +1759,7 @@
     <div class="insight positive">
       <div class="insight-label">數據解讀</div>
       <ul>
-        <li>Case Rev./主活 $0.58 vs Control $0.46（+26%）<span class="interp">2.73× 的訂閱量足以覆蓋每人 ARPU 3–5× 的讓步，訂閱量優勢在 BR 成功補回 ARPU 讓步</span></li>
+        <li>Case Rev./主活 $0.58 vs Control $0.46（+26%）<span class="interp">訂閱量 2.73× 的量能優勢足以覆蓋 Lite 單價折扣，量策略在 BR 成立</span></li>
         <li>D30 LTV 總量兩組無顯著差異（$2,008 vs $1,976，+2%）；LTV/付費人均 Control 高 2.7×（$4.34 vs $1.61）<span class="interp">以 2.73× 的訂閱基數只換來不到 2% 的總 LTV 優勢——Lite 客群的付費深度遠不及 STD，人均差距若無法透過 upsell 縮小，長期效益將持續依賴擴大訂閱量而非改善每人貢獻</span></li>
       </ul>
     </div>
@@ -1582,7 +2156,7 @@
     <div class="insight negative">
       <div class="insight-label">數據解讀</div>
       <ul>
-        <li>Case Rev./主活 $0.22 vs Control $0.37（差距 68%），Control 明確勝出<span class="interp">TR Control $6.25/mo 的高客單價篩選出少量但高付費意願用戶；2.52× 的訂閱量倍數在面對 5.9× 的 ARPU 差距時仍不夠</span></li>
+        <li>Case Rev./主活 $0.22 vs Control $0.37（差距 68%），Control 明確勝出<span class="interp">TR Control $6.25/mo 的高客單價篩選出少量但高付費意願用戶；2.52× 的訂閱量倍數在面對 5.9× 的 ARPU 差距時仍不足以補回，量策略在 TR 短期無法翻轉高定價優勢</span></li>
         <li>D30 LTV 總量 Case $1,322 vs Control $1,084（+22%）；LTV/付費人均 Control $5.50 vs Case $2.66（差距 2.1×）<span class="interp">訂閱基數在 30 天後讓 Case 總量翻轉，但每位 Lite 用戶的付費深度遠不及高意願的 STD 用戶；長期效益能否維持取決於 upsell 能否縮小人均差距</span></li>
       </ul>
     </div>
@@ -2366,5 +2940,3 @@ function showCountry(code) {
 document.getElementById('country-overview').style.display = 'block';
 document.getElementById('country-BR').style.display = 'none';
 </script>
-</body>
-</html>
