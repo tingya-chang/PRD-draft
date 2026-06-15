@@ -618,62 +618,31 @@
   Revenue/User 的高變異數（大多數用戶 $0，少數付款）使得偵測 7% 的提升需要大量樣本。考量：（1）所有指標方向一致，（2）ROI 明確為正，（3）繼續 A/B 本身有機會成本，決定提前全量。
 </div>
 
-<!-- Conclusion -->
-<div style="border-top:2px solid var(--border);padding-top:36px;margin-top:48px;">
+<!-- Decision -->
+<h2>七、決策與後續觀察</h2>
 
-  <div style="display:flex;align-items:flex-start;gap:28px;flex-wrap:wrap;">
-    <div style="font-size:28px;font-weight:800;letter-spacing:-0.02em;line-height:1;padding-top:6px;flex-shrink:0;">Conclusion</div>
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;flex:1;min-width:380px;">
-      <div style="border:1px solid var(--border);border-radius:7px;padding:11px 14px;background:var(--gray-bg);">
-        <div style="font-size:11px;color:var(--muted);font-weight:500;margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em;">訂閱營收增幅</div>
-        <div style="font-size:20px;font-weight:700;color:var(--green);letter-spacing:-0.02em;">+$614</div>
-        <div style="font-size:11px;color:var(--muted);margin-top:2px;">Case vs Control · 9 天合計</div>
-      </div>
-      <div style="border:1px solid var(--border);border-radius:7px;padding:11px 14px;background:var(--gray-bg);">
-        <div style="font-size:11px;color:var(--muted);font-weight:500;margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em;">廣告營收損失（估算）</div>
-        <div style="font-size:20px;font-weight:700;color:var(--red);letter-spacing:-0.02em;">−$150</div>
-        <div style="font-size:11px;color:var(--muted);margin-top:2px;">YoY 基準推估 · 9 天</div>
-      </div>
-      <div style="border:1px solid var(--border);border-radius:7px;padding:11px 14px;background:var(--gray-bg);">
-        <div style="font-size:11px;color:var(--muted);font-weight:500;margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em;">淨效益</div>
-        <div style="font-size:20px;font-weight:700;color:var(--green);letter-spacing:-0.02em;">+$464</div>
-        <div style="font-size:11px;color:var(--muted);margin-top:2px;">訂閱增幅 − 廣告損失</div>
-      </div>
-      <div style="border:1px solid var(--border);border-radius:7px;padding:11px 14px;background:var(--gray-bg);">
-        <div style="font-size:11px;color:var(--muted);font-weight:500;margin-bottom:4px;text-transform:uppercase;letter-spacing:.04em;">ROI 倍率</div>
-        <div style="font-size:20px;font-weight:700;letter-spacing:-0.02em;">4.1×</div>
-        <div style="font-size:11px;color:var(--muted);margin-top:2px;">每 $1 廣告損失換來 $4.1 訂閱</div>
-      </div>
-    </div>
+<div class="callout blue">
+  <strong>決策：2026/6/16 起全量上線，釋出實驗組給其他改動</strong>
+  US D0–D7 新用戶一律免 after-live 廣告，不再維持 50/50 分流。後續以 post-launch 觀察取代實驗分析。
+</div>
+
+<h3>全量後需持續追蹤的指標</h3>
+<div class="monitor-grid">
+  <div class="monitor-card">
+    <div class="monitor-card-title">US After-Live 廣告 Impression</div>
+    <div class="monitor-card-desc">全量後 Impression 預期再略降（Control 組也不再顯示廣告），確認實際廣告損失規模是否與估算吻合。</div>
   </div>
-
-  <div style="margin-top:28px;font-size:14px;line-height:1.85;">
-
-    <p style="margin:0 0 6px;"><strong>[廣告]</strong></p>
-    <ul style="margin:0 0 18px;padding-left:20px;">
-      <li>新用戶 D0–D7 僅佔整體廣告母體的少數，免廣告策略對廣告端實際衝擊有限</li>
-      <li>市場 eCPM 同比大幅走升進一步稀釋絕對損失，廣告端風險在可吸收範圍內</li>
-    </ul>
-
-    <p style="margin:0 0 6px;"><strong>[訂閱]</strong></p>
-    <ul style="margin:0 0 18px;padding-left:20px;">
-      <li>Case 組轉換數略少、但每次轉換價值更高，整體營收淨增 → 免廣告對訂閱的提升並非單純「移除干擾 → 用戶更願意付費」，而是改變了轉換的質量結構</li>
-      <li>Case 組年訂閱佔比明顯提升 → 廣告帶來的訂閱更偏向「衝動式月繳」，Case 組用戶更接近在體驗產品價值時主動進入付費頁，更傾向選擇「高承諾年繳」</li>
-    </ul>
-
-    <p style="margin:0 0 18px;"><strong>[用戶行為]</strong> 三項核心功能首次採用率與付費頁展示量兩組無差異，免廣告不改變用戶行為路徑，亦無明顯副作用</p>
-
-    <p style="margin:0 0 8px;"><strong>Next…</strong></p>
-    <ul style="margin:0;padding-left:20px;">
-      <li style="margin-bottom:6px;">營收正向效益明確（訂閱營收 +8.1%、Revenue/User +7%），2026/6/16 全量上線，釋出實驗組給其他改動</li>
-      <li>Post-launch 須持續觀察：廣告 impression 實際損失規模、訂閱週趨勢、D7+ 回訪率、Month 1 續訂率
-        <ul style="margin-top:6px;padding-left:18px;list-style-type:circle;">
-          <li style="margin-bottom:4px;">7/1：廣告損失確認 + 訂閱趨勢初判，決定是否需要微調（例如特定市場或平台）</li>
-          <li>7/16：Month 1 留存出來後做完整 post-launch review，作為是否擴展到其他市場的依據</li>
-        </ul>
-      </li>
-    </ul>
-
+  <div class="monitor-card">
+    <div class="monitor-card-title">US 新用戶訂閱週趨勢</div>
+    <div class="monitor-card-desc">去除 A/B 分組雜訊後，整體訂閱數字是否維持或放大 Case 組的表現。</div>
+  </div>
+  <div class="monitor-card">
+    <div class="monitor-card-title">D7 後回訪率</div>
+    <div class="monitor-card-desc">新用戶在 Day 8 恢復廣告後是否有顯著留存下滑，確認「回補廣告」不會造成用戶流失。</div>
+  </div>
+  <div class="monitor-card">
+    <div class="monitor-card-title">Month 1 訂閱續訂率</div>
+    <div class="monitor-card-desc">免廣告新用戶的訂閱品質驗證：若早期體驗更好，Month 1 續訂率應高於歷史基準。</div>
   </div>
 </div>
 
