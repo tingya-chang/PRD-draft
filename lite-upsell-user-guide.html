@@ -744,18 +744,20 @@
     </p>
     <div class="tl-wrap">
       <div class="tl-section-label"><span class="zh">費用時間軸</span><span class="en">Billing Timeline</span></div>
+      <!-- Bar: gray=pre-upgrade, feature-green=transition (new features, old billing), green=new annual plan -->
+      <!-- Proportions use ~14 month scale so annual dominates; points at 12% and 28% give ~115px gap -->
       <div class="tl-bar-row">
-        <div class="tl-seg gray"           style="flex:8"></div>
-        <div class="tl-seg feature-green" style="flex:8"></div>
-        <div class="tl-seg green"          style="flex:84"></div>
+        <div class="tl-seg gray"          style="flex:12"></div>
+        <div class="tl-seg feature-green" style="flex:16"></div>
+        <div class="tl-seg green"         style="flex:72"></div>
       </div>
       <div class="tl-points" style="height:68px">
-        <div class="tl-pt" style="left:8%">
+        <div class="tl-pt" style="left:12%">
           <div class="tl-pt-tick"></div><div class="tl-pt-dot neutral"></div>
           <div class="tl-pt-label"><span class="zh">今日升級・$0</span><span class="en">Upgrade today · $0</span></div>
           <div class="tl-pt-sub"><span class="zh">新方案功能立即啟用</span><span class="en">New features activate now</span></div>
         </div>
-        <div class="tl-pt" style="left:16%">
+        <div class="tl-pt" style="left:28%">
           <div class="tl-pt-tick"></div><div class="tl-pt-dot charge"></div>
           <div class="tl-pt-label"><span class="zh">舊方案到期</span><span class="en">Old plan ends</span></div>
           <div class="tl-pt-sub"><span class="zh">首次年費扣款</span><span class="en">Annual fee charged</span></div>
@@ -766,20 +768,20 @@
         </div>
       </div>
       <div style="display:flex;margin-top:4px">
-        <div class="tl-cycle-bracket" style="flex:16;margin-top:0">
+        <div class="tl-cycle-bracket" style="flex:28;margin-top:0">
           <div class="tl-cycle-side left"></div>
-          <div class="tl-cycle-mid"><span class="zh">舊方案</span><span class="en">Old</span></div>
+          <div class="tl-cycle-mid"><span class="zh">舊方案週期</span><span class="en">Old plan</span></div>
           <div class="tl-cycle-side right"></div>
         </div>
-        <div class="tl-cycle-bracket" style="flex:84;margin-top:0">
+        <div class="tl-cycle-bracket" style="flex:72;margin-top:0">
           <div class="tl-cycle-side left"></div>
           <div class="tl-cycle-mid"><span class="zh">新方案週期（1 年）</span><span class="en">New plan (1 year)</span></div>
           <div class="tl-cycle-side right"></div>
         </div>
       </div>
       <div class="tl-legend" style="margin-top:12px">
-        <div class="tl-legend-item"><div class="leg-bar" style="background:var(--gray-bar);opacity:0.65"></div><span class="zh">升級前（舊方案）</span><span class="en">Before upgrade (old plan)</span></div>
-        <div class="tl-legend-item"><div class="leg-bar" style="background:#6ee7b7"></div><span class="zh">升級後至舊方案到期（新功能已啟用，仍按舊方案費率）</span><span class="en">After upgrade until old plan expires (new features active, old billing rate)</span></div>
+        <div class="tl-legend-item"><div class="leg-bar" style="background:var(--gray-bar);opacity:0.65"></div><span class="zh">升級前（舊方案）</span><span class="en">Before upgrade</span></div>
+        <div class="tl-legend-item"><div class="leg-bar" style="background:#6ee7b7"></div><span class="zh">新功能啟用・舊費率</span><span class="en">New features active · old billing rate</span></div>
         <div class="tl-legend-item"><div class="leg-bar" style="background:var(--green-bar)"></div><span class="zh">新方案年付計費</span><span class="en">New plan (annual billing)</span></div>
         <div class="tl-legend-item"><div class="leg-dot" style="background:var(--red-dot)"></div><span class="zh">扣款</span><span class="en">Charge</span></div>
       </div>
