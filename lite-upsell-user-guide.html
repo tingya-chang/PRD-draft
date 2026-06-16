@@ -397,205 +397,285 @@
     </div>
   </div>
 
-  <!-- ══════════ iOS ══════════ -->
+  <!-- ══════════ iOS · 月付 → 月付 ══════════ -->
+  <!-- Bar scale: ~2 months total (old used ~15d + new 30d) -->
   <div class="card">
     <div class="card-header">
       <span class="platform-tag ios">iOS</span>
       <span class="card-title">
-        <span class="zh">所有升級方案</span>
-        <span class="en">All Upgrade Plans</span>
+        <span class="zh">月付方案 → 月付升級</span>
+        <span class="en">Monthly → Monthly Upgrade</span>
       </span>
     </div>
     <p class="card-desc">
-      <span class="zh">Apple 會先向你收取新方案全額，同時將舊方案剩餘天數的費用退款至原付款方式。兩個動作同時進行，不是重複收費。</span>
-      <span class="en">Apple charges the full new plan price immediately, while simultaneously refunding the unused value of your old plan back to your original payment method. These two actions happen together — it's not a double charge.</span>
+      <span class="zh">Apple 今日收取新方案月費全額，同時退款舊方案剩餘天數。新訂閱週期從今日起算，<strong>1 個月</strong>後續訂。</span>
+      <span class="en">Apple charges the full new monthly price today and refunds unused days from your old plan. New cycle starts today, renewing in <strong>1 month</strong>.</span>
     </p>
-
     <div class="tl-wrap">
-      <div class="tl-section-label">
-        <span class="zh">費用時間軸</span><span class="en">Billing Timeline</span>
-      </div>
-
-      <!-- Bar -->
+      <div class="tl-section-label"><span class="zh">費用時間軸</span><span class="en">Billing Timeline</span></div>
       <div class="tl-bar-row">
-        <div class="tl-seg gray"  style="flex:42"></div>
-        <div class="tl-seg blue"  style="flex:58"></div>
+        <div class="tl-seg gray" style="flex:33"></div>
+        <div class="tl-seg blue" style="flex:67"></div>
       </div>
-
-      <!-- Points -->
-      <div class="tl-points">
-        <!-- Today / upgrade point -->
-        <div class="tl-pt" style="left:42%">
-          <div class="tl-pt-tick"></div>
-          <div class="tl-pt-dot charge"></div>
+      <div class="tl-points" style="height:64px">
+        <div class="tl-pt" style="left:33%">
+          <div class="tl-pt-tick"></div><div class="tl-pt-dot charge"></div>
           <div class="tl-pt-label"><span class="zh">今日</span><span class="en">Today</span></div>
-          <div class="tl-pt-sub"><span class="zh">收新方案全額</span><span class="en">Charged full new price</span></div>
+          <div class="tl-pt-sub"><span class="zh">收月費全額</span><span class="en">Monthly price charged</span></div>
         </div>
-        <!-- Refund marker (slightly right) -->
-        <div class="tl-pt" style="left:55%">
-          <div class="tl-pt-tick"></div>
-          <div class="tl-pt-dot refund"></div>
+        <div class="tl-pt" style="left:46%">
+          <div class="tl-pt-tick"></div><div class="tl-pt-dot refund"></div>
           <div class="tl-pt-label"><span class="zh">退款入帳</span><span class="en">Refund arrives</span></div>
           <div class="tl-pt-sub"><span class="zh">約 1–3 個工作天</span><span class="en">~1–3 business days</span></div>
         </div>
-        <!-- Next renewal -->
         <div class="tl-pt" style="left:100%">
-          <div class="tl-pt-tick"></div>
-          <div class="tl-pt-dot neutral"></div>
-          <div class="tl-pt-label"><span class="zh">下次續訂</span><span class="en">Next renewal</span></div>
-          <div class="tl-pt-sub"><span class="zh">新方案全額</span><span class="en">Full new plan price</span></div>
+          <div class="tl-pt-tick"></div><div class="tl-pt-dot neutral"></div>
+          <div class="tl-pt-label"><span class="zh">今日 + 1 個月</span><span class="en">Today + 1 month</span></div>
+          <div class="tl-pt-sub"><span class="zh">月費續訂</span><span class="en">Monthly renewal</span></div>
         </div>
       </div>
-
-      <!-- iOS new plan cycle bracket — starts from upgrade point (42%) -->
-      <div class="tl-cycle-bracket" style="margin-left:42%">
+      <div class="tl-cycle-bracket" style="margin-left:33%">
         <div class="tl-cycle-side left"></div>
-        <div class="tl-cycle-mid">
-          <span class="zh">新方案週期（今日起算，1 年後續訂）</span>
-          <span class="en">New plan cycle (starts today, renews in 1 year)</span>
-        </div>
+        <div class="tl-cycle-mid"><span class="zh">新方案週期（1 個月）</span><span class="en">New plan cycle (1 month)</span></div>
         <div class="tl-cycle-side right"></div>
       </div>
-
       <div class="tl-legend" style="margin-top:12px">
         <div class="tl-legend-item"><div class="leg-bar" style="background:var(--gray-bar);opacity:0.65"></div><span class="zh">舊方案（已用部分）</span><span class="en">Old plan (used)</span></div>
-        <div class="tl-legend-item"><div class="leg-bar" style="background:var(--blue-bar)"></div><span class="zh">新方案週期（今日起算）</span><span class="en">New plan cycle (starts today)</span></div>
+        <div class="tl-legend-item"><div class="leg-bar" style="background:var(--blue-bar)"></div><span class="zh">新方案（月付）</span><span class="en">New plan (monthly)</span></div>
         <div class="tl-legend-item"><div class="leg-dot" style="background:var(--red-dot)"></div><span class="zh">扣款</span><span class="en">Charge</span></div>
         <div class="tl-legend-item"><div class="leg-dot" style="background:var(--purple-dot)"></div><span class="zh">退款</span><span class="en">Refund</span></div>
       </div>
     </div>
-
     <hr class="div">
-
     <ul class="summary">
-      <li>
-        <span class="s-icon">💳</span>
-        <span>
-          <span class="zh"><strong>今日扣款：</strong>新方案全額，由 App Store 扣取。</span>
-          <span class="en"><strong>Charged today:</strong> Full new plan price (e.g. Standard Annual $35.99), billed by App Store.</span>
-        </span>
-      </li>
-      <li>
-        <span class="s-icon">↩️</span>
-        <span>
-          <span class="zh"><strong>舊方案退款：</strong>未使用天數的剩餘價值，由 Apple 退至原付款方式，通常 1–3 個工作天入帳。退款金額不會顯示在 App Store 確認彈窗，但 Apple 一定會處理。</span>
-          <span class="en"><strong>Old plan refund:</strong> The remaining value of unused days is refunded by Apple to your original payment method, typically within 1–3 business days. This amount won't appear in the App Store confirmation dialog, but Apple will process it.</span>
-        </span>
-      </li>
-      <li>
-        <span class="s-icon">📅</span>
-        <span>
-          <span class="zh"><strong>新訂閱週期：</strong>從今日起算，與舊方案無關。</span>
-          <span class="en"><strong>New billing cycle:</strong> Starts from today, independent of your old plan's dates.</span>
-        </span>
-      </li>
+      <li><span class="s-icon">💳</span><span>
+        <span class="zh"><strong>今日扣款：</strong>新方案月費全額，由 App Store 扣取。</span>
+        <span class="en"><strong>Charged today:</strong> Full new monthly plan price, billed by App Store.</span>
+      </span></li>
+      <li><span class="s-icon">↩️</span><span>
+        <span class="zh"><strong>舊方案退款：</strong>未使用天數的剩餘價值，由 Apple 退至原付款方式，通常 1–3 個工作天入帳。</span>
+        <span class="en"><strong>Old plan refund:</strong> Remaining value of unused days refunded by Apple, typically within 1–3 business days.</span>
+      </span></li>
+      <li><span class="s-icon">📅</span><span>
+        <span class="zh"><strong>新訂閱週期：</strong>從今日起算，<strong>1 個月</strong>後自動續訂。</span>
+        <span class="en"><strong>New billing cycle:</strong> Starts from today, auto-renews in <strong>1 month</strong>.</span>
+      </span></li>
     </ul>
-
-    <div class="callout">
-      <span class="callout-icon">✓</span>
-      <span>
-        <span class="zh">看起來像先收全額，實際上扣款＋退款加起來，你只付了「差額」。App Store 彈窗顯示全額是 Apple 的系統機制，退款是獨立處理的步驟。</span>
-        <span class="en">It may look like you're paying the full price upfront — but charge + refund combined means you effectively pay only the difference. The App Store showing the full price is just how Apple's system works; the refund is a separate step.</span>
-      </span>
-    </div>
+    <div class="callout"><span class="callout-icon">✓</span><span>
+      <span class="zh">扣款＋退款加起來，你只付了「差額」。App Store 彈窗顯示月費全額是 Apple 的系統機制，退款是獨立處理的步驟。</span>
+      <span class="en">Charge + refund combined means you effectively pay only the difference. The App Store showing the full price is just how Apple's system works; the refund is a separate step.</span>
+    </span></div>
   </div>
 
-  <!-- ══════════ Android · Monthly ══════════ -->
+  <!-- ══════════ iOS · 月付 → 年付 ══════════ -->
+  <!-- Bar scale: ~13 months total (old used ~15d + new 365d) — blue segment dominates -->
+  <div class="card">
+    <div class="card-header">
+      <span class="platform-tag ios">iOS</span>
+      <span class="card-title">
+        <span class="zh">月付方案 → 年付升級</span>
+        <span class="en">Monthly → Annual Upgrade</span>
+      </span>
+    </div>
+    <p class="card-desc">
+      <span class="zh">Apple 今日收取新方案年費全額，同時退款舊方案剩餘天數。新訂閱週期從今日起算，<strong>1 年</strong>後續訂。</span>
+      <span class="en">Apple charges the full new annual price today and refunds unused days from your old plan. New cycle starts today, renewing in <strong>1 year</strong>.</span>
+    </p>
+    <div class="tl-wrap">
+      <div class="tl-section-label"><span class="zh">費用時間軸</span><span class="en">Billing Timeline</span></div>
+      <div class="tl-bar-row">
+        <div class="tl-seg gray" style="flex:8"></div>
+        <div class="tl-seg blue" style="flex:92"></div>
+      </div>
+      <div class="tl-points" style="height:64px">
+        <div class="tl-pt" style="left:8%">
+          <div class="tl-pt-tick"></div><div class="tl-pt-dot charge"></div>
+          <div class="tl-pt-label"><span class="zh">今日</span><span class="en">Today</span></div>
+          <div class="tl-pt-sub"><span class="zh">收年費全額</span><span class="en">Annual price charged</span></div>
+        </div>
+        <div class="tl-pt" style="left:20%">
+          <div class="tl-pt-tick"></div><div class="tl-pt-dot refund"></div>
+          <div class="tl-pt-label"><span class="zh">退款入帳</span><span class="en">Refund arrives</span></div>
+          <div class="tl-pt-sub"><span class="zh">約 1–3 個工作天</span><span class="en">~1–3 business days</span></div>
+        </div>
+        <div class="tl-pt" style="left:100%">
+          <div class="tl-pt-tick"></div><div class="tl-pt-dot neutral"></div>
+          <div class="tl-pt-label"><span class="zh">今日 + 1 年</span><span class="en">Today + 1 year</span></div>
+          <div class="tl-pt-sub"><span class="zh">年費續訂</span><span class="en">Annual renewal</span></div>
+        </div>
+      </div>
+      <div class="tl-cycle-bracket" style="margin-left:8%">
+        <div class="tl-cycle-side left"></div>
+        <div class="tl-cycle-mid"><span class="zh">新方案週期（1 年）</span><span class="en">New plan cycle (1 year)</span></div>
+        <div class="tl-cycle-side right"></div>
+      </div>
+      <div class="tl-legend" style="margin-top:12px">
+        <div class="tl-legend-item"><div class="leg-bar" style="background:var(--gray-bar);opacity:0.65"></div><span class="zh">舊方案（已用部分）</span><span class="en">Old plan (used)</span></div>
+        <div class="tl-legend-item"><div class="leg-bar" style="background:var(--blue-bar)"></div><span class="zh">新方案（年付）</span><span class="en">New plan (annual)</span></div>
+        <div class="tl-legend-item"><div class="leg-dot" style="background:var(--red-dot)"></div><span class="zh">扣款</span><span class="en">Charge</span></div>
+        <div class="tl-legend-item"><div class="leg-dot" style="background:var(--purple-dot)"></div><span class="zh">退款</span><span class="en">Refund</span></div>
+      </div>
+    </div>
+    <hr class="div">
+    <ul class="summary">
+      <li><span class="s-icon">💳</span><span>
+        <span class="zh"><strong>今日扣款：</strong>新方案年費全額，由 App Store 扣取。金額比月費高，請確認後再繼續。</span>
+        <span class="en"><strong>Charged today:</strong> Full new annual plan price, billed by App Store. This is higher than a monthly plan — please confirm before proceeding.</span>
+      </span></li>
+      <li><span class="s-icon">↩️</span><span>
+        <span class="zh"><strong>舊方案退款：</strong>未使用天數的剩餘價值，由 Apple 退至原付款方式，通常 1–3 個工作天入帳。</span>
+        <span class="en"><strong>Old plan refund:</strong> Remaining value of unused days refunded by Apple, typically within 1–3 business days.</span>
+      </span></li>
+      <li><span class="s-icon">📅</span><span>
+        <span class="zh"><strong>新訂閱週期：</strong>從今日起算，<strong>1 年</strong>後自動續訂。</span>
+        <span class="en"><strong>New billing cycle:</strong> Starts from today, auto-renews in <strong>1 year</strong>.</span>
+      </span></li>
+    </ul>
+    <div class="callout"><span class="callout-icon">✓</span><span>
+      <span class="zh">扣款＋退款加起來，你只付了「差額」。App Store 彈窗顯示年費全額是 Apple 的系統機制，退款是獨立處理的步驟。</span>
+      <span class="en">Charge + refund combined means you effectively pay only the difference. The App Store shows the full annual price — that's just how Apple's system works; the refund is handled separately.</span>
+    </span></div>
+  </div>
+
+  <!-- ══════════ Android · 月付 → 月付 ══════════ -->
+  <!-- Bar scale: ~2 months total — green segment roughly equal to old plan -->
   <div class="card">
     <div class="card-header">
       <span class="platform-tag and">Android</span>
       <span class="card-title">
-        <span class="zh">月付方案升級</span>
-        <span class="en">Monthly Plan Upgrade</span>
+        <span class="zh">月付方案 → 月付升級</span>
+        <span class="en">Monthly → Monthly Upgrade</span>
       </span>
     </div>
     <p class="card-desc">
-      <span class="zh">升級當天不收費，新方案功能立即啟用。舊方案的帳單週期繼續跑完，下個帳單日才開始按新方案計費。</span>
-      <span class="en">No charge today. New plan features activate immediately. Your current billing cycle runs to completion, then the new plan rate kicks in.</span>
+      <span class="zh">升級當天不收費，新方案功能立即啟用。舊方案帳單週期繼續跑完，下個帳單日起按新方案<strong>月費</strong>計費。</span>
+      <span class="en">No charge today. New plan features activate immediately. Your current billing cycle runs to completion, then the new <strong>monthly</strong> rate kicks in.</span>
     </p>
-
     <div class="tl-wrap">
-      <div class="tl-section-label">
-        <span class="zh">費用時間軸</span><span class="en">Billing Timeline</span>
-      </div>
-
-      <!-- Bar: 3 segments — before upgrade / new features active (old billing) / new billing -->
+      <div class="tl-section-label"><span class="zh">費用時間軸</span><span class="en">Billing Timeline</span></div>
       <div class="tl-bar-row">
-        <div class="tl-seg gray"           style="flex:35"></div>
-        <div class="tl-seg feature-active" style="flex:20"></div>
-        <div class="tl-seg green"          style="flex:45"></div>
+        <div class="tl-seg gray"           style="flex:25"></div>
+        <div class="tl-seg feature-active" style="flex:25"></div>
+        <div class="tl-seg green"          style="flex:50"></div>
       </div>
-
       <div class="tl-points" style="height:68px">
-        <div class="tl-pt" style="left:35%">
-          <div class="tl-pt-tick"></div>
-          <div class="tl-pt-dot neutral"></div>
+        <div class="tl-pt" style="left:25%">
+          <div class="tl-pt-tick"></div><div class="tl-pt-dot neutral"></div>
           <div class="tl-pt-label"><span class="zh">今日升級・$0</span><span class="en">Upgrade today · $0</span></div>
           <div class="tl-pt-sub"><span class="zh">新方案功能立即啟用</span><span class="en">New features activate now</span></div>
         </div>
-        <div class="tl-pt" style="left:55%">
-          <div class="tl-pt-tick"></div>
-          <div class="tl-pt-dot charge"></div>
+        <div class="tl-pt" style="left:50%">
+          <div class="tl-pt-tick"></div><div class="tl-pt-dot charge"></div>
           <div class="tl-pt-label"><span class="zh">舊方案到期</span><span class="en">Old plan ends</span></div>
-          <div class="tl-pt-sub"><span class="zh">首次新方案扣款</span><span class="en">First new plan charge</span></div>
+          <div class="tl-pt-sub"><span class="zh">首次月費扣款</span><span class="en">First monthly charge</span></div>
         </div>
         <div class="tl-pt" style="left:100%">
-          <div class="tl-pt-tick"></div>
-          <div class="tl-pt-dot neutral"></div>
-          <div class="tl-pt-label"><span class="zh">下次續訂</span><span class="en">Next renewal</span></div>
-          <div class="tl-pt-sub"><span class="zh">新方案全額</span><span class="en">Full new plan price</span></div>
+          <div class="tl-pt-tick"></div><div class="tl-pt-dot neutral"></div>
+          <div class="tl-pt-label"><span class="zh">下次月費續訂</span><span class="en">Next monthly renewal</span></div>
         </div>
       </div>
-
-      <!-- Feature-active period bracket -->
-      <div class="tl-cycle-bracket" style="margin-left:35%;margin-right:45%">
+      <div class="tl-cycle-bracket" style="margin-left:25%;margin-right:50%">
         <div class="tl-cycle-side left"></div>
-        <div class="tl-cycle-mid">
-          <span class="zh">新功能已啟用（舊方案費用）</span>
-          <span class="en">New features active (old plan billing)</span>
-        </div>
+        <div class="tl-cycle-mid"><span class="zh">新功能已啟用（舊方案費用）</span><span class="en">New features active (old plan billing)</span></div>
         <div class="tl-cycle-side right"></div>
       </div>
-
       <div class="tl-legend" style="margin-top:12px">
         <div class="tl-legend-item"><div class="leg-bar" style="background:var(--gray-bar);opacity:0.65"></div><span class="zh">升級前（舊方案）</span><span class="en">Before upgrade (old plan)</span></div>
-        <div class="tl-legend-item"><div class="leg-bar" style="background:#60a5fa"></div><span class="zh">新功能已啟用・舊方案費用</span><span class="en">New features active · old plan billing</span></div>
-        <div class="tl-legend-item"><div class="leg-bar" style="background:var(--green-bar)"></div><span class="zh">新方案計費開始</span><span class="en">New plan billing</span></div>
+        <div class="tl-legend-item"><div class="leg-bar" style="background:#60a5fa"></div><span class="zh">新功能已啟用・舊方案費用</span><span class="en">New features active · old billing</span></div>
+        <div class="tl-legend-item"><div class="leg-bar" style="background:var(--green-bar)"></div><span class="zh">新方案月付計費</span><span class="en">New plan (monthly billing)</span></div>
         <div class="tl-legend-item"><div class="leg-dot" style="background:var(--red-dot)"></div><span class="zh">扣款</span><span class="en">Charge</span></div>
       </div>
     </div>
-
     <hr class="div">
-
     <ul class="summary">
-      <li>
-        <span class="s-icon">⚡</span>
-        <span>
-          <span class="zh"><strong>立即啟用：</strong>升級當天即可使用新方案的所有功能，不需等到帳單週期結束。</span>
-          <span class="en"><strong>Instant access:</strong> New plan features are available immediately — no need to wait for the billing cycle to end.</span>
-        </span>
-      </li>
-      <li>
-        <span class="s-icon">💰</span>
-        <span>
-          <span class="zh"><strong>今日費用：$0。</strong>舊方案已付費的剩餘天數繼續有效，週期結束前不另收費。</span>
-          <span class="en"><strong>Charge today: $0.</strong> The remaining days of your current plan stay valid — no extra charge until the cycle ends.</span>
-        </span>
-      </li>
-      <li>
-        <span class="s-icon">📅</span>
-        <span>
-          <span class="zh"><strong>首次新方案扣款：</strong>舊方案到期後的下個帳單日，按新方案全額計費。</span>
-          <span class="en"><strong>First new plan charge:</strong> Full new plan price on the billing date after your current plan expires.</span>
-        </span>
-      </li>
+      <li><span class="s-icon">⚡</span><span>
+        <span class="zh"><strong>立即啟用：</strong>升級當天即可使用新方案的所有功能。</span>
+        <span class="en"><strong>Instant access:</strong> New plan features available immediately on upgrade day.</span>
+      </span></li>
+      <li><span class="s-icon">💰</span><span>
+        <span class="zh"><strong>今日費用：$0。</strong>舊方案已付費的剩餘天數繼續有效。</span>
+        <span class="en"><strong>Charge today: $0.</strong> Remaining days of your current plan stay valid.</span>
+      </span></li>
+      <li><span class="s-icon">📅</span><span>
+        <span class="zh"><strong>首次新方案扣款：</strong>舊方案到期後，按新方案<strong>月費</strong>計費，之後每月自動續訂。</span>
+        <span class="en"><strong>First new plan charge:</strong> New <strong>monthly</strong> rate after your current plan expires, then auto-renews monthly.</span>
+      </span></li>
     </ul>
+    <div class="callout"><span class="callout-icon">✓</span><span>
+      <span class="zh">你已付的剩餘天數<strong>不會損失</strong>——升級後立即享有新功能，帳單週期不重新起算。</span>
+      <span class="en">The days you've already paid for are <strong>not lost</strong> — you get new features immediately, and your billing cycle continues as-is.</span>
+    </span></div>
+  </div>
 
-    <div class="callout">
-      <span class="callout-icon">✓</span>
+  <!-- ══════════ Android · 月付 → 年付 ══════════ -->
+  <!-- Bar scale: ~13 months total — green segment dominates to show annual cycle length -->
+  <div class="card">
+    <div class="card-header">
+      <span class="platform-tag and">Android</span>
+      <span class="card-title">
+        <span class="zh">月付方案 → 年付升級</span>
+        <span class="en">Monthly → Annual Upgrade</span>
+      </span>
+    </div>
+    <p class="card-desc">
+      <span class="zh">升級當天不收費，新方案功能立即啟用。舊方案帳單週期結束時，將一次扣取新方案<strong>年費</strong>，之後每年自動續訂。</span>
+      <span class="en">No charge today. New plan features activate immediately. When your current billing cycle ends, the full <strong>annual fee</strong> is charged — then auto-renews yearly.</span>
+    </p>
+    <div class="tl-wrap">
+      <div class="tl-section-label"><span class="zh">費用時間軸</span><span class="en">Billing Timeline</span></div>
+      <div class="tl-bar-row">
+        <div class="tl-seg gray"           style="flex:8"></div>
+        <div class="tl-seg feature-active" style="flex:8"></div>
+        <div class="tl-seg green"          style="flex:84"></div>
+      </div>
+      <div class="tl-points" style="height:68px">
+        <div class="tl-pt" style="left:8%">
+          <div class="tl-pt-tick"></div><div class="tl-pt-dot neutral"></div>
+          <div class="tl-pt-label"><span class="zh">今日升級・$0</span><span class="en">Upgrade today · $0</span></div>
+          <div class="tl-pt-sub"><span class="zh">新方案功能立即啟用</span><span class="en">New features activate now</span></div>
+        </div>
+        <div class="tl-pt" style="left:16%">
+          <div class="tl-pt-tick"></div><div class="tl-pt-dot charge"></div>
+          <div class="tl-pt-label"><span class="zh">舊方案到期</span><span class="en">Old plan ends</span></div>
+          <div class="tl-pt-sub"><span class="zh">首次年費扣款</span><span class="en">Annual fee charged</span></div>
+        </div>
+        <div class="tl-pt" style="left:100%">
+          <div class="tl-pt-tick"></div><div class="tl-pt-dot neutral"></div>
+          <div class="tl-pt-label"><span class="zh">1 年後年費續訂</span><span class="en">Annual renewal</span></div>
+        </div>
+      </div>
+      <div class="tl-cycle-bracket" style="margin-left:8%;margin-right:84%">
+        <div class="tl-cycle-side left"></div>
+        <div class="tl-cycle-mid"><span class="zh">新功能已啟用（舊方案費用）</span><span class="en">New features active (old plan billing)</span></div>
+        <div class="tl-cycle-side right"></div>
+      </div>
+      <div class="tl-legend" style="margin-top:12px">
+        <div class="tl-legend-item"><div class="leg-bar" style="background:var(--gray-bar);opacity:0.65"></div><span class="zh">升級前（舊方案）</span><span class="en">Before upgrade (old plan)</span></div>
+        <div class="tl-legend-item"><div class="leg-bar" style="background:#60a5fa"></div><span class="zh">新功能已啟用・舊方案費用</span><span class="en">New features active · old billing</span></div>
+        <div class="tl-legend-item"><div class="leg-bar" style="background:var(--green-bar)"></div><span class="zh">新方案年付計費</span><span class="en">New plan (annual billing)</span></div>
+        <div class="tl-legend-item"><div class="leg-dot" style="background:var(--red-dot)"></div><span class="zh">扣款</span><span class="en">Charge</span></div>
+      </div>
+    </div>
+    <hr class="div">
+    <ul class="summary">
+      <li><span class="s-icon">⚡</span><span>
+        <span class="zh"><strong>立即啟用：</strong>升級當天即可使用新方案的所有功能。</span>
+        <span class="en"><strong>Instant access:</strong> New plan features available immediately on upgrade day.</span>
+      </span></li>
+      <li><span class="s-icon">💰</span><span>
+        <span class="zh"><strong>今日費用：$0。</strong>舊方案已付費的剩餘天數繼續有效，不另收費。</span>
+        <span class="en"><strong>Charge today: $0.</strong> Remaining days of your current plan stay valid at no extra charge.</span>
+      </span></li>
+      <li><span class="s-icon">📅</span><span>
+        <span class="zh"><strong>首次年費扣款：</strong>舊方案到期時，一次扣取新方案<strong>年費</strong>，之後每年自動續訂。</span>
+        <span class="en"><strong>First annual charge:</strong> Full new <strong>annual</strong> price when your current plan expires, then auto-renews yearly.</span>
+      </span></li>
+    </ul>
+    <div style="display:flex;gap:10px;padding:12px 16px;background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;margin-top:16px;font-size:13.5px;color:#9a3412;line-height:1.55;">
+      <span style="flex-shrink:0;font-size:15px;margin-top:1px;">⚠</span>
       <span>
-        <span class="zh">你已付的剩餘天數<strong>不會損失</strong>——升級立即享有新功能，帳單週期不重新起算。</span>
-        <span class="en">The days you've already paid for are <strong>not lost</strong> — you get new features immediately, and your billing cycle continues as-is.</span>
+        <span class="zh"><strong>留意扣款時間：</strong>年費會在現有月付週期到期時扣取。如果距到期日只剩幾天，年費很快就會到來，請確認付款方式的餘額已足夠。</span>
+        <span class="en"><strong>Watch your billing date:</strong> The annual fee is charged when your current monthly cycle expires. If that's coming up soon, make sure your payment method has sufficient funds for the annual charge.</span>
       </span>
     </div>
   </div>
