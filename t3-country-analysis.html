@@ -597,7 +597,8 @@
 /* 國別差異 block layout */
 .diff-block { background:#fff; border:1px solid #e5e7eb; border-radius:8px; padding:14px 16px; margin-bottom:10px; }
 .diff-header { font-weight:700; font-size:14px; color:#111; margin-bottom:10px; }
-.diff-metrics-row { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin-bottom:10px; }
+.diff-metrics-row { display:grid; grid-template-columns:repeat(4,1fr); gap:8px; margin-bottom:10px; }
+  @media (max-width:600px) { .diff-metrics-row { grid-template-columns:repeat(2,1fr); } }
 .diff-stat { background:#f9fafb; border-radius:6px; padding:8px 10px; text-align:center; }
 .diff-stat-label { font-size:10px; color:#6b7280; font-weight:700; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:5px; }
 .diff-stat-nums { font-size:11px; color:#374151; margin-bottom:4px; }
@@ -1022,6 +1023,18 @@ details[open] .pricing-summary-hint { display: none; }
             <td style="padding:6px 8px; text-align:center;"><span class="verdict verdict-win" style="font-size:10px; padding:2px 5px;">Case +91%</span></td>
             <td style="padding:6px 8px; text-align:center;"><span class="verdict verdict-lose" style="font-size:10px; padding:2px 5px;">Ctrl +11%</span></td>
           </tr>
+          <tr style="border-bottom:1px solid #f3f4f6;">
+            <td style="padding:6px 8px; color:#374151; font-weight:500; font-size:12px; white-space:nowrap;">升級潛力（upsell 轉換率）</td>
+            <td style="padding:6px 8px; text-align:center;"><span class="verdict verdict-tie" style="font-size:10px; padding:2px 5px;">10.5%</span></td>
+            <td style="padding:6px 8px; text-align:center;"><span class="verdict verdict-pending" style="font-size:10px; padding:2px 5px;">15.8%</span></td>
+            <td style="padding:6px 8px; text-align:center;"><span class="verdict verdict-pending" style="font-size:10px; padding:2px 5px;">13.3%</span></td>
+            <td style="padding:6px 8px; text-align:center;"><span class="verdict verdict-pending" style="font-size:10px; padding:2px 5px;">16.9%</span></td>
+            <td style="padding:6px 8px; text-align:center;"><span class="verdict verdict-win" style="font-size:10px; padding:2px 5px;">21.3%</span></td>
+            <td style="padding:6px 8px; text-align:center;"><span class="verdict verdict-win" style="font-size:10px; padding:2px 5px;">19.4%</span></td>
+            <td style="padding:6px 8px; text-align:center;"><span class="verdict verdict-win" style="font-size:10px; padding:2px 5px;">19.2%</span></td>
+            <td style="padding:6px 8px; text-align:center;"><span class="verdict verdict-win" style="font-size:10px; padding:2px 5px;">25.0%</span></td>
+            <td style="padding:6px 8px; text-align:center;"><span class="verdict verdict-tie" style="font-size:10px; padding:2px 5px;">11.8%</span></td>
+          </tr>
 
         </tbody>
       </table>
@@ -1066,6 +1079,11 @@ details[open] .pricing-summary-hint { display: none; }
           <div class="diff-stat-nums"><span class="case-num">$2,008</span> vs <span class="ctrl-num">$1,976</span></div>
           <span class="diff-badge neutral">Case +2%</span>
         </div>
+        <div class="diff-stat">
+          <div class="diff-stat-label">升級潛力（upsell 轉換率）</div>
+          <div class="diff-stat-nums"><span class="case-num">10.5%</span></div>
+          <span class="diff-badge neutral">Lite → STD</span>
+        </div>
       </div>
       <div class="diff-text"><ul>
         <li><strong>量策略全面成立</strong>：BR 是定價差距最大的市場，門檻效應與廣度效益同步最大化，三個商業維度均 Case 勝</li>
@@ -1091,6 +1109,11 @@ details[open] .pricing-summary-hint { display: none; }
           <div class="diff-stat-nums"><span class="case-num">$1,807</span> vs <span class="ctrl-num">$1,405</span></div>
           <span class="diff-badge win">Case +29%</span>
         </div>
+        <div class="diff-stat">
+          <div class="diff-stat-label">升級潛力（upsell 轉換率）</div>
+          <div class="diff-stat-nums"><span class="case-num">15.8%</span></div>
+          <span class="diff-badge" style="background:#fef9c3; color:#854d0e;">Lite → STD</span>
+        </div>
       </div>
       <div class="diff-text"><ul>
         <li><strong>年方案結構出現反轉</strong>：Control 年訂比例反高於 Case，使 Control ARPU 不如預期落後——推測兩組年方案折扣深度差距是主要原因，但需要確認定價設計細節才能確定</li>
@@ -1114,6 +1137,11 @@ details[open] .pricing-summary-hint { display: none; }
           <div class="diff-stat-label">長期效益（D30 LTV）</div>
           <div class="diff-stat-nums"><span class="case-num">$1,322</span> vs <span class="ctrl-num">$1,084</span></div>
           <span class="diff-badge win">Case +22%</span>
+        </div>
+        <div class="diff-stat">
+          <div class="diff-stat-label">升級潛力（upsell 轉換率）</div>
+          <div class="diff-stat-nums"><span class="case-num">13.3%</span></div>
+          <span class="diff-badge" style="background:#fef9c3; color:#854d0e;">Lite → STD</span>
         </div>
       </div>
       <div class="diff-text"><ul>
@@ -1139,6 +1167,11 @@ details[open] .pricing-summary-hint { display: none; }
           <div class="diff-stat-nums"><span class="case-num">$407</span> vs <span class="ctrl-num">$210</span></div>
           <span class="diff-badge win">Case +94%</span>
         </div>
+        <div class="diff-stat">
+          <div class="diff-stat-label">升級潛力（upsell 轉換率）</div>
+          <div class="diff-stat-nums"><span class="case-num">16.9%</span></div>
+          <span class="diff-badge" style="background:#fef9c3; color:#854d0e;">Lite → STD</span>
+        </div>
       </div>
       <div class="diff-text"><ul>
         <li><strong>量策略定價臨界點</strong>：訂閱量倍數恰好補回 ARPU 讓步，短期收入精確平衡——這是量策略成立的邊界條件</li>
@@ -1162,6 +1195,11 @@ details[open] .pricing-summary-hint { display: none; }
           <div class="diff-stat-label">長期效益（D30 LTV）</div>
           <div class="diff-stat-nums"><span class="case-num">$507</span> vs <span class="ctrl-num">$363</span></div>
           <span class="diff-badge win">Case +39%</span>
+        </div>
+        <div class="diff-stat">
+          <div class="diff-stat-label">升級潛力（upsell 轉換率）</div>
+          <div class="diff-stat-nums"><span class="case-num">21.3%</span></div>
+          <span class="diff-badge win">Lite → STD</span>
         </div>
       </div>
       <div class="diff-text"><ul>
@@ -1187,6 +1225,11 @@ details[open] .pricing-summary-hint { display: none; }
           <div class="diff-stat-nums"><span class="case-num">$419</span> vs <span class="ctrl-num">$213</span></div>
           <span class="diff-badge win">Case +97%</span>
         </div>
+        <div class="diff-stat">
+          <div class="diff-stat-label">升級潛力（upsell 轉換率）</div>
+          <div class="diff-stat-nums"><span class="case-num">19.4%</span></div>
+          <span class="diff-badge win">Lite → STD</span>
+        </div>
       </div>
       <div class="diff-text"><ul>
         <li><strong>Control 年訂率異常低是結構性因素</strong>：Control 用戶幾乎全選月方案，直接削弱其 LTV 深度優勢，並非 Case 主動拉高所致</li>
@@ -1210,6 +1253,11 @@ details[open] .pricing-summary-hint { display: none; }
           <div class="diff-stat-label">長期效益（D30 LTV）</div>
           <div class="diff-stat-nums"><span class="case-num">$636</span> vs <span class="ctrl-num">$348</span></div>
           <span class="diff-badge win">Case +83%</span>
+        </div>
+        <div class="diff-stat">
+          <div class="diff-stat-label">升級潛力（upsell 轉換率）</div>
+          <div class="diff-stat-nums"><span class="case-num">19.2%</span></div>
+          <span class="diff-badge win">Lite → STD</span>
         </div>
       </div>
       <div class="diff-text"><ul>
@@ -1235,6 +1283,11 @@ details[open] .pricing-summary-hint { display: none; }
           <div class="diff-stat-nums"><span class="case-num">$478</span> vs <span class="ctrl-num">$250</span></div>
           <span class="diff-badge win">Case +91%</span>
         </div>
+        <div class="diff-stat">
+          <div class="diff-stat-label">升級潛力（upsell 轉換率）</div>
+          <div class="diff-stat-nums"><span class="case-num">25.0%</span></div>
+          <span class="diff-badge win">Lite → STD</span>
+        </div>
       </div>
       <div class="diff-text"><ul>
         <li><strong>進階功能付費意願最強</strong>：四分之一 Lite 訂閱者在單一入口下主動升級，upsell 轉換率為 9 國最高</li>
@@ -1258,6 +1311,11 @@ details[open] .pricing-summary-hint { display: none; }
           <div class="diff-stat-label">長期效益（D30 LTV）</div>
           <div class="diff-stat-nums"><span class="case-num">$154</span> vs <span class="ctrl-num">$171</span></div>
           <span class="diff-badge lose">Ctrl +11%</span>
+        </div>
+        <div class="diff-stat">
+          <div class="diff-stat-label">升級潛力（upsell 轉換率）</div>
+          <div class="diff-stat-nums"><span class="case-num">11.8%</span></div>
+          <span class="diff-badge neutral">Lite → STD</span>
         </div>
       </div>
       <div class="diff-text"><ul>
