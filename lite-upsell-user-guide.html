@@ -372,8 +372,7 @@
   }
 
   /* ── Language visibility — zh visible by default, en hidden ── */
-  .en { display: none; }
-  body.en .en { display: inline; }
+  body:not(.en) .en { display: none; }
   body.en .zh { display: none; }
 </style>
 </head>
