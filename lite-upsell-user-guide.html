@@ -448,17 +448,21 @@
     </div>
     <hr class="div">
     <ul class="summary">
-      <li><span class="s-icon">💳</span><span>
-        <span class="zh"><strong>今日扣款：</strong>新方案月費全額，由 App Store 扣取。</span>
-        <span class="en"><strong>Charged today:</strong> Full new monthly plan price, billed by App Store.</span>
+      <li><span class="s-icon">⚡</span><span>
+        <span class="zh"><strong>立即生效：</strong>升級完成後即可使用新方案所有功能。</span>
+        <span class="en"><strong>Instant access:</strong> New plan features available immediately after upgrade.</span>
       </span></li>
-      <li><span class="s-icon">↩️</span><span>
-        <span class="zh"><strong>舊方案退款：</strong>未使用天數的剩餘價值，由 Apple 退至原付款方式，通常 1–3 個工作天入帳。</span>
-        <span class="en"><strong>Old plan refund:</strong> Remaining value of unused days refunded by Apple, typically within 1–3 business days.</span>
+      <li><span class="s-icon">💳</span><span>
+        <span class="zh"><strong>今日扣款：</strong>新方案月費全額（由 App Store 扣取，並退款舊方案剩餘天數）。</span>
+        <span class="en"><strong>Charged today:</strong> Full new monthly price (billed by App Store, with old plan's remaining days refunded).</span>
       </span></li>
       <li><span class="s-icon">📅</span><span>
-        <span class="zh"><strong>新訂閱週期：</strong>從今日起算，<strong>1 個月</strong>後自動續訂。</span>
-        <span class="en"><strong>New billing cycle:</strong> Starts from today, auto-renews in <strong>1 month</strong>.</span>
+        <span class="zh"><strong>下次扣款日：</strong>今日起 1 個月後（月費自動續訂）。</span>
+        <span class="en"><strong>Next charge date:</strong> 1 month from today (monthly auto-renewal).</span>
+      </span></li>
+      <li><span class="s-icon">🔄</span><span>
+        <span class="zh"><strong>新訂閱週期：</strong>從今日起算，1 個月後自動續訂。</span>
+        <span class="en"><strong>New billing cycle:</strong> Starts from today, auto-renews in 1 month.</span>
       </span></li>
     </ul>
     <div class="callout"><span class="callout-icon">✓</span><span>
@@ -518,17 +522,95 @@
     </div>
     <hr class="div">
     <ul class="summary">
-      <li><span class="s-icon">💳</span><span>
-        <span class="zh"><strong>今日扣款：</strong>新方案年費全額，由 App Store 扣取。金額比月費高，請確認後再繼續。</span>
-        <span class="en"><strong>Charged today:</strong> Full new annual plan price, billed by App Store. This is higher than a monthly plan — please confirm before proceeding.</span>
+      <li><span class="s-icon">⚡</span><span>
+        <span class="zh"><strong>立即生效：</strong>升級完成後即可使用新方案所有功能。</span>
+        <span class="en"><strong>Instant access:</strong> New plan features available immediately after upgrade.</span>
       </span></li>
-      <li><span class="s-icon">↩️</span><span>
-        <span class="zh"><strong>舊方案退款：</strong>未使用天數的剩餘價值，由 Apple 退至原付款方式，通常 1–3 個工作天入帳。</span>
-        <span class="en"><strong>Old plan refund:</strong> Remaining value of unused days refunded by Apple, typically within 1–3 business days.</span>
+      <li><span class="s-icon">💳</span><span>
+        <span class="zh"><strong>今日扣款：</strong>新方案年費全額（由 App Store 扣取，並退款舊方案剩餘天數）。</span>
+        <span class="en"><strong>Charged today:</strong> Full new annual price (billed by App Store, with old plan's remaining days refunded).</span>
       </span></li>
       <li><span class="s-icon">📅</span><span>
-        <span class="zh"><strong>新訂閱週期：</strong>從今日起算，<strong>1 年</strong>後自動續訂。</span>
-        <span class="en"><strong>New billing cycle:</strong> Starts from today, auto-renews in <strong>1 year</strong>.</span>
+        <span class="zh"><strong>下次扣款日：</strong>今日起 1 年後（年費自動續訂）。</span>
+        <span class="en"><strong>Next charge date:</strong> 1 year from today (annual auto-renewal).</span>
+      </span></li>
+      <li><span class="s-icon">🔄</span><span>
+        <span class="zh"><strong>新訂閱週期：</strong>從今日起算，1 年後自動續訂。</span>
+        <span class="en"><strong>New billing cycle:</strong> Starts from today, auto-renews in 1 year.</span>
+      </span></li>
+    </ul>
+    <div class="callout"><span class="callout-icon">✓</span><span>
+      <span class="zh">扣款＋退款加起來，你只付了「差額」。App Store 彈窗顯示年費全額是 Apple 的系統機制，退款是獨立處理的步驟。</span>
+      <span class="en">Charge + refund combined means you effectively pay only the difference. The App Store shows the full annual price — that's just how Apple's system works; the refund is handled separately.</span>
+    </span></div>
+  </div>
+
+  <!-- ══════════ iOS · 年付 → 年付 ══════════ -->
+  <!-- Bar scale: ~15 months (old annual used ~60d + new 365d) — annual visual weight, similar to month→annual -->
+  <div class="card">
+    <div class="card-header">
+      <span class="platform-tag ios">iOS</span>
+      <span class="card-title">
+        <span class="zh">年付方案 → 年付升級</span>
+        <span class="en">Annual → Annual Upgrade</span>
+      </span>
+    </div>
+    <p class="card-desc">
+      <span class="zh">Apple 今日收取新方案年費全額，同時退款舊方案剩餘天數。新訂閱週期從今日起算，<strong>1 年</strong>後續訂。</span>
+      <span class="en">Apple charges the full new annual price today and refunds unused days from your old plan. New cycle starts today, renewing in <strong>1 year</strong>.</span>
+    </p>
+    <div class="tl-wrap">
+      <div class="tl-section-label"><span class="zh">費用時間軸</span><span class="en">Billing Timeline</span></div>
+      <div class="tl-bar-row">
+        <div class="tl-seg gray" style="flex:14"></div>
+        <div class="tl-seg blue" style="flex:86"></div>
+      </div>
+      <div class="tl-points" style="height:64px">
+        <div class="tl-pt" style="left:14%">
+          <div class="tl-pt-tick"></div><div class="tl-pt-dot charge"></div>
+          <div class="tl-pt-label"><span class="zh">今日</span><span class="en">Today</span></div>
+          <div class="tl-pt-sub"><span class="zh">收年費全額</span><span class="en">Annual price charged</span></div>
+        </div>
+        <div class="tl-pt" style="left:28%">
+          <div class="tl-pt-tick"></div><div class="tl-pt-dot refund"></div>
+          <div class="tl-pt-label"><span class="zh">退款入帳</span><span class="en">Refund arrives</span></div>
+          <div class="tl-pt-sub"><span class="zh">約 1–3 個工作天</span><span class="en">~1–3 business days</span></div>
+        </div>
+        <div class="tl-pt" style="left:100%">
+          <div class="tl-pt-tick"></div><div class="tl-pt-dot neutral"></div>
+          <div class="tl-pt-label"><span class="zh">今日 + 1 年</span><span class="en">Today + 1 year</span></div>
+          <div class="tl-pt-sub"><span class="zh">年費續訂</span><span class="en">Annual renewal</span></div>
+        </div>
+      </div>
+      <div class="tl-cycle-bracket" style="margin-left:14%">
+        <div class="tl-cycle-side left"></div>
+        <div class="tl-cycle-mid"><span class="zh">新方案週期（1 年）</span><span class="en">New plan cycle (1 year)</span></div>
+        <div class="tl-cycle-side right"></div>
+      </div>
+      <div class="tl-legend" style="margin-top:12px">
+        <div class="tl-legend-item"><div class="leg-bar" style="background:var(--gray-bar);opacity:0.65"></div><span class="zh">舊方案（已用部分）</span><span class="en">Old plan (used)</span></div>
+        <div class="tl-legend-item"><div class="leg-bar" style="background:var(--blue-bar)"></div><span class="zh">新方案（年付）</span><span class="en">New plan (annual)</span></div>
+        <div class="tl-legend-item"><div class="leg-dot" style="background:var(--red-dot)"></div><span class="zh">扣款</span><span class="en">Charge</span></div>
+        <div class="tl-legend-item"><div class="leg-dot" style="background:var(--purple-dot)"></div><span class="zh">退款</span><span class="en">Refund</span></div>
+      </div>
+    </div>
+    <hr class="div">
+    <ul class="summary">
+      <li><span class="s-icon">⚡</span><span>
+        <span class="zh"><strong>立即生效：</strong>升級完成後即可使用新方案所有功能。</span>
+        <span class="en"><strong>Instant access:</strong> New plan features available immediately after upgrade.</span>
+      </span></li>
+      <li><span class="s-icon">💳</span><span>
+        <span class="zh"><strong>今日扣款：</strong>新方案年費全額（由 App Store 扣取，並退款舊方案剩餘天數）。</span>
+        <span class="en"><strong>Charged today:</strong> Full new annual price (billed by App Store, with old plan's remaining days refunded).</span>
+      </span></li>
+      <li><span class="s-icon">📅</span><span>
+        <span class="zh"><strong>下次扣款日：</strong>今日起 1 年後（年費自動續訂）。</span>
+        <span class="en"><strong>Next charge date:</strong> 1 year from today (annual auto-renewal).</span>
+      </span></li>
+      <li><span class="s-icon">🔄</span><span>
+        <span class="zh"><strong>新訂閱週期：</strong>從今日起算，1 年後自動續訂。</span>
+        <span class="en"><strong>New billing cycle:</strong> Starts from today, auto-renews in 1 year.</span>
       </span></li>
     </ul>
     <div class="callout"><span class="callout-icon">✓</span><span>
@@ -589,16 +671,20 @@
     <hr class="div">
     <ul class="summary">
       <li><span class="s-icon">⚡</span><span>
-        <span class="zh"><strong>立即啟用：</strong>升級當天即可使用新方案的所有功能。</span>
-        <span class="en"><strong>Instant access:</strong> New plan features available immediately on upgrade day.</span>
+        <span class="zh"><strong>立即生效：</strong>升級完成後即可使用新方案所有功能（不需等帳單週期結束）。</span>
+        <span class="en"><strong>Instant access:</strong> New plan features available immediately — no need to wait for billing cycle to end.</span>
       </span></li>
       <li><span class="s-icon">💰</span><span>
-        <span class="zh"><strong>今日費用：$0。</strong>舊方案已付費的剩餘天數繼續有效。</span>
-        <span class="en"><strong>Charge today: $0.</strong> Remaining days of your current plan stay valid.</span>
+        <span class="zh"><strong>今日不扣款：</strong>$0，舊方案已付費的剩餘天數繼續有效。</span>
+        <span class="en"><strong>No charge today:</strong> $0. Your remaining paid days continue as-is.</span>
       </span></li>
       <li><span class="s-icon">📅</span><span>
-        <span class="zh"><strong>首次新方案扣款：</strong>舊方案到期後，按新方案<strong>月費</strong>計費，之後每月自動續訂。</span>
-        <span class="en"><strong>First new plan charge:</strong> New <strong>monthly</strong> rate after your current plan expires, then auto-renews monthly.</span>
+        <span class="zh"><strong>首次新方案扣款日：</strong>舊方案到期日（首次月費）。</span>
+        <span class="en"><strong>First new plan charge:</strong> On your current plan's expiry date (monthly fee).</span>
+      </span></li>
+      <li><span class="s-icon">🔄</span><span>
+        <span class="zh"><strong>新訂閱週期：</strong>從舊方案到期日起算，1 個月後自動續訂。</span>
+        <span class="en"><strong>New billing cycle:</strong> Starts from your current plan's expiry date, auto-renews in 1 month.</span>
       </span></li>
     </ul>
     <div class="callout"><span class="callout-icon">✓</span><span>
@@ -659,16 +745,20 @@
     <hr class="div">
     <ul class="summary">
       <li><span class="s-icon">⚡</span><span>
-        <span class="zh"><strong>立即啟用：</strong>升級當天即可使用新方案的所有功能。</span>
-        <span class="en"><strong>Instant access:</strong> New plan features available immediately on upgrade day.</span>
+        <span class="zh"><strong>立即生效：</strong>升級完成後即可使用新方案所有功能（不需等帳單週期結束）。</span>
+        <span class="en"><strong>Instant access:</strong> New plan features available immediately — no need to wait for billing cycle to end.</span>
       </span></li>
       <li><span class="s-icon">💰</span><span>
-        <span class="zh"><strong>今日費用：$0。</strong>舊方案已付費的剩餘天數繼續有效，不另收費。</span>
-        <span class="en"><strong>Charge today: $0.</strong> Remaining days of your current plan stay valid at no extra charge.</span>
+        <span class="zh"><strong>今日不扣款：</strong>$0，舊方案已付費的剩餘天數繼續有效。</span>
+        <span class="en"><strong>No charge today:</strong> $0. Your remaining paid days continue as-is.</span>
       </span></li>
       <li><span class="s-icon">📅</span><span>
-        <span class="zh"><strong>首次年費扣款：</strong>舊方案到期時，一次扣取新方案<strong>年費</strong>，之後每年自動續訂。</span>
-        <span class="en"><strong>First annual charge:</strong> Full new <strong>annual</strong> price when your current plan expires, then auto-renews yearly.</span>
+        <span class="zh"><strong>首次新方案扣款日：</strong>舊方案到期日（首次年費，金額較大，請提前確認付款方式）。</span>
+        <span class="en"><strong>First new plan charge:</strong> On your current plan's expiry date (annual fee — a larger amount, confirm your payment method in advance).</span>
+      </span></li>
+      <li><span class="s-icon">🔄</span><span>
+        <span class="zh"><strong>新訂閱週期：</strong>從舊方案到期日起算，1 年後自動續訂。</span>
+        <span class="en"><strong>New billing cycle:</strong> Starts from your current plan's expiry date, auto-renews in 1 year.</span>
       </span></li>
     </ul>
     <div style="display:flex;gap:10px;padding:12px 16px;background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;margin-top:16px;font-size:13.5px;color:#9a3412;line-height:1.55;">
@@ -685,8 +775,8 @@
     <div class="card-header">
       <span class="platform-tag and">Android</span>
       <span class="card-title">
-        <span class="zh">年付方案升級</span>
-        <span class="en">Annual Plan Upgrade</span>
+        <span class="zh">年付方案 → 年付升級</span>
+        <span class="en">Annual → Annual Upgrade</span>
       </span>
     </div>
     <p class="card-desc">
@@ -758,24 +848,31 @@
 
     <ul class="summary">
       <li>
+        <span class="s-icon">⚡</span>
+        <span>
+          <span class="zh"><strong>立即生效：</strong>升級完成後即可使用新方案所有功能。</span>
+          <span class="en"><strong>Instant access:</strong> New plan features available immediately after upgrade.</span>
+        </span>
+      </li>
+      <li>
         <span class="s-icon">💳</span>
         <span>
-          <span class="zh"><strong>今日扣款：</strong>剩餘天數 × （新方案每日費率 − 舊方案每日費率）。Google Play 彈窗會顯示精確金額。</span>
-          <span class="en"><strong>Charged today:</strong> Remaining days × (new daily rate − old daily rate). Google Play will show the exact amount in the confirmation dialog.</span>
+          <span class="zh"><strong>今日扣款：</strong>過渡訂單費用（剩餘天數 × 新舊方案每日費率差額）。Google Play 彈窗會顯示精確金額。</span>
+          <span class="en"><strong>Charged today:</strong> Proration order (remaining days × daily rate difference). Google Play shows the exact amount in the confirmation dialog.</span>
         </span>
       </li>
       <li>
         <span class="s-icon">📅</span>
         <span>
-          <span class="zh"><strong>到期日不變：</strong>原本的訂閱到期日完全保留，不重新起算 365 天。</span>
-          <span class="en"><strong>Renewal date unchanged:</strong> Your original expiry date is fully preserved — no new 365-day countdown.</span>
+          <span class="zh"><strong>下次扣款日：</strong>原訂閱到期日（原起始日 + 1 年，到期日完全不變）。</span>
+          <span class="en"><strong>Next charge date:</strong> Original renewal date (start date + 1 year — completely unchanged).</span>
         </span>
       </li>
       <li>
-        <span class="s-icon">⚡</span>
+        <span class="s-icon">🔄</span>
         <span>
-          <span class="zh"><strong>立即生效：</strong>升級當天即可使用新方案的所有功能。</span>
-          <span class="en"><strong>Instant access:</strong> New plan features are available immediately.</span>
+          <span class="zh"><strong>新訂閱週期：</strong>延續原有年付週期，到期日不變，之後每年自動續訂。</span>
+          <span class="en"><strong>New billing cycle:</strong> Continues the existing annual cycle — renewal date unchanged, auto-renews yearly.</span>
         </span>
       </li>
     </ul>
