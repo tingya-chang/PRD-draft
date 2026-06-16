@@ -378,6 +378,15 @@
   /* ── Language visibility — zh visible by default, en hidden ── */
   body:not(.en) .en { display: none; }
   body.en .zh { display: none; }
+
+  /* ── EN mode: allow timeline labels to wrap instead of overflowing ── */
+  body.en .tl-points { height: auto !important; min-height: 80px; }
+  body.en .tl-pt-label,
+  body.en .tl-pt-sub  { white-space: normal; max-width: 80px; }
+  body.en .tl-pt.align-right .tl-pt-label,
+  body.en .tl-pt.align-right .tl-pt-sub { text-align: right; }
+  body.en .tl-pt.align-left  .tl-pt-label,
+  body.en .tl-pt.align-left  .tl-pt-sub  { text-align: left; }
 </style>
 </head>
 <body class="zh">
