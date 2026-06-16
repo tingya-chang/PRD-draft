@@ -298,8 +298,9 @@
     line-height: 1.55;
   }
   .callout-icon { flex-shrink: 0; font-size: 15px; margin-top: 1px; }
-  .callout ul { list-style: disc; padding-left: 18px; margin: 0; }
-  .callout li { margin-bottom: 4px; }
+  .callout ul { list-style: none; padding-left: 0; margin: 0; }
+  .callout li { padding-left: 20px; position: relative; margin-bottom: 4px; }
+  .callout li::before { content: '✓'; position: absolute; left: 0; font-weight: 700; }
   .callout li:last-child { margin-bottom: 0; }
 
   /* ── Example box ── */
@@ -480,7 +481,7 @@
         <span class="en"><strong>New billing cycle:</strong> Starts from today, auto-renews in 1 month.</span>
       </span></li>
     </ul>
-    <div class="callout"><span class="callout-icon">✓</span><ul>
+    <div class="callout"><ul>
       <li><span class="zh">扣款＋退款加起來，你只付了「差額」。</span><span class="en">Charge + refund combined means you effectively pay only the difference.</span></li>
       <li><span class="zh">App Store 彈窗顯示月費全額是 Apple 的系統機制，退款是獨立處理的步驟。</span><span class="en">The App Store shows the full monthly price — that's just how Apple's system works; the refund is a separate step.</span></li>
     </ul></div>
@@ -561,7 +562,7 @@
         <span class="en"><strong>New billing cycle:</strong> Starts from today, auto-renews in 1 year.</span>
       </span></li>
     </ul>
-    <div class="callout"><span class="callout-icon">✓</span><ul>
+    <div class="callout"><ul>
       <li><span class="zh">扣款＋退款加起來，你只付了「差額」。</span><span class="en">Charge + refund combined means you effectively pay only the difference.</span></li>
       <li><span class="zh">App Store 彈窗顯示年費全額是 Apple 的系統機制，退款是獨立處理的步驟。</span><span class="en">The App Store shows the full annual price — that's just how Apple's system works; the refund is handled separately.</span></li>
     </ul></div>
@@ -642,7 +643,7 @@
         <span class="en"><strong>New billing cycle:</strong> Starts from today, auto-renews in 1 year.</span>
       </span></li>
     </ul>
-    <div class="callout"><span class="callout-icon">✓</span><ul>
+    <div class="callout"><ul>
       <li><span class="zh">扣款＋退款加起來，你只付了「差額」。</span><span class="en">Charge + refund combined means you effectively pay only the difference.</span></li>
       <li><span class="zh">App Store 彈窗顯示年費全額是 Apple 的系統機制，退款是獨立處理的步驟。</span><span class="en">The App Store shows the full annual price — that's just how Apple's system works; the refund is handled separately.</span></li>
     </ul></div>
@@ -925,7 +926,7 @@
       </li>
     </ul>
 
-    <div class="callout"><span class="callout-icon">✓</span><ul>
+    <div class="callout"><ul>
       <li><span class="zh">Google Play 升級時會建立一筆「過渡訂單」，只收剩餘天數的費率差額——這不是重新訂閱，你的原始到期日完全不動。</span><span class="en">Google Play creates a "proration order" when you upgrade — charging only the rate difference for remaining days. This is not a new subscription; your original renewal date is completely unchanged.</span></li>
       <li><span class="zh">彈窗顯示的就是實際扣款金額，計算自動完成，沒有任何隱藏費用。</span><span class="en">The amount shown in the Google Play confirmation dialog is exactly what you'll be charged — the calculation is automatic, with no hidden fees.</span></li>
     </ul></div>
