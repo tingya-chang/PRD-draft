@@ -235,6 +235,10 @@
     line-height: 1.3;
   }
 
+  /* Edge-aligned tick labels — prevent overflow at bar boundaries */
+  .tl-pt.align-right { transform: translateX(-100%); text-align: right; }
+  .tl-pt.align-left  { transform: translateX(0);     text-align: left;  }
+
   /* Legend row */
   .tl-legend {
     display: flex;
@@ -430,7 +434,7 @@
           <div class="tl-pt-label"><span class="zh">退款入帳</span><span class="en">Refund arrives</span></div>
           <div class="tl-pt-sub"><span class="zh">約 1–3 個工作天</span><span class="en">~1–3 business days</span></div>
         </div>
-        <div class="tl-pt" style="left:100%">
+        <div class="tl-pt align-right" style="left:100%">
           <div class="tl-pt-tick"></div><div class="tl-pt-dot neutral"></div>
           <div class="tl-pt-label"><span class="zh">今日 + 1 個月</span><span class="en">Today + 1 month</span></div>
           <div class="tl-pt-sub"><span class="zh">月費續訂</span><span class="en">Monthly renewal</span></div>
@@ -511,7 +515,7 @@
           <div class="tl-pt-label"><span class="zh">退款入帳</span><span class="en">Refund arrives</span></div>
           <div class="tl-pt-sub"><span class="zh">約 1–3 個工作天</span><span class="en">~1–3 business days</span></div>
         </div>
-        <div class="tl-pt" style="left:100%">
+        <div class="tl-pt align-right" style="left:100%">
           <div class="tl-pt-tick"></div><div class="tl-pt-dot neutral"></div>
           <div class="tl-pt-label"><span class="zh">今日 + 1 年</span><span class="en">Today + 1 year</span></div>
           <div class="tl-pt-sub"><span class="zh">年費續訂</span><span class="en">Annual renewal</span></div>
@@ -592,7 +596,7 @@
           <div class="tl-pt-label"><span class="zh">退款入帳</span><span class="en">Refund arrives</span></div>
           <div class="tl-pt-sub"><span class="zh">約 1–3 個工作天</span><span class="en">~1–3 business days</span></div>
         </div>
-        <div class="tl-pt" style="left:100%">
+        <div class="tl-pt align-right" style="left:100%">
           <div class="tl-pt-tick"></div><div class="tl-pt-dot neutral"></div>
           <div class="tl-pt-label"><span class="zh">今日 + 1 年</span><span class="en">Today + 1 year</span></div>
           <div class="tl-pt-sub"><span class="zh">年費續訂</span><span class="en">Annual renewal</span></div>
@@ -674,7 +678,7 @@
           <div class="tl-pt-label"><span class="zh">舊方案到期</span><span class="en">Old plan ends</span></div>
           <div class="tl-pt-sub"><span class="zh">首次月費扣款</span><span class="en">First monthly charge</span></div>
         </div>
-        <div class="tl-pt" style="left:100%">
+        <div class="tl-pt align-right" style="left:100%">
           <div class="tl-pt-tick"></div><div class="tl-pt-dot neutral"></div>
           <div class="tl-pt-label"><span class="zh">下次月費續訂</span><span class="en">Next monthly renewal</span></div>
         </div>
@@ -757,7 +761,7 @@
           <div class="tl-pt-label"><span class="zh">舊方案到期</span><span class="en">Old plan ends</span></div>
           <div class="tl-pt-sub"><span class="zh">首次年費扣款</span><span class="en">Annual fee charged</span></div>
         </div>
-        <div class="tl-pt" style="left:100%">
+        <div class="tl-pt align-right" style="left:100%">
           <div class="tl-pt-tick"></div><div class="tl-pt-dot neutral"></div>
           <div class="tl-pt-label"><span class="zh">1 年後年費續訂</span><span class="en">Annual renewal</span></div>
         </div>
@@ -836,7 +840,7 @@
       </div>
 
       <div class="tl-points" style="height:64px">
-        <div class="tl-pt" style="left:0%">
+        <div class="tl-pt align-left" style="left:0%">
           <div class="tl-pt-tick"></div>
           <div class="tl-pt-dot neutral"></div>
           <div class="tl-pt-label"><span class="zh">訂閱起始</span><span class="en">Subscribed</span></div>
@@ -847,7 +851,7 @@
           <div class="tl-pt-label"><span class="zh">今日升級</span><span class="en">Upgrade today</span></div>
           <div class="tl-pt-sub"><span class="zh">過渡訂單扣款</span><span class="en">Proration order charged</span></div>
         </div>
-        <div class="tl-pt" style="left:100%">
+        <div class="tl-pt align-right" style="left:100%">
           <div class="tl-pt-tick"></div>
           <div class="tl-pt-dot neutral"></div>
           <div class="tl-pt-label"><span class="zh">原到期日（不變）</span><span class="en">Original renewal (unchanged)</span></div>
