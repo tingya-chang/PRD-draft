@@ -518,844 +518,6 @@ table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
 </div>
 
 <!-- ══════════════════════════════════════════════════════
-     IN DEEP DIVE
-═══════════════════════════════════════════════════════ -->
-<section class="section">
-  <div class="section-hdr">
-    <span class="section-title">IN 解讀框架（可套用至其他市場）</span>
-    <span class="section-src">India · 四層分析</span>
-  </div>
-
-  <div class="mhero">
-
-    <!-- Hero Header -->
-    <div class="mhero-hdr">
-      <div>
-        <div class="code">IN</div>
-        <div class="name">India</div>
-      </div>
-      <div class="meta">
-        <span class="risk r-hi" style="font-size:12px;padding:5px 14px">高風險</span>
-        <span class="mau">MAU：Case 34,499 / Control 34,904</span>
-      </div>
-    </div>
-
-    <!-- Pricing Reference Strip -->
-    <div class="pricing-strip">
-      <div class="pc" style="border-top:2px solid var(--accent)">
-        <div class="pc-lbl">Lite（Case 預設）</div>
-        <div class="pc-row"><span class="pc-per">月方案</span><span class="pc-amt">₹90<span class="usd-eq">≈ $0.95</span></span></div>
-        <div class="pc-row"><span class="pc-per">年方案</span><span class="pc-amt">₹550<span class="usd-eq">≈ $5.81</span></span></div>
-        <div class="pc-save">年約省 49%（月均 ₹45.8）</div>
-      </div>
-      <div class="pc">
-        <div class="pc-lbl">STD 新定價（Playback upsell 及 Case 組）</div>
-        <div class="pc-row"><span class="pc-per">月方案</span><span class="pc-amt">₹149<span class="usd-eq">≈ $1.57</span></span></div>
-        <div class="pc-row"><span class="pc-per">年方案</span><span class="pc-amt">₹829<span class="usd-eq">≈ $8.75</span></span></div>
-        <div class="pc-save">年約省 54%（月均 ₹69.1）</div>
-      </div>
-      <div class="pc dim">
-        <div class="pc-lbl">STD 舊定價（Control 主力）</div>
-        <div class="pc-row"><span class="pc-per">月方案</span><span class="pc-amt">₹199<span class="usd-eq">≈ $2.10</span></span></div>
-        <div class="pc-row"><span class="pc-per">年方案</span><span class="pc-amt">₹799<span class="usd-eq">≈ $8.44</span></span></div>
-        <div class="pc-save" style="color:var(--text-muted)">年約省 67%（月均 ₹66.6）</div>
-      </div>
-    </div>
-
-    <!-- ─ LAYER 01: Conversion ─ -->
-    <div class="layer">
-      <div class="layer-hdr">
-        <span class="layer-num">LAYER 01</span>
-        <span class="layer-ttl">轉換效果有多強？</span>
-        <span class="layer-q">低價是否真的降低了訂閱門檻？</span>
-      </div>
-      <div class="layer-body">
-        <div>
-          <table class="mt">
-            <thead>
-              <tr><th>指標</th><th>Case</th><th>Control</th><th>倍數</th></tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>MAU → 新訂 CVR</td>
-                <td class="mono case-bg">3.32%</td>
-                <td class="mono">1.90%</td>
-                <td class="mono" style="color:var(--accent);font-weight:800">1.75×</td>
-              </tr>
-              <tr>
-                <td>Paywall → 新訂 CVR</td>
-                <td class="mono case-bg">2.53%</td>
-                <td class="mono">1.83%</td>
-                <td class="mono" style="color:var(--accent);font-weight:800">1.38×</td>
-              </tr>
-              <tr>
-                <td>Paywall 觸及率（PV/MAU）</td>
-                <td class="mono case-bg">131%</td>
-                <td class="mono">104%</td>
-                <td class="mono dim">1.26×</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="insight">
-          <p>Case 同時在兩個維度取得優勢：<strong>Paywall 觸及率高出 26%</strong>，且每次展示的轉換率也高出 <strong>1.75×</strong>。</p>
-          <p>低價不只讓更多人願意訂閱，也讓更多人主動點進付費頁——雙層效果，但幅度屬正常範圍（非數量級差異）。</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- ─ LAYER 02: User Quality ─ -->
-    <div class="layer alt">
-      <div class="layer-hdr">
-        <span class="layer-num">LAYER 02</span>
-        <span class="layer-ttl">進來的用戶質量如何？</span>
-        <span class="layer-q">年約佔比 × 歷史續訂率 → 預期 LTV</span>
-      </div>
-      <div class="layer-body">
-        <div>
-          <table class="mt">
-            <thead>
-              <tr><th>方案</th><th>Case</th><th>佔比</th><th>Control</th><th>佔比</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Lite 月費</td><td class="mono case-bg">783</td><td class="mono">68.4%</td><td class="mono">7</td><td class="mono">1.1%</td></tr>
-              <tr class="ann-row"><td>Lite 年費</td><td class="mono">143</td><td class="mono">12.5%</td><td class="mono">1</td><td class="mono">0.2%</td></tr>
-              <tr><td>STD 新月費</td><td class="mono">135</td><td class="mono">11.8%</td><td class="mono">79</td><td class="mono">11.9%</td></tr>
-              <tr class="ann-row"><td>STD 新年費</td><td class="mono">26</td><td class="mono">2.3%</td><td class="mono">19</td><td class="mono">2.9%</td></tr>
-              <tr><td>STD 舊月費</td><td class="mono">12</td><td class="mono">1.0%</td><td class="mono case-bg">373</td><td class="mono">56.2%</td></tr>
-              <tr class="ann-row"><td>STD 舊年費</td><td class="mono">2</td><td class="mono">0.2%</td><td class="mono case-bg">158</td><td class="mono">23.8%</td></tr>
-              <tr><td>Plus 月費</td><td class="mono">26</td><td class="mono">2.3%</td><td class="mono">8</td><td class="mono">1.2%</td></tr>
-              <tr class="ann-row"><td>Plus 年費</td><td class="mono">18</td><td class="mono">1.6%</td><td class="mono">19</td><td class="mono">2.9%</td></tr>
-              <tr style="font-weight:700">
-                <td>年費合計</td>
-                <td class="mono red-bg">189</td><td class="mono red-bg">16.5%</td>
-                <td class="mono">197</td><td class="mono">29.7%</td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="calc">
-            <div class="calc-lbl">月費 vs 年費 LTV 比較（歷史 2.62 次平均付款）</div>
-            <table class="mt" style="margin-top:6px">
-              <thead><tr><th>方案</th><th>月費預期 LTV</th><th>年費 LTV</th><th>年費優勢</th><th>建議</th></tr></thead>
-              <tbody>
-                <tr>
-                  <td>Lite</td>
-                  <td class="mono">₹90 × 2.62 = ₹236<br><span style="font-size:10px;color:var(--text-dim)">≈ $2.49</span></td>
-                  <td class="mono">₹550<br><span style="font-size:10px;color:var(--text-dim)">≈ $5.81</span></td>
-                  <td class="mono metric-hi">2.33×</td>
-                  <td><span class="rec-hi">強烈推年費</span></td>
-                </tr>
-                <tr>
-                  <td>STD 新</td>
-                  <td class="mono">₹149 × 2.62 = ₹390<br><span style="font-size:10px;color:var(--text-dim)">≈ $4.12</span></td>
-                  <td class="mono">₹829<br><span style="font-size:10px;color:var(--text-dim)">≈ $8.75</span></td>
-                  <td class="mono metric-hi">2.12×</td>
-                  <td><span class="rec-hi">強烈推年費</span></td>
-                </tr>
-                <tr>
-                  <td>STD 舊</td>
-                  <td class="mono">₹199 × 2.62 = ₹521<br><span style="font-size:10px;color:var(--text-dim)">≈ $5.50</span></td>
-                  <td class="mono">₹799<br><span style="font-size:10px;color:var(--text-dim)">≈ $8.44</span></td>
-                  <td class="mono metric-hi">1.53×</td>
-                  <td><span class="rec-mid">推年費</span></td>
-                </tr>
-              </tbody>
-            </table>
-            <div class="calc-hl">IN 首次續訂率 40.7% — 月費用戶逾半在第一個月流失，年費優勢尤其顯著</div>
-          </div>
-        </div>
-        <div class="insight red">
-          <p>IN 歷史月訂用戶有 <strong>59.3% 不會在第一個月後續訂</strong>（首次續訂率 40.7%）。</p>
-          <p>Case 組 83.5% 是月訂，代表多數新用戶可能在第一個月後流失。</p>
-          <p>年訂 LTV 幾乎是月訂的 2.3 倍，但 Case 的年訂佔比反而比 Control 更低——這是 IN 最核心的問題。</p>
-          <p style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border-light);font-size:12px;color:var(--text-muted)">
-            舊 STD 年約折扣（67%）遠大於 Lite 年約（49%），這可能解釋了為什麼 Control 用戶更傾向選年約。
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- ─ LAYER 03: Revenue Gap ─ -->
-    <div class="layer">
-      <div class="layer-hdr">
-        <span class="layer-num">LAYER 03</span>
-        <span class="layer-ttl">現在的收益缺口有多大？</span>
-        <span class="layer-q">CVR 優勢能否補上 ARPU 差距？</span>
-      </div>
-      <div class="layer-body">
-        <div>
-          <table class="mt">
-            <thead>
-              <tr><th>指標</th><th>Case</th><th>Control</th><th>Δ</th></tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Rev / 主活</td>
-                <td class="mono metric-lo">$0.06</td>
-                <td class="mono">$0.07</td>
-                <td class="mono neg">−14%</td>
-              </tr>
-              <tr>
-                <td>Rev / Sub. Pageview</td>
-                <td class="mono metric-lo">$0.04</td>
-                <td class="mono">$0.07</td>
-                <td class="mono neg">−43%</td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="break-note">
-            <strong>追平倍數算法：</strong>追平倍數 = Control Rev/Sub ÷ Case Rev/Sub。
-            代表「每 1 位 Control 訂閱者，Case 需要 N 位才能達到相同收益」。
-            若實際訂閱量倍數 ≥ 追平倍數 → Case 總收益領先；反之落後。
-          </div>
-          <div class="calc">
-            <div class="calc-lbl">收益追平所需的訂閱量倍數</div>
-            <div class="calc-row">
-              <span>Control ARPU（以舊 STD 月訂為主）</span>
-              <span class="calc-val">₹199 × 2.62 = ₹522</span>
-            </div>
-            <div class="calc-row">
-              <span>Case ARPU（Lite 加權）</span>
-              <span class="calc-val">₹288</span>
-            </div>
-            <div class="calc-row">
-              <span style="font-size:11px;color:var(--text-dim)">0.835×(90×2.62) + 0.165×550</span>
-              <span></span>
-            </div>
-            <div class="calc-row">
-              <span>追平所需倍數</span>
-              <span class="calc-val">₹522 ÷ ₹288 = <strong>1.81×</strong></span>
-            </div>
-            <div class="calc-hl">目前 Case 訂閱量倍數：~1.75× → 缺口僅剩 3%</div>
-          </div>
-        </div>
-        <div class="insight">
-          <p>Rev/MAU 差距僅 <strong>−14%</strong>，但這個數字偏樂觀——它是基於第一筆付款，沒有反映月訂的高流失率。</p>
-          <p>Rev/Pageview 的 <strong>−43%</strong> 是更誠實的效率指標：Case 需要更多次 paywall 展示才能拿到相近的收益。</p>
-          <p>好消息是：追平所需的倍數（1.81×）與目前實際倍數（~1.75×）非常接近，<strong>只需改善一個環節就有機會翻正</strong>。</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- ─ LAYER 04: Pricing Paths ─ -->
-    <div class="layer alt">
-      <div class="layer-hdr">
-        <span class="layer-num">LAYER 04</span>
-        <span class="layer-ttl">調價空間在哪裡？</span>
-        <span class="layer-q">CVR 彈性預算 × 三條可選路徑</span>
-      </div>
-
-      <div class="elasticity-note">
-        <div class="en-lbl">CVR 彈性預算</div>
-        月費調漲後，若 CVR 下降不超過 <strong>約 35%</strong>（訂閱倍數從 1.75× 降至 1.14×），Rev/MAU 仍可維持在 Control 水準。這是調漲月費的最大安全空間。
-      </div>
-
-      <div class="paths">
-        <!-- Path A -->
-        <div class="path-card">
-          <div class="path-id pid-a">A</div>
-          <div>
-            <div class="path-ttl">提高年約吸引力（不動月費）</div>
-            <div class="path-desc">
-              Lite 年約（₹550）折扣率 49%，遠低於舊 STD 的 67%。
-              優化年約在付費頁的呈現方式，或小幅降低年費至 ₹490–₹520。
-              CVR 不受影響，為最低風險路徑。
-            </div>
-            <span class="path-calc">年約佔比 16.5% → 30%，預期 LTV/sub 提升 +14.6%，恰好填補缺口</span>
-          </div>
-          <span class="path-tag tag-first">優先嘗試</span>
-        </div>
-
-        <!-- Path B -->
-        <div class="path-card">
-          <div class="path-id pid-b">B</div>
-          <div>
-            <div class="path-ttl">月費調漲 + 年約小改善（並行）</div>
-            <div class="path-desc">
-              年約佔比小幅提升至 23%，同時月費調至 ₹100（+11%）。
-              各自幅度較小，合力填補缺口，CVR 風險分散。
-            </div>
-            <span class="path-calc">月費 ₹90 → ₹100 (+11%) + 年約 16.5% → 23%</span>
-          </div>
-          <span class="path-tag tag-second">備選方案</span>
-        </div>
-
-        <!-- Path C -->
-        <div class="path-card">
-          <div class="path-id pid-c">C</div>
-          <div>
-            <div class="path-ttl">月費單獨調漲（最後手段）</div>
-            <div class="path-desc">
-              要靠月費漲價單獨填補缺口，需漲至約 ₹109（+21%）。
-              IN 為高度價格敏感市場，建議等有 CVR 彈性的實驗數據後才考慮。
-            </div>
-            <span class="path-calc">月費 ₹90 → ₹109（+21%），保持年費不變</span>
-          </div>
-          <span class="path-tag tag-last">需數據支撐</span>
-        </div>
-      </div>
-
-    </div><!-- /layer 04 -->
-
-  </div><!-- /mhero -->
-</section>
-
-<!-- ══════════════════════════════════════════════════════
-     ID DEEP DIVE
-     Source: updated raw data + 續訂表現 26/06/24 updated
-═══════════════════════════════════════════════════════ -->
-<section class="section">
-  <div class="section-hdr">
-    <span class="section-title">ID 市場深度解讀</span>
-    <span class="section-src">Indonesia · 四層分析</span>
-  </div>
-
-  <div class="mhero">
-
-    <!-- Hero Header -->
-    <div class="mhero-hdr">
-      <div>
-        <div class="code">ID</div>
-        <div class="name">Indonesia</div>
-      </div>
-      <div class="meta">
-        <span class="risk r-mid" style="font-size:12px;padding:5px 14px">觀察中</span>
-        <span class="mau">MAU：Case 5,258 / Control 5,255</span>
-      </div>
-    </div>
-
-    <!-- Pricing Reference Strip -->
-    <div class="pricing-strip">
-      <div class="pc" style="border-top:2px solid var(--accent)">
-        <div class="pc-lbl">Lite（Case 預設）</div>
-        <div class="pc-row"><span class="pc-per">月方案</span><span class="pc-amt">Rp 16,500<span class="usd-eq">≈ $0.92</span></span></div>
-        <div class="pc-row"><span class="pc-per">年方案</span><span class="pc-amt">Rp 100,000<span class="usd-eq">≈ $5.58</span></span></div>
-        <div class="pc-save">年約省 50%（月均 Rp 8,333）</div>
-      </div>
-      <div class="pc">
-        <div class="pc-lbl">STD 新定價（Playback upsell 及 Case 組）</div>
-        <div class="pc-row"><span class="pc-per">月方案</span><span class="pc-amt">Rp 25,000<span class="usd-eq">≈ $1.39</span></span></div>
-        <div class="pc-row"><span class="pc-per">年方案</span><span class="pc-amt">Rp 150,000<span class="usd-eq">≈ $8.37</span></span></div>
-        <div class="pc-save">年約省 50%（月均 Rp 12,500）</div>
-      </div>
-      <div class="pc dim">
-        <div class="pc-lbl">STD 舊定價（Control 主力）</div>
-        <div class="pc-row"><span class="pc-per">月方案</span><span class="pc-amt">Rp 19,000<span class="usd-eq">≈ $1.06</span></span></div>
-        <div class="pc-row"><span class="pc-per">年方案</span><span class="pc-amt">Rp 79,000<span class="usd-eq">≈ $4.41</span></span></div>
-        <div class="pc-save" style="color:var(--red)">⚠ 舊年費 Rp 79,000 比 Lite 年費 Rp 100,000 便宜</div>
-      </div>
-    </div>
-
-    <!-- ─ LAYER 01: Conversion ─ -->
-    <div class="layer">
-      <div class="layer-hdr">
-        <span class="layer-num">LAYER 01</span>
-        <span class="layer-ttl">轉換效果有多強？</span>
-        <span class="layer-q">Lite 月費 Rp 16,500 vs 舊 STD Rp 19,000，門檻差異只有 15%</span>
-      </div>
-      <div class="layer-body">
-        <div>
-          <table class="mt">
-            <thead>
-              <tr><th>指標</th><th>Case</th><th>Control</th><th>倍數</th></tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>MAU → 新訂 CVR</td>
-                <td class="mono metric-hi">6.07%</td>
-                <td class="mono">4.64%</td>
-                <td class="mono" style="color:var(--accent);font-weight:800">1.31×</td>
-              </tr>
-              <tr>
-                <td>Paywall → 新訂 CVR</td>
-                <td class="mono metric-lo">3.26%</td>
-                <td class="mono">3.65%</td>
-                <td class="mono neg">0.89× ▼</td>
-              </tr>
-              <tr>
-                <td>Paywall 觸及率（PV/MAU）</td>
-                <td class="mono metric-hi">186%</td>
-                <td class="mono">127%</td>
-                <td class="mono" style="color:var(--accent)">1.46×</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="insight">
-          <p>ID 的 CVR 提升模式特殊：Case MAU-CVR 高於 Control（1.31×），但每次 paywall 展示的轉換率反而更低（0.89×）。</p>
-          <p>Case 靠<strong>更多的 paywall 曝光次數</strong>（+46%）拉升整體訂閱量，而非每次展示更有效。根本原因是 Lite（Rp 16,500）與舊 STD（Rp 19,000）只差 15%，吸引力差異不夠顯著。</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- ─ LAYER 02: User Quality ─ -->
-    <div class="layer alt">
-      <div class="layer-hdr">
-        <span class="layer-num">LAYER 02</span>
-        <span class="layer-ttl">進來的用戶質量如何？</span>
-        <span class="layer-q">年約佔比 × 歷史續訂率 → 預期 LTV</span>
-      </div>
-      <div class="layer-body">
-        <div>
-          <table class="mt">
-            <thead>
-              <tr><th>方案</th><th>Case</th><th>佔比</th><th>Control</th><th>佔比</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Lite 月費</td><td class="mono case-bg">185</td><td class="mono">58.0%</td><td class="mono">1</td><td class="mono">0.4%</td></tr>
-              <tr class="ann-row"><td>Lite 年費</td><td class="mono">55</td><td class="mono">17.2%</td><td class="mono">2</td><td class="mono">0.8%</td></tr>
-              <tr><td>STD 新月費</td><td class="mono">41</td><td class="mono">12.9%</td><td class="mono">25</td><td class="mono">10.2%</td></tr>
-              <tr class="ann-row"><td>STD 新年費</td><td class="mono">15</td><td class="mono">4.7%</td><td class="mono">8</td><td class="mono">3.3%</td></tr>
-              <tr><td>STD 舊月費</td><td class="mono">2</td><td class="mono">0.6%</td><td class="mono case-bg">146</td><td class="mono">59.8%</td></tr>
-              <tr class="ann-row"><td>STD 舊年費</td><td class="mono">1</td><td class="mono">0.3%</td><td class="mono case-bg">52</td><td class="mono">21.3%</td></tr>
-              <tr><td>Plus 月費</td><td class="mono">13</td><td class="mono">4.1%</td><td class="mono">6</td><td class="mono">2.5%</td></tr>
-              <tr class="ann-row"><td>Plus 年費</td><td class="mono">7</td><td class="mono">2.2%</td><td class="mono">4</td><td class="mono">1.6%</td></tr>
-              <tr style="font-weight:700">
-                <td>年費合計</td>
-                <td class="mono red-bg">78</td><td class="mono red-bg">24.4%</td>
-                <td class="mono">66</td><td class="mono">27.0%</td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="calc">
-            <div class="calc-lbl">月費 vs 年費 LTV 比較（歷史 2.36 次續訂 = 3.36 次總付款）</div>
-            <table class="mt" style="margin-top:6px">
-              <thead><tr><th>方案</th><th>月費預期 LTV</th><th>年費 LTV</th><th>年費優勢</th><th>建議</th></tr></thead>
-              <tbody>
-                <tr>
-                  <td>Lite</td>
-                  <td class="mono">Rp 16,500 × 3.36 = Rp 55,440<br><span style="font-size:10px;color:var(--text-dim)">≈ $3.09</span></td>
-                  <td class="mono">Rp 100,000<br><span style="font-size:10px;color:var(--text-dim)">≈ $5.58</span></td>
-                  <td class="mono metric-hi">1.80×</td>
-                  <td><span class="rec-hi">推年費</span></td>
-                </tr>
-                <tr>
-                  <td>STD 新</td>
-                  <td class="mono">Rp 25,000 × 3.36 = Rp 84,000<br><span style="font-size:10px;color:var(--text-dim)">≈ $4.69</span></td>
-                  <td class="mono">Rp 150,000<br><span style="font-size:10px;color:var(--text-dim)">≈ $8.37</span></td>
-                  <td class="mono metric-hi">1.79×</td>
-                  <td><span class="rec-hi">推年費</span></td>
-                </tr>
-                <tr>
-                  <td>STD 舊</td>
-                  <td class="mono">Rp 19,000 × 3.36 = Rp 63,840<br><span style="font-size:10px;color:var(--text-dim)">≈ $3.56</span></td>
-                  <td class="mono">Rp 79,000<br><span style="font-size:10px;color:var(--text-dim)">≈ $4.41</span></td>
-                  <td class="mono metric-hi">1.24×</td>
-                  <td><span class="rec-mid">邊際優勢</span></td>
-                </tr>
-              </tbody>
-            </table>
-            <div class="calc-hl">⚠ Lite 年費（$5.58）vs 舊 STD 年費（$4.41）— Lite 年費更貴，需調降才有競爭力</div>
-          </div>
-        </div>
-        <div class="insight red">
-          <p>ID 的核心定價問題：<strong>Lite 年費（Rp 100,000）比舊 STD 年費（Rp 79,000）貴 27%</strong>。</p>
-          <p>對想選年費的用戶來說，Control 組舊 STD 年費反而更划算，這壓低了 Case 的年費佔比（24.4% vs Control 27.0%）。</p>
-          <p style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border-light);font-size:12px;color:var(--text-muted)">
-            調降 Lite 年費至 Rp 79,000 以下，可同步提升年費佔比與整體 LTV 組合。
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- ─ LAYER 03: Revenue Gap ─ -->
-    <div class="layer">
-      <div class="layer-hdr">
-        <span class="layer-num">LAYER 03</span>
-        <span class="layer-ttl">現在的收益缺口有多大？</span>
-        <span class="layer-q">CVR 優勢已足夠補上 ARPU 差距？</span>
-      </div>
-      <div class="layer-body">
-        <div>
-          <table class="mt">
-            <thead>
-              <tr><th>指標</th><th>Case</th><th>Control</th><th>Δ</th></tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Rev / 主活</td>
-                <td class="mono metric-hi">$0.115</td>
-                <td class="mono">$0.108</td>
-                <td class="mono pos">+6.5%</td>
-              </tr>
-              <tr>
-                <td>Rev / Sub（每位訂閱者）</td>
-                <td class="mono metric-lo">$1.89</td>
-                <td class="mono">$2.32</td>
-                <td class="mono neg">−19%</td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="break-note">
-            <strong>追平倍數算法：</strong>追平倍數 = Control Rev/Sub ÷ Case Rev/Sub。
-            代表「每 1 位 Control 訂閱者，Case 需要 N 位才能達到相同收益」。
-            若實際訂閱量倍數 ≥ 追平倍數 → Case 總收益領先；反之落後。
-          </div>
-          <div class="calc">
-            <div class="calc-lbl">收益追平分析</div>
-            <div class="calc-row">
-              <span>Control ARPU（舊 STD 為主）</span>
-              <span class="calc-val">$2.32 / sub</span>
-            </div>
-            <div class="calc-row">
-              <span>Case ARPU（Lite 加權）</span>
-              <span class="calc-val">$1.89 / sub</span>
-            </div>
-            <div class="calc-row">
-              <span>追平所需訂閱量倍數</span>
-              <span class="calc-val">$2.32 ÷ $1.89 = <strong>1.23×</strong></span>
-            </div>
-            <div class="calc-hl">實際倍數 1.31× &gt; 1.23×，Case Rev/MAU 已超越 Control</div>
-          </div>
-        </div>
-        <div class="insight">
-          <p>ID 是目前實驗中唯一 <strong>Case Rev/MAU 已超越 Control</strong> 的市場（+6.5%）。</p>
-          <p>原因：ID 的 Lite vs 舊 STD 月費差距只有 15%，ARPU 缺口小（1.23× 即可追平）；Case 的 1.31× 訂閱量優勢已足夠補足。</p>
-          <p>此結果的脆弱點：Lite 年費定價問題未修正的話，長期 LTV 組合改善有限。</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- ─ LAYER 04: Pricing Paths ─ -->
-    <div class="layer alt">
-      <div class="layer-hdr">
-        <span class="layer-num">LAYER 04</span>
-        <span class="layer-ttl">下一步優化方向</span>
-        <span class="layer-q">修正年費定價結構 × 強化 upsell 路徑</span>
-      </div>
-
-      <div class="paths">
-        <!-- Path A -->
-        <div class="path-card">
-          <div class="path-id pid-a">A</div>
-          <div>
-            <div class="path-ttl">修正 Lite 年費定價（優先）</div>
-            <div class="path-desc">
-              Lite 年費（Rp 100,000）比舊 STD 年費（Rp 79,000）貴，是明確的結構性問題。
-              調降至 Rp 69,000–79,000，讓 Lite 在月費和年費上都更具競爭力。
-              年費佔比預期從 24.4% 提升，LTV 組合同步改善。
-            </div>
-            <span class="path-calc">Lite 年費 Rp 100,000 → Rp 75,000，折扣率從 50% 提升至 62%</span>
-          </div>
-          <span class="path-tag tag-first">優先修正</span>
-        </div>
-
-        <!-- Path B -->
-        <div class="path-card">
-          <div class="path-id pid-b">B</div>
-          <div>
-            <div class="path-ttl">完善 Lite → 新 STD Upsell 入口</div>
-            <div class="path-desc">
-              新 STD 月費（Rp 25,000）比 Lite 貴 52%，upsell ARPU 提升空間明確。
-              Case 已有 56 位自主選擇新 STD（17.6%），顯示有機意願存在。
-              Upsell 入口完善後，可加速高 ARPU 用戶轉換。
-            </div>
-            <span class="path-calc">upsell 比例達 25% → Rev/MAU 預估再提升 8–10%</span>
-          </div>
-          <span class="path-tag tag-second">備選方案</span>
-        </div>
-
-        <!-- Path C -->
-        <div class="path-card">
-          <div class="path-id pid-c">C</div>
-          <div>
-            <div class="path-ttl">維持現況並持續觀察</div>
-            <div class="path-desc">
-              Rev/MAU 已領先 Control +6.5%，短期穩定。
-              不建議調漲月費——現有 CVR 倍數（1.31×）無足夠彈性空間，且月費差距本就小。
-              主要行動是執行 A、B 路徑，同時監控年費佔比趨勢。
-            </div>
-            <span class="path-calc">月費 Rp 16,500 維持，觀察修正年費後年費佔比的變化</span>
-          </div>
-          <span class="path-tag tag-last">持續監控</span>
-        </div>
-      </div>
-
-    </div><!-- /layer 04 -->
-
-  </div><!-- /mhero -->
-</section>
-
-<!-- ══════════════════════════════════════════════════════
-     TR DEEP DIVE
-     Source: updated raw data + 續訂表現 26/06/24 updated
-═══════════════════════════════════════════════════════ -->
-<section class="section">
-  <div class="section-hdr">
-    <span class="section-title">TR 市場深度解讀</span>
-    <span class="section-src">Turkey · 四層分析</span>
-  </div>
-
-  <div class="mhero">
-
-    <!-- Hero Header -->
-    <div class="mhero-hdr">
-      <div>
-        <div class="code">TR</div>
-        <div class="name">Turkey</div>
-      </div>
-      <div class="meta">
-        <span class="risk r-lo" style="font-size:12px;padding:5px 14px">低風險</span>
-        <span class="mau">MAU：Case 8,247 / Control 8,293</span>
-      </div>
-    </div>
-
-    <!-- Pricing Reference Strip -->
-    <div class="pricing-strip">
-      <div class="pc" style="border-top:2px solid var(--accent)">
-        <div class="pc-lbl">Lite（Case 預設）</div>
-        <div class="pc-row"><span class="pc-per">月方案</span><span class="pc-amt">₺35<span class="usd-eq">≈ $0.75</span></span></div>
-        <div class="pc-row"><span class="pc-per">年方案</span><span class="pc-amt">₺214.99<span class="usd-eq">≈ $4.62</span></span></div>
-        <div class="pc-save">年約省 49%（月均 ₺17.9）</div>
-      </div>
-      <div class="pc">
-        <div class="pc-lbl">STD 新定價（Playback upsell 及 Case 組）</div>
-        <div class="pc-row"><span class="pc-per">月方案</span><span class="pc-amt">₺49.99<span class="usd-eq">≈ $1.08</span></span></div>
-        <div class="pc-row"><span class="pc-per">年方案</span><span class="pc-amt">₺329.99<span class="usd-eq">≈ $7.10</span></span></div>
-        <div class="pc-save">年約省 45%（月均 ₺27.5）</div>
-      </div>
-      <div class="pc dim">
-        <div class="pc-lbl">STD 舊定價（Control 主力）</div>
-        <div class="pc-row"><span class="pc-per">月方案</span><span class="pc-amt">₺199.99<span class="usd-eq">≈ $4.30</span></span></div>
-        <div class="pc-row"><span class="pc-per">年方案</span><span class="pc-amt">₺999.99<span class="usd-eq">≈ $21.51</span></span></div>
-        <div class="pc-save" style="color:var(--text-muted)">比 Lite 月費高 5.7×（通膨調整後歷史高點）</div>
-      </div>
-    </div>
-
-    <!-- ─ LAYER 01: Conversion ─ -->
-    <div class="layer">
-      <div class="layer-hdr">
-        <span class="layer-num">LAYER 01</span>
-        <span class="layer-ttl">轉換效果有多強？</span>
-        <span class="layer-q">舊 STD ₺199.99 → Lite ₺35，是九個市場最大的降價幅度（5.7×）</span>
-      </div>
-      <div class="layer-body">
-        <div>
-          <table class="mt">
-            <thead>
-              <tr><th>指標</th><th>Case</th><th>Control</th><th>倍數</th></tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>MAU → 新訂 CVR</td>
-                <td class="mono metric-hi">5.89%</td>
-                <td class="mono">2.31%</td>
-                <td class="mono" style="color:var(--accent);font-weight:800">2.55×</td>
-              </tr>
-              <tr>
-                <td>Paywall → 新訂 CVR</td>
-                <td class="mono metric-hi">7.12%</td>
-                <td class="mono">3.22%</td>
-                <td class="mono" style="color:var(--accent);font-weight:800">2.21×</td>
-              </tr>
-              <tr>
-                <td>Paywall 觸及率（PV/MAU）</td>
-                <td class="mono metric-hi">82.8%</td>
-                <td class="mono">71.9%</td>
-                <td class="mono" style="color:var(--accent)">1.15×</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-        <div class="insight">
-          <p>TR 是同時在<strong>所有指標</strong>取得優勢的市場：更多 paywall 觸及（+15%），且每次展示轉換率也更高（2.21×）。</p>
-          <p>舊 STD 月費 ₺199.99 是通膨調整後的歷史高點，對土耳其用戶門檻極高。Lite ₺35 讓購買力門檻大幅降低，兩層效果同時發揮。</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- ─ LAYER 02: User Quality ─ -->
-    <div class="layer alt">
-      <div class="layer-hdr">
-        <span class="layer-num">LAYER 02</span>
-        <span class="layer-ttl">進來的用戶質量如何？</span>
-        <span class="layer-q">年約佔比 × 歷史續訂率 → 預期 LTV</span>
-      </div>
-      <div class="layer-body">
-        <div>
-          <table class="mt">
-            <thead>
-              <tr><th>方案</th><th>Case</th><th>佔比</th><th>Control</th><th>佔比</th></tr>
-            </thead>
-            <tbody>
-              <tr><td>Lite 月費</td><td class="mono case-bg">219</td><td class="mono">45.1%</td><td class="mono">0</td><td class="mono">—</td></tr>
-              <tr class="ann-row"><td>Lite 年費</td><td class="mono">189</td><td class="mono">38.9%</td><td class="mono">3</td><td class="mono">1.6%</td></tr>
-              <tr><td>STD 新月費</td><td class="mono">30</td><td class="mono">6.2%</td><td class="mono">16</td><td class="mono">8.3%</td></tr>
-              <tr class="ann-row"><td>STD 新年費</td><td class="mono">30</td><td class="mono">6.2%</td><td class="mono">9</td><td class="mono">4.7%</td></tr>
-              <tr><td>STD 舊月費</td><td class="mono">1</td><td class="mono">0.2%</td><td class="mono case-bg">130</td><td class="mono">67.7%</td></tr>
-              <tr class="ann-row"><td>STD 舊年費</td><td class="mono">0</td><td class="mono">—</td><td class="mono case-bg">27</td><td class="mono">14.1%</td></tr>
-              <tr><td>Plus 月費</td><td class="mono">7</td><td class="mono">1.4%</td><td class="mono">0</td><td class="mono">—</td></tr>
-              <tr class="ann-row"><td>Plus 年費</td><td class="mono">10</td><td class="mono">2.1%</td><td class="mono">7</td><td class="mono">3.6%</td></tr>
-              <tr style="font-weight:700">
-                <td>年費合計</td>
-                <td class="mono" style="background:var(--green-bg)">229</td><td class="mono" style="background:var(--green-bg)">47.1%</td>
-                <td class="mono">46</td><td class="mono">24.0%</td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="calc">
-            <div class="calc-lbl">月費 vs 年費 LTV 比較（歷史 1.91 次續訂 = 2.91 次總付款）</div>
-            <table class="mt" style="margin-top:6px">
-              <thead><tr><th>方案</th><th>月費預期 LTV</th><th>年費 LTV</th><th>年費優勢</th><th>建議</th></tr></thead>
-              <tbody>
-                <tr>
-                  <td>Lite</td>
-                  <td class="mono">₺35 × 2.91 = ₺101.85<br><span style="font-size:10px;color:var(--text-dim)">≈ $2.19</span></td>
-                  <td class="mono">₺214.99<br><span style="font-size:10px;color:var(--text-dim)">≈ $4.62</span></td>
-                  <td class="mono metric-hi">2.11×</td>
-                  <td><span class="rec-hi">強烈推年費</span></td>
-                </tr>
-                <tr>
-                  <td>STD 新</td>
-                  <td class="mono">₺49.99 × 2.91 = ₺145.5<br><span style="font-size:10px;color:var(--text-dim)">≈ $3.13</span></td>
-                  <td class="mono">₺329.99<br><span style="font-size:10px;color:var(--text-dim)">≈ $7.10</span></td>
-                  <td class="mono metric-hi">2.27×</td>
-                  <td><span class="rec-hi">強烈推年費</span></td>
-                </tr>
-                <tr>
-                  <td>STD 舊</td>
-                  <td class="mono">₺199.99 × 2.91 = ₺582<br><span style="font-size:10px;color:var(--text-dim)">≈ $12.52</span></td>
-                  <td class="mono">₺999.99<br><span style="font-size:10px;color:var(--text-dim)">≈ $21.51</span></td>
-                  <td class="mono metric-hi">1.72×</td>
-                  <td><span class="rec-mid">推年費</span></td>
-                </tr>
-              </tbody>
-            </table>
-            <div class="calc-hl">TR 年費優勢顯著（Lite 2.11×，STD新 2.27×）— Case 47.1% 年費佔比是最關鍵的成功因素</div>
-          </div>
-        </div>
-        <div class="insight" style="background:var(--green-bg);border-left:3px solid var(--green)">
-          <p>TR Case 年費佔比 <strong>47.1%</strong> 是九個市場中最高水準，遠超 Control 的 24.0%。</p>
-          <p>即使從 ₺199.99 大幅降至 ₺35，土耳其用戶仍主動選擇年費——反映高通膨環境下偏好鎖定長期低價。</p>
-          <p>47.1% 年費佔比是 TR 能在定價降幅最大的情況下仍維持 Rev/MAU 接近 Control 的關鍵原因。</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- ─ LAYER 03: Revenue Gap ─ -->
-    <div class="layer">
-      <div class="layer-hdr">
-        <span class="layer-num">LAYER 03</span>
-        <span class="layer-ttl">現在的收益缺口有多大？</span>
-        <span class="layer-q">每位訂閱者 ARPU 差 2.66×，但訂閱量倍數 2.53× 幾乎補平</span>
-      </div>
-      <div class="layer-body">
-        <div>
-          <table class="mt">
-            <thead>
-              <tr><th>指標</th><th>Case</th><th>Control</th><th>Δ</th></tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Rev / 主活</td>
-                <td class="mono metric-lo">$0.161</td>
-                <td class="mono">$0.169</td>
-                <td class="mono neg">−4.7%</td>
-              </tr>
-              <tr>
-                <td>Rev / Sub（每位訂閱者）</td>
-                <td class="mono metric-lo">$2.74</td>
-                <td class="mono">$7.30</td>
-                <td class="mono neg">−62%</td>
-              </tr>
-            </tbody>
-          </table>
-          <div class="break-note">
-            <strong>追平倍數算法：</strong>追平倍數 = Control Rev/Sub ÷ Case Rev/Sub。
-            代表「每 1 位 Control 訂閱者，Case 需要 N 位才能達到相同收益」。
-            若實際訂閱量倍數 ≥ 追平倍數 → Case 總收益領先；反之落後。
-          </div>
-          <div class="calc">
-            <div class="calc-lbl">收益追平分析</div>
-            <div class="calc-row">
-              <span>Control ARPU（舊 STD 為主）</span>
-              <span class="calc-val">$7.30 / sub</span>
-            </div>
-            <div class="calc-row">
-              <span>Case ARPU（Lite 加權）</span>
-              <span class="calc-val">$2.74 / sub</span>
-            </div>
-            <div class="calc-row">
-              <span>追平所需訂閱量倍數</span>
-              <span class="calc-val">$7.30 ÷ $2.74 = <strong>2.66×</strong></span>
-            </div>
-            <div class="calc-hl">實際倍數 2.53×，差距僅 0.13×，Rev/MAU 缺口 −4.7%</div>
-          </div>
-        </div>
-        <div class="insight">
-          <p>TR 的 Rev/MAU 缺口僅 <strong>−4.7%</strong>，是定價降幅最大（5.7×）但結果最接近損益平衡的市場。</p>
-          <p>每位訂閱者 ARPU 差達 2.66×，但 Case 靠 2.53× 訂閱量幾乎彌補——<strong>缺口只剩 0.13× 的倍數差距</strong>。</p>
-          <p>47.1% 的高年費佔比是關鍵支柱：若 Case 年費佔比相同於 Control 的 24%，Rev/MAU 缺口將擴大至約 −12%。</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- ─ LAYER 04: Pricing Paths ─ -->
-    <div class="layer alt">
-      <div class="layer-hdr">
-        <span class="layer-num">LAYER 04</span>
-        <span class="layer-ttl">下一步優化方向</span>
-        <span class="layer-q">維持年費優勢 × 微幅 upsell → 達成損益平衡</span>
-      </div>
-
-      <div class="elasticity-note">
-        <div class="en-lbl">距離損益平衡</div>
-        Rev/MAU 缺口僅 −4.7%。若每 10 位 Lite 用戶中有 1 位升級至新 STD（10% upsell 率），或年費佔比從 47.1% 提升至約 52%，即可達到損益平衡。需要的改變幅度極小。
-      </div>
-
-      <div class="paths">
-        <!-- Path A -->
-        <div class="path-card">
-          <div class="path-id pid-a">A</div>
-          <div>
-            <div class="path-ttl">持續強化年費促購（維持優勢）</div>
-            <div class="path-desc">
-              47.1% 年費佔比是本實驗最佳表現，須積極維持。
-              Lite 年費 ₺214.99 定價合理（月費 LTV 的 2.11×）。
-              在 paywall 上突出年費性價比（₺17.9/月 vs 月費 ₺35），進一步提升年費選擇率。
-            </div>
-            <span class="path-calc">年費佔比 47.1% → 52%，預估 Rev/MAU 缺口從 −4.7% 縮至約 −2%</span>
-          </div>
-          <span class="path-tag tag-first">優先維持</span>
-        </div>
-
-        <!-- Path B -->
-        <div class="path-card">
-          <div class="path-id pid-b">B</div>
-          <div>
-            <div class="path-ttl">Lite → 新 STD Upsell 完善</div>
-            <div class="path-desc">
-              新 STD 月費 ₺49.99（比 Lite 貴 +43%），年費 ₺329.99（比 Lite 年費貴 +53%）。
-              Case 已有 60 位自主選擇新 STD（12.3%）。
-              每 10% Lite 用戶升級為 STD 月費，Rev/MAU 提升約 4%，足以填補當前缺口。
-            </div>
-            <span class="path-calc">10% Lite → 新 STD 月費 → Rev/MAU 缺口從 −4.7% 縮至約 0%</span>
-          </div>
-          <span class="path-tag tag-second">備選方案</span>
-        </div>
-
-        <!-- Path C -->
-        <div class="path-card">
-          <div class="path-id pid-c">C</div>
-          <div>
-            <div class="path-ttl">輕微調漲 Lite 月費（可選）</div>
-            <div class="path-desc">
-              TR 高通膨環境歷史上支撐高定價（舊 STD 曾 ₺199.99）。
-              Lite ₺35 → ₺39（+11%）在市場接受度上有空間，但優先完成 A、B 路徑，
-              等有 CVR 彈性數據後再評估。
-            </div>
-            <span class="path-calc">Lite 月費 ₺35 → ₺39（+11%），不影響轉換率前提下 Rev/MAU 提升 +11%</span>
-          </div>
-          <span class="path-tag tag-last">需數據支撐</span>
-        </div>
-      </div>
-
-    </div><!-- /layer 04 -->
-
-  </div><!-- /mhero -->
-</section>
-
-<!-- ══════════════════════════════════════════════════════
      CROSS-MARKET OVERVIEW
      Source: 26/06/23 updated
 ═══════════════════════════════════════════════════════ -->
@@ -1619,6 +781,655 @@ table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
 </section>
 
 <!-- ══════════════════════════════════════════════════════
+     IN DEEP DIVE
+═══════════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="section-hdr">
+    <span class="section-title">IN 市場深度解讀</span>
+    <span class="section-src">India · 四層分析</span>
+  </div>
+
+  <div class="mhero">
+
+    <!-- Hero Header -->
+    <div class="mhero-hdr">
+      <div>
+        <div class="code">IN</div>
+        <div class="name">India</div>
+      </div>
+      <div class="meta">
+        <span class="risk r-hi" style="font-size:12px;padding:5px 14px">高風險</span>
+        <span class="mau">MAU：Case 34,499 / Control 34,904</span>
+      </div>
+    </div>
+
+    <!-- Pricing Reference Strip -->
+    <div class="pricing-strip">
+      <div class="pc" style="border-top:2px solid var(--accent)">
+        <div class="pc-lbl">Lite（Case 預設）</div>
+        <div class="pc-row"><span class="pc-per">月方案</span><span class="pc-amt">₹90<span class="usd-eq">≈ $0.95</span></span></div>
+        <div class="pc-row"><span class="pc-per">年方案</span><span class="pc-amt">₹550<span class="usd-eq">≈ $5.81</span></span></div>
+        <div class="pc-save">年約省 49%（月均 ₹45.8）</div>
+      </div>
+      <div class="pc">
+        <div class="pc-lbl">STD 新定價（Playback upsell 及 Case 組）</div>
+        <div class="pc-row"><span class="pc-per">月方案</span><span class="pc-amt">₹149<span class="usd-eq">≈ $1.57</span></span></div>
+        <div class="pc-row"><span class="pc-per">年方案</span><span class="pc-amt">₹829<span class="usd-eq">≈ $8.75</span></span></div>
+        <div class="pc-save">年約省 54%（月均 ₹69.1）</div>
+      </div>
+      <div class="pc dim">
+        <div class="pc-lbl">STD 舊定價（Control 主力）</div>
+        <div class="pc-row"><span class="pc-per">月方案</span><span class="pc-amt">₹199<span class="usd-eq">≈ $2.10</span></span></div>
+        <div class="pc-row"><span class="pc-per">年方案</span><span class="pc-amt">₹799<span class="usd-eq">≈ $8.44</span></span></div>
+        <div class="pc-save" style="color:var(--text-muted)">年約省 67%（月均 ₹66.6）</div>
+      </div>
+    </div>
+
+    <!-- ─ LAYER 01: Conversion ─ -->
+    <div class="layer">
+      <div class="layer-hdr">
+        <span class="layer-num">LAYER 01</span>
+        <span class="layer-ttl">轉換效果有多強？</span>
+        <span class="layer-q">低價是否真的降低了訂閱門檻？</span>
+      </div>
+      <div class="layer-body">
+        <div>
+          <table class="mt">
+            <thead>
+              <tr><th>指標</th><th>Case</th><th>Control</th><th>倍數</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>MAU → 新訂 CVR</td>
+                <td class="mono case-bg">3.32%</td>
+                <td class="mono">1.90%</td>
+                <td class="mono" style="color:var(--accent);font-weight:800">1.75×</td>
+              </tr>
+              <tr>
+                <td>Paywall → 新訂 CVR</td>
+                <td class="mono case-bg">2.53%</td>
+                <td class="mono">1.83%</td>
+                <td class="mono" style="color:var(--accent);font-weight:800">1.38×</td>
+              </tr>
+              <tr>
+                <td>Paywall 觸及率（PV/MAU）</td>
+                <td class="mono case-bg">131%</td>
+                <td class="mono">104%</td>
+                <td class="mono dim">1.26×</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="insight">
+          <p>Case 同時在兩個維度取得優勢：<strong>Paywall 觸及率高出 26%</strong>，且每次展示的轉換率也高出 <strong>1.75×</strong>。</p>
+          <p>低價不只讓更多人願意訂閱，也讓更多人主動點進付費頁——雙層效果，但幅度屬正常範圍（非數量級差異）。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─ LAYER 02: User Quality ─ -->
+    <div class="layer alt">
+      <div class="layer-hdr">
+        <span class="layer-num">LAYER 02</span>
+        <span class="layer-ttl">進來的用戶質量如何？</span>
+        <span class="layer-q">年約佔比 × 歷史續訂率 → 預期 LTV</span>
+      </div>
+      <div class="layer-body">
+        <div>
+          <table class="mt">
+            <thead>
+              <tr><th>方案</th><th>Case</th><th>佔比</th><th>Control</th><th>佔比</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Lite 月費</td><td class="mono case-bg">783</td><td class="mono">68.4%</td><td class="mono">7</td><td class="mono">1.1%</td></tr>
+              <tr class="ann-row"><td>Lite 年費</td><td class="mono">143</td><td class="mono">12.5%</td><td class="mono">1</td><td class="mono">0.2%</td></tr>
+              <tr><td>STD 新月費</td><td class="mono">135</td><td class="mono">11.8%</td><td class="mono">79</td><td class="mono">11.9%</td></tr>
+              <tr class="ann-row"><td>STD 新年費</td><td class="mono">26</td><td class="mono">2.3%</td><td class="mono">19</td><td class="mono">2.9%</td></tr>
+              <tr><td>STD 舊月費</td><td class="mono">12</td><td class="mono">1.0%</td><td class="mono case-bg">373</td><td class="mono">56.2%</td></tr>
+              <tr class="ann-row"><td>STD 舊年費</td><td class="mono">2</td><td class="mono">0.2%</td><td class="mono case-bg">158</td><td class="mono">23.8%</td></tr>
+              <tr><td>Plus 月費</td><td class="mono">26</td><td class="mono">2.3%</td><td class="mono">8</td><td class="mono">1.2%</td></tr>
+              <tr class="ann-row"><td>Plus 年費</td><td class="mono">18</td><td class="mono">1.6%</td><td class="mono">19</td><td class="mono">2.9%</td></tr>
+              <tr style="font-weight:700">
+                <td>年費合計</td>
+                <td class="mono red-bg">189</td><td class="mono red-bg">16.5%</td>
+                <td class="mono">197</td><td class="mono">29.7%</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="calc">
+            <div class="calc-lbl">月費 vs 年費 LTV 比較（歷史 2.62 次平均付款）</div>
+            <table class="mt" style="margin-top:6px">
+              <thead><tr><th>方案</th><th>月費預期 LTV</th><th>年費 LTV</th><th>年費優勢</th><th>建議</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td>Lite</td>
+                  <td class="mono">₹90 × 2.62 = ₹236<br><span style="font-size:10px;color:var(--text-dim)">≈ $2.49</span></td>
+                  <td class="mono">₹550<br><span style="font-size:10px;color:var(--text-dim)">≈ $5.81</span></td>
+                  <td class="mono metric-hi">2.33×</td>
+                  <td><span class="rec-hi">強烈推年費</span></td>
+                </tr>
+                <tr>
+                  <td>STD 新</td>
+                  <td class="mono">₹149 × 2.62 = ₹390<br><span style="font-size:10px;color:var(--text-dim)">≈ $4.12</span></td>
+                  <td class="mono">₹829<br><span style="font-size:10px;color:var(--text-dim)">≈ $8.75</span></td>
+                  <td class="mono metric-hi">2.12×</td>
+                  <td><span class="rec-hi">強烈推年費</span></td>
+                </tr>
+                <tr>
+                  <td>STD 舊</td>
+                  <td class="mono">₹199 × 2.62 = ₹521<br><span style="font-size:10px;color:var(--text-dim)">≈ $5.50</span></td>
+                  <td class="mono">₹799<br><span style="font-size:10px;color:var(--text-dim)">≈ $8.44</span></td>
+                  <td class="mono metric-hi">1.53×</td>
+                  <td><span class="rec-mid">推年費</span></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="calc-hl">IN 首次續訂率 40.7% — 月費用戶逾半在第一個月流失，年費優勢尤其顯著</div>
+          </div>
+        </div>
+        <div class="insight red">
+          <p>IN 歷史月訂用戶有 <strong>59.3% 不會在第一個月後續訂</strong>（首次續訂率 40.7%）。</p>
+          <p>Case 組 83.5% 是月訂，代表多數新用戶可能在第一個月後流失。</p>
+          <p>年訂 LTV 幾乎是月訂的 2.3 倍，但 Case 的年訂佔比反而比 Control 更低——這是 IN 最核心的問題。</p>
+          <p style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border-light);font-size:12px;color:var(--text-muted)">
+            舊 STD 年約折扣（67%）遠大於 Lite 年約（49%），這可能解釋了為什麼 Control 用戶更傾向選年約。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─ LAYER 03: Revenue Gap ─ -->
+    <div class="layer">
+      <div class="layer-hdr">
+        <span class="layer-num">LAYER 03</span>
+        <span class="layer-ttl">現在的收益缺口有多大？</span>
+        <span class="layer-q">CVR 優勢能否補上 ARPU 差距？</span>
+      </div>
+      <div class="layer-body">
+        <div>
+          <table class="mt">
+            <thead>
+              <tr><th>指標</th><th>Case</th><th>Control</th><th>Δ</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Rev / 主活</td>
+                <td class="mono metric-lo">$0.06</td>
+                <td class="mono">$0.07</td>
+                <td class="mono neg">−14%</td>
+              </tr>
+              <tr>
+                <td>Rev / Sub. Pageview</td>
+                <td class="mono metric-lo">$0.04</td>
+                <td class="mono">$0.07</td>
+                <td class="mono neg">−43%</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="break-note">
+            <strong>追平倍數算法：</strong>追平倍數 = Control Rev/Sub ÷ Case Rev/Sub。
+            代表「每 1 位 Control 訂閱者，Case 需要 N 位才能達到相同收益」。
+            若實際訂閱量倍數 ≥ 追平倍數 → Case 總收益領先；反之落後。
+          </div>
+          <div class="calc">
+            <div class="calc-lbl">收益追平所需的訂閱量倍數</div>
+            <div class="calc-row">
+              <span>Control ARPU（以舊 STD 月訂為主）</span>
+              <span class="calc-val">₹199 × 2.62 = ₹522</span>
+            </div>
+            <div class="calc-row">
+              <span>Case ARPU（Lite 加權）</span>
+              <span class="calc-val">₹288</span>
+            </div>
+            <div class="calc-row">
+              <span style="font-size:11px;color:var(--text-dim)">0.835×(90×2.62) + 0.165×550</span>
+              <span></span>
+            </div>
+            <div class="calc-row">
+              <span>追平所需倍數</span>
+              <span class="calc-val">₹522 ÷ ₹288 = <strong>1.81×</strong></span>
+            </div>
+            <div class="calc-hl">目前 Case 訂閱量倍數：~1.75× → 缺口僅剩 3%</div>
+          </div>
+        </div>
+        <div class="insight">
+          <p>Rev/MAU 差距僅 <strong>−14%</strong>，但這個數字偏樂觀——它是基於第一筆付款，沒有反映月訂的高流失率。</p>
+          <p>Rev/Pageview 的 <strong>−43%</strong> 是更誠實的效率指標：Case 需要更多次 paywall 展示才能拿到相近的收益。</p>
+          <p>好消息是：追平所需的倍數（1.81×）與目前實際倍數（~1.75×）非常接近，<strong>只需改善一個環節就有機會翻正</strong>。</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /mhero -->
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     ID DEEP DIVE
+     Source: updated raw data + 續訂表現 26/06/24 updated
+═══════════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="section-hdr">
+    <span class="section-title">ID 市場深度解讀</span>
+    <span class="section-src">Indonesia · 四層分析</span>
+  </div>
+
+  <div class="mhero">
+
+    <!-- Hero Header -->
+    <div class="mhero-hdr">
+      <div>
+        <div class="code">ID</div>
+        <div class="name">Indonesia</div>
+      </div>
+      <div class="meta">
+        <span class="risk r-mid" style="font-size:12px;padding:5px 14px">觀察中</span>
+        <span class="mau">MAU：Case 5,258 / Control 5,255</span>
+      </div>
+    </div>
+
+    <!-- Pricing Reference Strip -->
+    <div class="pricing-strip">
+      <div class="pc" style="border-top:2px solid var(--accent)">
+        <div class="pc-lbl">Lite（Case 預設）</div>
+        <div class="pc-row"><span class="pc-per">月方案</span><span class="pc-amt">Rp 16,500<span class="usd-eq">≈ $0.92</span></span></div>
+        <div class="pc-row"><span class="pc-per">年方案</span><span class="pc-amt">Rp 100,000<span class="usd-eq">≈ $5.58</span></span></div>
+        <div class="pc-save">年約省 50%（月均 Rp 8,333）</div>
+      </div>
+      <div class="pc">
+        <div class="pc-lbl">STD 新定價（Playback upsell 及 Case 組）</div>
+        <div class="pc-row"><span class="pc-per">月方案</span><span class="pc-amt">Rp 25,000<span class="usd-eq">≈ $1.39</span></span></div>
+        <div class="pc-row"><span class="pc-per">年方案</span><span class="pc-amt">Rp 150,000<span class="usd-eq">≈ $8.37</span></span></div>
+        <div class="pc-save">年約省 50%（月均 Rp 12,500）</div>
+      </div>
+      <div class="pc dim">
+        <div class="pc-lbl">STD 舊定價（Control 主力）</div>
+        <div class="pc-row"><span class="pc-per">月方案</span><span class="pc-amt">Rp 19,000<span class="usd-eq">≈ $1.06</span></span></div>
+        <div class="pc-row"><span class="pc-per">年方案</span><span class="pc-amt">Rp 79,000<span class="usd-eq">≈ $4.41</span></span></div>
+        <div class="pc-save" style="color:var(--red)">⚠ 舊年費 Rp 79,000 比 Lite 年費 Rp 100,000 便宜</div>
+      </div>
+    </div>
+
+    <!-- ─ LAYER 01: Conversion ─ -->
+    <div class="layer">
+      <div class="layer-hdr">
+        <span class="layer-num">LAYER 01</span>
+        <span class="layer-ttl">轉換效果有多強？</span>
+        <span class="layer-q">Lite 月費 Rp 16,500 vs 舊 STD Rp 19,000，門檻差異只有 15%</span>
+      </div>
+      <div class="layer-body">
+        <div>
+          <table class="mt">
+            <thead>
+              <tr><th>指標</th><th>Case</th><th>Control</th><th>倍數</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>MAU → 新訂 CVR</td>
+                <td class="mono metric-hi">6.07%</td>
+                <td class="mono">4.64%</td>
+                <td class="mono" style="color:var(--accent);font-weight:800">1.31×</td>
+              </tr>
+              <tr>
+                <td>Paywall → 新訂 CVR</td>
+                <td class="mono metric-lo">3.26%</td>
+                <td class="mono">3.65%</td>
+                <td class="mono neg">0.89× ▼</td>
+              </tr>
+              <tr>
+                <td>Paywall 觸及率（PV/MAU）</td>
+                <td class="mono metric-hi">186%</td>
+                <td class="mono">127%</td>
+                <td class="mono" style="color:var(--accent)">1.46×</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="insight">
+          <p>ID 的 CVR 提升模式特殊：Case MAU-CVR 高於 Control（1.31×），但每次 paywall 展示的轉換率反而更低（0.89×）。</p>
+          <p>Case 靠<strong>更多的 paywall 曝光次數</strong>（+46%）拉升整體訂閱量，而非每次展示更有效。根本原因是 Lite（Rp 16,500）與舊 STD（Rp 19,000）只差 15%，吸引力差異不夠顯著。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─ LAYER 02: User Quality ─ -->
+    <div class="layer alt">
+      <div class="layer-hdr">
+        <span class="layer-num">LAYER 02</span>
+        <span class="layer-ttl">進來的用戶質量如何？</span>
+        <span class="layer-q">年約佔比 × 歷史續訂率 → 預期 LTV</span>
+      </div>
+      <div class="layer-body">
+        <div>
+          <table class="mt">
+            <thead>
+              <tr><th>方案</th><th>Case</th><th>佔比</th><th>Control</th><th>佔比</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Lite 月費</td><td class="mono case-bg">185</td><td class="mono">58.0%</td><td class="mono">1</td><td class="mono">0.4%</td></tr>
+              <tr class="ann-row"><td>Lite 年費</td><td class="mono">55</td><td class="mono">17.2%</td><td class="mono">2</td><td class="mono">0.8%</td></tr>
+              <tr><td>STD 新月費</td><td class="mono">41</td><td class="mono">12.9%</td><td class="mono">25</td><td class="mono">10.2%</td></tr>
+              <tr class="ann-row"><td>STD 新年費</td><td class="mono">15</td><td class="mono">4.7%</td><td class="mono">8</td><td class="mono">3.3%</td></tr>
+              <tr><td>STD 舊月費</td><td class="mono">2</td><td class="mono">0.6%</td><td class="mono case-bg">146</td><td class="mono">59.8%</td></tr>
+              <tr class="ann-row"><td>STD 舊年費</td><td class="mono">1</td><td class="mono">0.3%</td><td class="mono case-bg">52</td><td class="mono">21.3%</td></tr>
+              <tr><td>Plus 月費</td><td class="mono">13</td><td class="mono">4.1%</td><td class="mono">6</td><td class="mono">2.5%</td></tr>
+              <tr class="ann-row"><td>Plus 年費</td><td class="mono">7</td><td class="mono">2.2%</td><td class="mono">4</td><td class="mono">1.6%</td></tr>
+              <tr style="font-weight:700">
+                <td>年費合計</td>
+                <td class="mono red-bg">78</td><td class="mono red-bg">24.4%</td>
+                <td class="mono">66</td><td class="mono">27.0%</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="calc">
+            <div class="calc-lbl">月費 vs 年費 LTV 比較（歷史 2.36 次續訂 = 3.36 次總付款）</div>
+            <table class="mt" style="margin-top:6px">
+              <thead><tr><th>方案</th><th>月費預期 LTV</th><th>年費 LTV</th><th>年費優勢</th><th>建議</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td>Lite</td>
+                  <td class="mono">Rp 16,500 × 3.36 = Rp 55,440<br><span style="font-size:10px;color:var(--text-dim)">≈ $3.09</span></td>
+                  <td class="mono">Rp 100,000<br><span style="font-size:10px;color:var(--text-dim)">≈ $5.58</span></td>
+                  <td class="mono metric-hi">1.80×</td>
+                  <td><span class="rec-hi">推年費</span></td>
+                </tr>
+                <tr>
+                  <td>STD 新</td>
+                  <td class="mono">Rp 25,000 × 3.36 = Rp 84,000<br><span style="font-size:10px;color:var(--text-dim)">≈ $4.69</span></td>
+                  <td class="mono">Rp 150,000<br><span style="font-size:10px;color:var(--text-dim)">≈ $8.37</span></td>
+                  <td class="mono metric-hi">1.79×</td>
+                  <td><span class="rec-hi">推年費</span></td>
+                </tr>
+                <tr>
+                  <td>STD 舊</td>
+                  <td class="mono">Rp 19,000 × 3.36 = Rp 63,840<br><span style="font-size:10px;color:var(--text-dim)">≈ $3.56</span></td>
+                  <td class="mono">Rp 79,000<br><span style="font-size:10px;color:var(--text-dim)">≈ $4.41</span></td>
+                  <td class="mono metric-hi">1.24×</td>
+                  <td><span class="rec-mid">邊際優勢</span></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="calc-hl">⚠ Lite 年費（$5.58）vs 舊 STD 年費（$4.41）— Lite 年費更貴，需調降才有競爭力</div>
+          </div>
+        </div>
+        <div class="insight red">
+          <p>ID 的核心定價問題：<strong>Lite 年費（Rp 100,000）比舊 STD 年費（Rp 79,000）貴 27%</strong>。</p>
+          <p>對想選年費的用戶來說，Control 組舊 STD 年費反而更划算，這壓低了 Case 的年費佔比（24.4% vs Control 27.0%）。</p>
+          <p style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border-light);font-size:12px;color:var(--text-muted)">
+            調降 Lite 年費至 Rp 79,000 以下，可同步提升年費佔比與整體 LTV 組合。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─ LAYER 03: Revenue Gap ─ -->
+    <div class="layer">
+      <div class="layer-hdr">
+        <span class="layer-num">LAYER 03</span>
+        <span class="layer-ttl">現在的收益缺口有多大？</span>
+        <span class="layer-q">CVR 優勢已足夠補上 ARPU 差距？</span>
+      </div>
+      <div class="layer-body">
+        <div>
+          <table class="mt">
+            <thead>
+              <tr><th>指標</th><th>Case</th><th>Control</th><th>Δ</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Rev / 主活</td>
+                <td class="mono metric-hi">$0.115</td>
+                <td class="mono">$0.108</td>
+                <td class="mono pos">+6.5%</td>
+              </tr>
+              <tr>
+                <td>Rev / Sub（每位訂閱者）</td>
+                <td class="mono metric-lo">$1.89</td>
+                <td class="mono">$2.32</td>
+                <td class="mono neg">−19%</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="calc">
+            <div class="calc-lbl">收益追平分析</div>
+            <div class="calc-row">
+              <span>Control ARPU（舊 STD 為主）</span>
+              <span class="calc-val">$2.32 / sub</span>
+            </div>
+            <div class="calc-row">
+              <span>Case ARPU（Lite 加權）</span>
+              <span class="calc-val">$1.89 / sub</span>
+            </div>
+            <div class="calc-row">
+              <span>追平所需訂閱量倍數</span>
+              <span class="calc-val">$2.32 ÷ $1.89 = <strong>1.23×</strong></span>
+            </div>
+            <div class="calc-hl">實際倍數 1.31× &gt; 1.23×，Case Rev/MAU 已超越 Control</div>
+          </div>
+        </div>
+        <div class="insight">
+          <p>ID 是目前實驗中唯一 <strong>Case Rev/MAU 已超越 Control</strong> 的市場（+6.5%）。</p>
+          <p>原因：ID 的 Lite vs 舊 STD 月費差距只有 15%，ARPU 缺口小（1.23× 即可追平）；Case 的 1.31× 訂閱量優勢已足夠補足。</p>
+          <p>此結果的脆弱點：Lite 年費定價問題未修正的話，長期 LTV 組合改善有限。</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /mhero -->
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     TR DEEP DIVE
+     Source: updated raw data + 續訂表現 26/06/24 updated
+═══════════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="section-hdr">
+    <span class="section-title">TR 市場深度解讀</span>
+    <span class="section-src">Turkey · 四層分析</span>
+  </div>
+
+  <div class="mhero">
+
+    <!-- Hero Header -->
+    <div class="mhero-hdr">
+      <div>
+        <div class="code">TR</div>
+        <div class="name">Turkey</div>
+      </div>
+      <div class="meta">
+        <span class="risk r-lo" style="font-size:12px;padding:5px 14px">低風險</span>
+        <span class="mau">MAU：Case 8,247 / Control 8,293</span>
+      </div>
+    </div>
+
+    <!-- Pricing Reference Strip -->
+    <div class="pricing-strip">
+      <div class="pc" style="border-top:2px solid var(--accent)">
+        <div class="pc-lbl">Lite（Case 預設）</div>
+        <div class="pc-row"><span class="pc-per">月方案</span><span class="pc-amt">₺35<span class="usd-eq">≈ $0.75</span></span></div>
+        <div class="pc-row"><span class="pc-per">年方案</span><span class="pc-amt">₺214.99<span class="usd-eq">≈ $4.62</span></span></div>
+        <div class="pc-save">年約省 49%（月均 ₺17.9）</div>
+      </div>
+      <div class="pc">
+        <div class="pc-lbl">STD 新定價（Playback upsell 及 Case 組）</div>
+        <div class="pc-row"><span class="pc-per">月方案</span><span class="pc-amt">₺49.99<span class="usd-eq">≈ $1.08</span></span></div>
+        <div class="pc-row"><span class="pc-per">年方案</span><span class="pc-amt">₺329.99<span class="usd-eq">≈ $7.10</span></span></div>
+        <div class="pc-save">年約省 45%（月均 ₺27.5）</div>
+      </div>
+      <div class="pc dim">
+        <div class="pc-lbl">STD 舊定價（Control 主力）</div>
+        <div class="pc-row"><span class="pc-per">月方案</span><span class="pc-amt">₺199.99<span class="usd-eq">≈ $4.30</span></span></div>
+        <div class="pc-row"><span class="pc-per">年方案</span><span class="pc-amt">₺999.99<span class="usd-eq">≈ $21.51</span></span></div>
+        <div class="pc-save" style="color:var(--text-muted)">比 Lite 月費高 5.7×（通膨調整後歷史高點）</div>
+      </div>
+    </div>
+
+    <!-- ─ LAYER 01: Conversion ─ -->
+    <div class="layer">
+      <div class="layer-hdr">
+        <span class="layer-num">LAYER 01</span>
+        <span class="layer-ttl">轉換效果有多強？</span>
+        <span class="layer-q">舊 STD ₺199.99 → Lite ₺35，是九個市場最大的降價幅度（5.7×）</span>
+      </div>
+      <div class="layer-body">
+        <div>
+          <table class="mt">
+            <thead>
+              <tr><th>指標</th><th>Case</th><th>Control</th><th>倍數</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>MAU → 新訂 CVR</td>
+                <td class="mono metric-hi">5.89%</td>
+                <td class="mono">2.31%</td>
+                <td class="mono" style="color:var(--accent);font-weight:800">2.55×</td>
+              </tr>
+              <tr>
+                <td>Paywall → 新訂 CVR</td>
+                <td class="mono metric-hi">7.12%</td>
+                <td class="mono">3.22%</td>
+                <td class="mono" style="color:var(--accent);font-weight:800">2.21×</td>
+              </tr>
+              <tr>
+                <td>Paywall 觸及率（PV/MAU）</td>
+                <td class="mono metric-hi">82.8%</td>
+                <td class="mono">71.9%</td>
+                <td class="mono" style="color:var(--accent)">1.15×</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="insight">
+          <p>TR 是同時在<strong>所有指標</strong>取得優勢的市場：更多 paywall 觸及（+15%），且每次展示轉換率也更高（2.21×）。</p>
+          <p>舊 STD 月費 ₺199.99 是通膨調整後的歷史高點，對土耳其用戶門檻極高。Lite ₺35 讓購買力門檻大幅降低，兩層效果同時發揮。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─ LAYER 02: User Quality ─ -->
+    <div class="layer alt">
+      <div class="layer-hdr">
+        <span class="layer-num">LAYER 02</span>
+        <span class="layer-ttl">進來的用戶質量如何？</span>
+        <span class="layer-q">年約佔比 × 歷史續訂率 → 預期 LTV</span>
+      </div>
+      <div class="layer-body">
+        <div>
+          <table class="mt">
+            <thead>
+              <tr><th>方案</th><th>Case</th><th>佔比</th><th>Control</th><th>佔比</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Lite 月費</td><td class="mono case-bg">219</td><td class="mono">45.1%</td><td class="mono">0</td><td class="mono">—</td></tr>
+              <tr class="ann-row"><td>Lite 年費</td><td class="mono">189</td><td class="mono">38.9%</td><td class="mono">3</td><td class="mono">1.6%</td></tr>
+              <tr><td>STD 新月費</td><td class="mono">30</td><td class="mono">6.2%</td><td class="mono">16</td><td class="mono">8.3%</td></tr>
+              <tr class="ann-row"><td>STD 新年費</td><td class="mono">30</td><td class="mono">6.2%</td><td class="mono">9</td><td class="mono">4.7%</td></tr>
+              <tr><td>STD 舊月費</td><td class="mono">1</td><td class="mono">0.2%</td><td class="mono case-bg">130</td><td class="mono">67.7%</td></tr>
+              <tr class="ann-row"><td>STD 舊年費</td><td class="mono">0</td><td class="mono">—</td><td class="mono case-bg">27</td><td class="mono">14.1%</td></tr>
+              <tr><td>Plus 月費</td><td class="mono">7</td><td class="mono">1.4%</td><td class="mono">0</td><td class="mono">—</td></tr>
+              <tr class="ann-row"><td>Plus 年費</td><td class="mono">10</td><td class="mono">2.1%</td><td class="mono">7</td><td class="mono">3.6%</td></tr>
+              <tr style="font-weight:700">
+                <td>年費合計</td>
+                <td class="mono" style="background:var(--green-bg)">229</td><td class="mono" style="background:var(--green-bg)">47.1%</td>
+                <td class="mono">46</td><td class="mono">24.0%</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="calc">
+            <div class="calc-lbl">月費 vs 年費 LTV 比較（歷史 1.91 次續訂 = 2.91 次總付款）</div>
+            <table class="mt" style="margin-top:6px">
+              <thead><tr><th>方案</th><th>月費預期 LTV</th><th>年費 LTV</th><th>年費優勢</th><th>建議</th></tr></thead>
+              <tbody>
+                <tr>
+                  <td>Lite</td>
+                  <td class="mono">₺35 × 2.91 = ₺101.85<br><span style="font-size:10px;color:var(--text-dim)">≈ $2.19</span></td>
+                  <td class="mono">₺214.99<br><span style="font-size:10px;color:var(--text-dim)">≈ $4.62</span></td>
+                  <td class="mono metric-hi">2.11×</td>
+                  <td><span class="rec-hi">強烈推年費</span></td>
+                </tr>
+                <tr>
+                  <td>STD 新</td>
+                  <td class="mono">₺49.99 × 2.91 = ₺145.5<br><span style="font-size:10px;color:var(--text-dim)">≈ $3.13</span></td>
+                  <td class="mono">₺329.99<br><span style="font-size:10px;color:var(--text-dim)">≈ $7.10</span></td>
+                  <td class="mono metric-hi">2.27×</td>
+                  <td><span class="rec-hi">強烈推年費</span></td>
+                </tr>
+                <tr>
+                  <td>STD 舊</td>
+                  <td class="mono">₺199.99 × 2.91 = ₺582<br><span style="font-size:10px;color:var(--text-dim)">≈ $12.52</span></td>
+                  <td class="mono">₺999.99<br><span style="font-size:10px;color:var(--text-dim)">≈ $21.51</span></td>
+                  <td class="mono metric-hi">1.72×</td>
+                  <td><span class="rec-mid">推年費</span></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="calc-hl">TR 年費優勢顯著（Lite 2.11×，STD新 2.27×）— Case 47.1% 年費佔比是最關鍵的成功因素</div>
+          </div>
+        </div>
+        <div class="insight" style="background:var(--green-bg);border-left:3px solid var(--green)">
+          <p>TR Case 年費佔比 <strong>47.1%</strong> 是九個市場中最高水準，遠超 Control 的 24.0%。</p>
+          <p>即使從 ₺199.99 大幅降至 ₺35，土耳其用戶仍主動選擇年費——反映高通膨環境下偏好鎖定長期低價。</p>
+          <p>47.1% 年費佔比是 TR 能在定價降幅最大的情況下仍維持 Rev/MAU 接近 Control 的關鍵原因。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─ LAYER 03: Revenue Gap ─ -->
+    <div class="layer">
+      <div class="layer-hdr">
+        <span class="layer-num">LAYER 03</span>
+        <span class="layer-ttl">現在的收益缺口有多大？</span>
+        <span class="layer-q">每位訂閱者 ARPU 差 2.66×，但訂閱量倍數 2.53× 幾乎補平</span>
+      </div>
+      <div class="layer-body">
+        <div>
+          <table class="mt">
+            <thead>
+              <tr><th>指標</th><th>Case</th><th>Control</th><th>Δ</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Rev / 主活</td>
+                <td class="mono metric-lo">$0.161</td>
+                <td class="mono">$0.169</td>
+                <td class="mono neg">−4.7%</td>
+              </tr>
+              <tr>
+                <td>Rev / Sub（每位訂閱者）</td>
+                <td class="mono metric-lo">$2.74</td>
+                <td class="mono">$7.30</td>
+                <td class="mono neg">−62%</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="calc">
+            <div class="calc-lbl">收益追平分析</div>
+            <div class="calc-row">
+              <span>Control ARPU（舊 STD 為主）</span>
+              <span class="calc-val">$7.30 / sub</span>
+            </div>
+            <div class="calc-row">
+              <span>Case ARPU（Lite 加權）</span>
+              <span class="calc-val">$2.74 / sub</span>
+            </div>
+            <div class="calc-row">
+              <span>追平所需訂閱量倍數</span>
+              <span class="calc-val">$7.30 ÷ $2.74 = <strong>2.66×</strong></span>
+            </div>
+            <div class="calc-hl">實際倍數 2.53×，差距僅 0.13×，Rev/MAU 缺口 −4.7%</div>
+          </div>
+        </div>
+        <div class="insight">
+          <p>TR 的 Rev/MAU 缺口僅 <strong>−4.7%</strong>，是定價降幅最大（5.7×）但結果最接近損益平衡的市場。</p>
+          <p>每位訂閱者 ARPU 差達 2.66×，但 Case 靠 2.53× 訂閱量幾乎彌補——<strong>缺口只剩 0.13× 的倍數差距</strong>。</p>
+          <p>47.1% 的高年費佔比是關鍵支柱：若 Case 年費佔比相同於 Control 的 24%，Rev/MAU 缺口將擴大至約 −12%。</p>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /mhero -->
+</section>
+
+<!-- ══════════════════════════════════════════════════════
      SECTION 2 — PRICING STRATEGY
 ═══════════════════════════════════════════════════════ -->
 <section class="section">
@@ -1633,6 +1444,8 @@ table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
     ② 套用 Lite 新價格（Case 現況，$0.99/mo · $5.99/yr）／
     ③ 基於 Lite 微調（在 Lite 基礎上調整月費或年費結構）／
     ④ 基於 STD 舊微調（在舊 STD 基礎上降低以擴大 CVR）。
+    <br>
+    <strong>資料完整性說明：</strong>目前僅 IN、TR、ID 三個市場有足夠實驗數據可做出策略建議。AR、CL、CO、TH、VN 數據尚不充分，不納入此框架作為結論依據。
     <br>
     <strong>推薦邏輯：</strong>年約佔比高（>40%）且 Rev/MAU 正向 → ② 維持；年約低（<25%）→ ③ 強化年約；Rev/MAU 大幅負向（>−30%）→ ③↑ 或 ④。
   </div>
@@ -1715,120 +1528,6 @@ table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
       </div>
     </div>
 
-    <!-- AR -->
-    <div class="s-card">
-      <div class="s-card-hdr">
-        <div>
-          <div class="s-card-title">AR <span style="font-size:13px;font-weight:400;color:var(--text-muted)">Argentina</span></div>
-          <div class="s-card-sub">$4.99/mo → $0.99/mo（Lite）· 定價差 5.0×</div>
-        </div>
-        <span class="risk r-lo">低風險</span>
-      </div>
-      <div class="s-card-stats">
-        <span class="s-stat">年約 Case <strong class="metric-hi">52.9%</strong> vs Ctrl 27.7%</span>
-        <span class="s-stat">CVR <strong>2.85×</strong></span>
-        <span class="s-stat">Rev/MAU <strong class="metric-hi">+22%</strong></span>
-      </div>
-      <div class="s-opts">
-        <div class="s-opt">
-          <span class="s-opt-num">①</span>
-          <div><div class="s-opt-lbl">回復 STD 舊（$4.99/mo）</div><div class="s-opt-note">Case 已在 CVR、年約、Rev/MAU 全面領先，無需回頭</div></div>
-          <span class="rec-lo">不建議</span>
-        </div>
-        <div class="s-opt">
-          <span class="s-opt-num">②</span>
-          <div><div class="s-opt-lbl">套用 Lite 新（$0.99/mo）</div><div class="s-opt-note">全方位勝出：CVR 2.85×、年約 53%、Rev/MAU +22%</div></div>
-          <span class="rec-hi">強烈推薦</span>
-        </div>
-        <div class="s-opt">
-          <span class="s-opt-num">③</span>
-          <div><div class="s-opt-lbl">Lite 微調（$0.99→$1.29/mo）</div><div class="s-opt-note">表現已優，小漲有空間；需監控 CVR 是否下滑</div></div>
-          <span class="rec-mid">可考慮</span>
-        </div>
-        <div class="s-opt">
-          <span class="s-opt-num">④</span>
-          <div><div class="s-opt-lbl">STD 舊微調</div><div class="s-opt-note">無需要；Case 已解決原本 STD 的問題</div></div>
-          <span class="rec-lo">不需要</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- CL -->
-    <div class="s-card">
-      <div class="s-card-hdr">
-        <div>
-          <div class="s-card-title">CL <span style="font-size:13px;font-weight:400;color:var(--text-muted)">Chile</span></div>
-          <div class="s-card-sub">$5.54/mo → $0.99/mo（Lite）· 定價差 5.6×</div>
-        </div>
-        <span class="risk r-mid">觀察中</span>
-      </div>
-      <div class="s-card-stats">
-        <span class="s-stat">年約 Case <strong class="metric-hi">44.2%</strong> vs Ctrl 35.3%</span>
-        <span class="s-stat">CVR <strong>2.30×</strong></span>
-        <span class="s-stat">Rev/MAU <strong class="metric-lo">−39%</strong></span>
-      </div>
-      <div class="s-opts">
-        <div class="s-opt">
-          <span class="s-opt-num">①</span>
-          <div><div class="s-opt-lbl">回復 STD 舊（$5.54/mo）</div><div class="s-opt-note">喪失 2.30× CVR；雖 Rev/MAU 可能回正，但放棄訂閱量成長</div></div>
-          <span class="rec-lo">不建議</span>
-        </div>
-        <div class="s-opt">
-          <span class="s-opt-num">②</span>
-          <div><div class="s-opt-lbl">套用 Lite 新（$0.99/mo）</div><div class="s-opt-note">年約佔比 44% 算好，但 Rev/MAU −39% 過大；定價差距 5.6× 難以靠訂閱量補平</div></div>
-          <span class="rec-lo">問題大</span>
-        </div>
-        <div class="s-opt">
-          <span class="s-opt-num">③</span>
-          <div><div class="s-opt-lbl">Lite 微調（$0.99→$1.99/mo）</div><div class="s-opt-note">大幅縮小 Lite vs STD 舊價差，保持 CVR 優勢同時提升 ARPU</div></div>
-          <span class="rec-hi">推薦</span>
-        </div>
-        <div class="s-opt">
-          <span class="s-opt-num">④</span>
-          <div><div class="s-opt-lbl">STD 舊微調（$5.54→$2.99/mo）</div><div class="s-opt-note">大幅降低 STD 門檻；與 Lite 建立 3× 合理溢價</div></div>
-          <span class="rec-hi">備選</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- CO -->
-    <div class="s-card">
-      <div class="s-card-hdr">
-        <div>
-          <div class="s-card-title">CO <span style="font-size:13px;font-weight:400;color:var(--text-muted)">Colombia</span></div>
-          <div class="s-card-sub">$4.87/mo → $0.99/mo（Lite）· 定價差 4.9×</div>
-        </div>
-        <span class="risk r-lo">低風險</span>
-      </div>
-      <div class="s-card-stats">
-        <span class="s-stat">年約 Case <strong class="metric-hi">44.9%</strong> vs Ctrl 11.6%</span>
-        <span class="s-stat">CVR <strong>1.80×</strong></span>
-        <span class="s-stat">Rev/MAU <strong class="metric-hi">+44%</strong></span>
-      </div>
-      <div class="s-opts">
-        <div class="s-opt">
-          <span class="s-opt-num">①</span>
-          <div><div class="s-opt-lbl">回復 STD 舊（$4.87/mo）</div><div class="s-opt-note">Case 各項指標均領先；回復會大幅降低訂閱量</div></div>
-          <span class="rec-lo">不建議</span>
-        </div>
-        <div class="s-opt">
-          <span class="s-opt-num">②</span>
-          <div><div class="s-opt-lbl">套用 Lite 新（$0.99/mo）</div><div class="s-opt-note">Rev/MAU +44% 且年約 45%（Control 僅 12%）——全面領先</div></div>
-          <span class="rec-hi">強烈推薦</span>
-        </div>
-        <div class="s-opt">
-          <span class="s-opt-num">③</span>
-          <div><div class="s-opt-lbl">Lite 微調（$0.99→$1.19/mo）</div><div class="s-opt-note">有空間小漲；注意 CO 續訂率數據有 P9 異常，需謹慎</div></div>
-          <span class="rec-mid">可考慮</span>
-        </div>
-        <div class="s-opt">
-          <span class="s-opt-num">④</span>
-          <div><div class="s-opt-lbl">STD 舊微調</div><div class="s-opt-note">Lite 已全面優勝，不需要 STD 舊調整</div></div>
-          <span class="rec-lo">不需要</span>
-        </div>
-      </div>
-    </div>
-
     <!-- ID -->
     <div class="s-card">
       <div class="s-card-hdr">
@@ -1863,82 +1562,6 @@ table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
           <span class="s-opt-num">④</span>
           <div><div class="s-opt-lbl">STD 舊微調（Rp 25,000→22,000/mo）</div><div class="s-opt-note">兩者價差本就很小，微調效果有限</div></div>
           <span class="rec-mid">低優先</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- TH -->
-    <div class="s-card">
-      <div class="s-card-hdr">
-        <div>
-          <div class="s-card-title">TH <span style="font-size:13px;font-weight:400;color:var(--text-muted)">Thailand</span></div>
-          <div class="s-card-sub">$5.53/mo → $0.99/mo（Lite）· 定價差 5.6×</div>
-        </div>
-        <span class="risk r-mid">觀察中</span>
-      </div>
-      <div class="s-card-stats">
-        <span class="s-stat">年約 Case <strong class="metric-hi">33.7%</strong> vs Ctrl 14.0%</span>
-        <span class="s-stat">CVR <strong>2.26×</strong></span>
-        <span class="s-stat">Rev/MAU <strong class="metric-hi">+6%</strong></span>
-      </div>
-      <div class="s-opts">
-        <div class="s-opt">
-          <span class="s-opt-num">①</span>
-          <div><div class="s-opt-lbl">回復 STD 舊（$5.53/mo）</div><div class="s-opt-note">Case 年約 +20pp、Rev/MAU +6%；回復無必要</div></div>
-          <span class="rec-lo">不建議</span>
-        </div>
-        <div class="s-opt">
-          <span class="s-opt-num">②</span>
-          <div><div class="s-opt-lbl">套用 Lite 新（$0.99/mo）</div><div class="s-opt-note">整體正向；年約比 34% 有進步空間，但 Rev/MAU 已正</div></div>
-          <span class="rec-hi">推薦</span>
-        </div>
-        <div class="s-opt">
-          <span class="s-opt-num">③</span>
-          <div><div class="s-opt-lbl">Lite 微調（$0.99→$1.29/mo）</div><div class="s-opt-note">年約佔比 34% 中等，若能同步拉升年約比，漲月費風險較低</div></div>
-          <span class="rec-mid">可考慮</span>
-        </div>
-        <div class="s-opt">
-          <span class="s-opt-num">④</span>
-          <div><div class="s-opt-lbl">STD 舊微調</div><div class="s-opt-note">Case 表現正向，無明確需求</div></div>
-          <span class="rec-lo">不需要</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- VN -->
-    <div class="s-card">
-      <div class="s-card-hdr">
-        <div>
-          <div class="s-card-title">VN <span style="font-size:13px;font-weight:400;color:var(--text-muted)">Vietnam</span></div>
-          <div class="s-card-sub">$5.10/mo → $0.99/mo（Lite）· 定價差 5.2×</div>
-        </div>
-        <span class="risk r-hi">高風險</span>
-      </div>
-      <div class="s-card-stats">
-        <span class="s-stat">年約 Case <strong class="metric-hi">47.4%</strong> vs Ctrl 31.0%</span>
-        <span class="s-stat">CVR <strong>1.25×</strong></span>
-        <span class="s-stat">Rev/MAU <strong class="metric-lo">−49%</strong></span>
-      </div>
-      <div class="s-opts">
-        <div class="s-opt">
-          <span class="s-opt-num">①</span>
-          <div><div class="s-opt-lbl">回復 STD 舊（$5.10/mo）</div><div class="s-opt-note">CVR 優勢只有 1.25×，無法補平 5.2× 定價差；Rev/MAU 可能回正但損失大量訂閱者</div></div>
-          <span class="rec-mid">可考慮</span>
-        </div>
-        <div class="s-opt">
-          <span class="s-opt-num">②</span>
-          <div><div class="s-opt-lbl">套用 Lite 新（$0.99/mo）</div><div class="s-opt-note">Rev/MAU −49% 嚴重；樣本小（n=57），但趨勢仍需改善</div></div>
-          <span class="rec-lo">問題大</span>
-        </div>
-        <div class="s-opt">
-          <span class="s-opt-num">③</span>
-          <div><div class="s-opt-lbl">Lite 微調（$0.99→$1.49/mo）</div><div class="s-opt-note">年約 47% 算好；大幅漲 Lite 月費縮小差距，但效果可能有限</div></div>
-          <span class="rec-mid">備選</span>
-        </div>
-        <div class="s-opt">
-          <span class="s-opt-num">④</span>
-          <div><div class="s-opt-lbl">STD 舊微調（$5.10→$2.49/mo）</div><div class="s-opt-note">大幅降低 STD 門檻，在 Lite 之上建立合理溢價；適合 VN 低收入市場</div></div>
-          <span class="rec-hi">推薦</span>
         </div>
       </div>
     </div>
