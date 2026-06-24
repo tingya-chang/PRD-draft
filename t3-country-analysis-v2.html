@@ -539,9 +539,9 @@ table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
       <thead>
         <tr>
           <th style="min-width:56px">市場</th>
-          <th style="min-width:180px">MAU-CVR 倍數<br><span class="dim" style="font-size:10px;font-weight:400">Case / Control · 最大刻度 3×</span></th>
+          <th style="min-width:180px">主活 CVR 倍數<br><span class="dim" style="font-size:10px;font-weight:400">Case / Control · 最大刻度 3×</span></th>
           <th>年約佔比<br><span class="dim" style="font-size:10px;font-weight:400">Case ↑ Control</span></th>
-          <th>Rev / MAU Δ</th>
+          <th>Rev / 主活 Δ</th>
           <th>風險評估</th>
         </tr>
       </thead>
@@ -735,7 +735,7 @@ table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
   </div>
 
   <div class="footnote">
-    CL Rev/MAU 差距（−39%）值得單獨深挖：CVR 與年約佔比均優於 Control，但 Rev/MAU 仍輸較多，需確認方案組成與定價設定。
+    CL Rev/主活 差距（−39%）值得單獨深挖：CVR 與年約佔比均優於 Control，但 Rev/主活 仍輸較多，需確認方案組成與定價設定。
   </div>
 </section>
 
@@ -758,7 +758,7 @@ table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
       </div>
       <div class="meta">
         <span class="risk r-hi" style="font-size:12px;padding:5px 14px">高風險</span>
-        <span class="mau">MAU：Case 34,499 / Control 34,904</span>
+        <span class="mau">主活：Case 34,499 / Control 34,904</span>
       </div>
     </div>
 
@@ -799,7 +799,7 @@ table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
             </thead>
             <tbody>
               <tr>
-                <td>MAU → 新訂 CVR</td>
+                <td>主活 → 新訂 CVR</td>
                 <td class="mono case-bg">3.32%</td>
                 <td class="mono">1.90%</td>
                 <td class="mono" style="color:var(--accent);font-weight:800">1.75×</td>
@@ -811,7 +811,7 @@ table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
                 <td class="mono" style="color:var(--accent);font-weight:800">1.38×</td>
               </tr>
               <tr>
-                <td>Paywall 觸及率（PV/MAU）</td>
+                <td>Paywall 觸及率（PV/主活）</td>
                 <td class="mono case-bg">131%</td>
                 <td class="mono">104%</td>
                 <td class="mono dim">1.26×</td>
@@ -930,7 +930,7 @@ table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
           </div>
         </div>
         <div class="insight">
-          <p>Rev/MAU 差距僅 <strong>−14%</strong>，但這個數字偏樂觀——它是基於第一筆付款，沒有反映月訂的高流失率。</p>
+          <p>Rev/主活 差距僅 <strong>−14%</strong>，但這個數字偏樂觀——它是基於第一筆付款，沒有反映月訂的高流失率。</p>
           <p>Rev/Pageview 的 <strong>−43%</strong> 是更誠實的效率指標：Case 需要更多次 paywall 展示才能拿到相近的收益。</p>
           <p>好消息是：追平所需的倍數（1.81×）與目前實際倍數（~1.75×）非常接近，<strong>只需改善一個環節就有機會翻正</strong>。</p>
         </div>
@@ -960,7 +960,7 @@ table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
       </div>
       <div class="meta">
         <span class="risk r-mid" style="font-size:12px;padding:5px 14px">觀察中</span>
-        <span class="mau">MAU：Case 5,258 / Control 5,255</span>
+        <span class="mau">主活：Case 5,258 / Control 5,255</span>
       </div>
     </div>
 
@@ -1001,7 +1001,7 @@ table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
             </thead>
             <tbody>
               <tr>
-                <td>MAU → 新訂 CVR</td>
+                <td>主活 → 新訂 CVR</td>
                 <td class="mono metric-hi">6.07%</td>
                 <td class="mono">4.64%</td>
                 <td class="mono" style="color:var(--accent);font-weight:800">1.31×</td>
@@ -1013,7 +1013,7 @@ table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
                 <td class="mono neg">0.89× ▼</td>
               </tr>
               <tr>
-                <td>Paywall 觸及率（PV/MAU）</td>
+                <td>Paywall 觸及率（PV/主活）</td>
                 <td class="mono metric-hi">186%</td>
                 <td class="mono">127%</td>
                 <td class="mono" style="color:var(--accent)">1.46×</td>
@@ -1022,7 +1022,7 @@ table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
           </table>
         </div>
         <div class="insight">
-          <p>ID 的 CVR 提升模式特殊：Case MAU-CVR 高於 Control（1.31×），但每次 paywall 展示的轉換率反而更低（0.89×）。</p>
+          <p>ID 的 CVR 提升模式特殊：Case 主活 CVR 高於 Control（1.31×），但每次 paywall 展示的轉換率反而更低（0.89×）。</p>
           <p>Case 靠<strong>更多的 paywall 曝光次數</strong>（+46%）拉升整體訂閱量，而非每次展示更有效。根本原因是 Lite（Rp 16,500）與舊 STD（Rp 19,000）只差 15%，吸引力差異不夠顯著。</p>
         </div>
       </div>
@@ -1119,11 +1119,11 @@ table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
               <span>追平所需訂閱量倍數</span>
               <span class="calc-val">$2.32 ÷ $1.89 = <strong>1.23×</strong></span>
             </div>
-            <div class="calc-hl">實際倍數 1.31× &gt; 1.23×，Case Rev/MAU 已超越 Control</div>
+            <div class="calc-hl">實際倍數 1.31× &gt; 1.23×，Case Rev/主活 已超越 Control</div>
           </div>
         </div>
         <div class="insight">
-          <p>ID 是目前實驗中唯一 <strong>Case Rev/MAU 已超越 Control</strong> 的市場（+6.5%）。</p>
+          <p>ID 是目前實驗中唯一 <strong>Case Rev/主活 已超越 Control</strong> 的市場（+6.5%）。</p>
           <p>原因：ID 的 Lite vs 舊 STD 月費差距只有 15%，ARPU 缺口小（1.23× 即可追平）；Case 的 1.31× 訂閱量優勢已足夠補足。</p>
           <p>此結果的脆弱點：Lite 年費定價問題未修正的話，長期 LTV 組合改善有限。</p>
         </div>
@@ -1153,7 +1153,7 @@ table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
       </div>
       <div class="meta">
         <span class="risk r-lo" style="font-size:12px;padding:5px 14px">低風險</span>
-        <span class="mau">MAU：Case 8,247 / Control 8,293</span>
+        <span class="mau">主活：Case 8,247 / Control 8,293</span>
       </div>
     </div>
 
@@ -1194,7 +1194,7 @@ table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
             </thead>
             <tbody>
               <tr>
-                <td>MAU → 新訂 CVR</td>
+                <td>主活 → 新訂 CVR</td>
                 <td class="mono metric-hi">5.89%</td>
                 <td class="mono">2.31%</td>
                 <td class="mono" style="color:var(--accent);font-weight:800">2.55×</td>
@@ -1206,7 +1206,7 @@ table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
                 <td class="mono" style="color:var(--accent);font-weight:800">2.21×</td>
               </tr>
               <tr>
-                <td>Paywall 觸及率（PV/MAU）</td>
+                <td>Paywall 觸及率（PV/主活）</td>
                 <td class="mono metric-hi">82.8%</td>
                 <td class="mono">71.9%</td>
                 <td class="mono" style="color:var(--accent)">1.15×</td>
@@ -1312,13 +1312,13 @@ table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
               <span>追平所需訂閱量倍數</span>
               <span class="calc-val">$7.30 ÷ $2.74 = <strong>2.66×</strong></span>
             </div>
-            <div class="calc-hl">實際倍數 2.53×，差距僅 0.13×，Rev/MAU 缺口 −4.7%</div>
+            <div class="calc-hl">實際倍數 2.53×，差距僅 0.13×，Rev/主活 缺口 −4.7%</div>
           </div>
         </div>
         <div class="insight">
-          <p>TR 的 Rev/MAU 缺口僅 <strong>−4.7%</strong>，是定價降幅最大（5.7×）但結果最接近損益平衡的市場。</p>
+          <p>TR 的 Rev/主活 缺口僅 <strong>−4.7%</strong>，是定價降幅最大（5.7×）但結果最接近損益平衡的市場。</p>
           <p>每位訂閱者 ARPU 差達 2.66×，但 Case 靠 2.53× 訂閱量幾乎彌補——<strong>缺口只剩 0.13× 的倍數差距</strong>。</p>
-          <p>47.1% 的高年費佔比是關鍵支柱：若 Case 年費佔比相同於 Control 的 24%，Rev/MAU 缺口將擴大至約 −12%。</p>
+          <p>47.1% 的高年費佔比是關鍵支柱：若 Case 年費佔比相同於 Control 的 24%，Rev/主活 缺口將擴大至約 −12%。</p>
         </div>
       </div>
     </div>
@@ -1344,7 +1344,7 @@ table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
     <br>
     <strong>資料完整性說明：</strong>目前僅 IN、TR、ID 三個市場有足夠實驗數據可做出策略建議。AR、CL、CO、TH、VN 數據尚不充分，不納入此框架作為結論依據。
     <br>
-    <strong>推薦邏輯：</strong>年約佔比高（>40%）且 Rev/MAU 正向 → ② 維持；年約低（<25%）→ ③ 強化年約；Rev/MAU 大幅負向（>−30%）→ ③↑ 或 ④。
+    <strong>推薦邏輯：</strong>年約佔比高（>40%）且 Rev/主活 正向 → ② 維持；年約低（<25%）→ ③ 強化年約；Rev/主活 大幅負向（>−30%）→ ③↑ 或 ④。
   </div>
 
   <div class="strat-grid">
@@ -1361,7 +1361,7 @@ table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
       <div class="s-card-stats">
         <span class="s-stat">年約 Case <strong class="metric-lo">24.5%</strong> vs Ctrl 27.1%</span>
         <span class="s-stat">CVR <strong>1.31×</strong></span>
-        <span class="s-stat">Rev/MAU <strong>±0%</strong></span>
+        <span class="s-stat">Rev/主活 <strong>±0%</strong></span>
       </div>
       <div class="s-card-summary">短期收益正向，但年約結構的問題若不修正，長期 LTV 改善空間受限——不算危險，但還需觀察年費調整後的效果。</div>
       <div class="s-opts">
@@ -1372,7 +1372,7 @@ table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
         </div>
         <div class="s-opt">
           <span class="s-opt-num">②</span>
-          <div><div class="s-opt-lbl">套用 Lite 新（Rp 16,500/mo）</div><div class="s-opt-note">CVR 1.31× 已超越追平點 1.23×；Rev/MAU 持平</div></div>
+          <div><div class="s-opt-lbl">套用 Lite 新（Rp 16,500/mo）</div><div class="s-opt-note">CVR 1.31× 已超越追平點 1.23×；Rev/主活 持平</div></div>
           <span class="rec-hi">推薦</span>
         </div>
         <div class="s-opt">
@@ -1400,7 +1400,7 @@ table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
       <div class="s-card-stats">
         <span class="s-stat">年約 Case <strong class="metric-hi">47.1%</strong> vs Ctrl 24.0%</span>
         <span class="s-stat">CVR <strong>2.54×</strong></span>
-        <span class="s-stat">Rev/MAU <strong class="metric-lo">−6%</strong></span>
+        <span class="s-stat">Rev/主活 <strong class="metric-lo">−6%</strong></span>
       </div>
       <div class="s-card-summary">數據面整體樂觀，唯一的動作是微調年費往上補一點缺口，方向明確、風險低。</div>
       <div class="s-opts">
@@ -1411,7 +1411,7 @@ table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
         </div>
         <div class="s-opt">
           <span class="s-opt-num">②</span>
-          <div><div class="s-opt-lbl">套用 Lite 新（₺35/mo）</div><div class="s-opt-note">Rev/MAU 缺口僅 −6%，年約 47% 出色；接近損益平衡</div></div>
+          <div><div class="s-opt-lbl">套用 Lite 新（₺35/mo）</div><div class="s-opt-note">Rev/主活 缺口僅 −6%，年約 47% 出色；接近損益平衡</div></div>
           <span class="rec-hi">可接受</span>
         </div>
         <div class="s-opt">
@@ -1439,7 +1439,7 @@ table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
       <div class="s-card-stats">
         <span class="s-stat">年約 Case <strong class="metric-lo">16.5%</strong> vs Ctrl 29.7%</span>
         <span class="s-stat">CVR <strong>1.75×</strong></span>
-        <span class="s-stat">Rev/MAU <strong class="metric-lo">−14%</strong></span>
+        <span class="s-stat">Rev/主活 <strong class="metric-lo">−14%</strong></span>
       </div>
       <div class="s-card-summary">轉換率有提升，但進來的用戶品質更差（月訂多、年訂少），而且月訂本身留存率又偏低。即使訂閱量成長，長期收益不樂觀。</div>
       <div class="s-opts">
@@ -1450,7 +1450,7 @@ table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
         </div>
         <div class="s-opt">
           <span class="s-opt-num">②</span>
-          <div><div class="s-opt-lbl">套用 Lite 新（₹90/mo）</div><div class="s-opt-note">月訂 83.5% 主導，長期流失風險；Rev/MAU 仍落後</div></div>
+          <div><div class="s-opt-lbl">套用 Lite 新（₹90/mo）</div><div class="s-opt-note">月訂 83.5% 主導，長期流失風險；Rev/主活 仍落後</div></div>
           <span class="rec-mid">備選</span>
         </div>
         <div class="s-opt">
