@@ -1,0 +1,1067 @@
+<!doctype html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T3 Country Analysis v2</title>
+<style>
+/* ─── TOKENS ─────────────────────────────────────────────── */
+:root {
+  --ground:       #EDF0F5;
+  --paper:        #FFFFFF;
+  --paper-2:      #F6F8FB;
+  --text:         #0F172A;
+  --text-muted:   #64748B;
+  --text-dim:     #94A3B8;
+  --accent:       #2053C8;
+  --accent-faint: #EEF3FF;
+  --border:       #C8D2E0;
+  --border-light: #E2E8F2;
+  --red:          #C13020;
+  --red-bg:       #FEF2F0;
+  --amber:        #A85500;
+  --amber-bg:     #FFF8EC;
+  --green:        #156B38;
+  --green-bg:     #EDF9F2;
+  --mono: 'SF Mono','Fira Mono','Consolas','Courier New',monospace;
+  --sans: system-ui,-apple-system,'Segoe UI','Helvetica Neue',sans-serif;
+}
+
+/* ─── RESET ──────────────────────────────────────────────── */
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--sans);
+  background: var(--ground);
+  color: var(--text);
+  font-size: 13.5px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--accent); }
+
+/* ─── PAGE LAYOUT ────────────────────────────────────────── */
+.page-wrap  { max-width: 1120px; margin: 0 auto; padding: 0 28px 64px; }
+
+/* ─── PAGE HEADER ────────────────────────────────────────── */
+.page-header {
+  background: var(--paper);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 28px;
+}
+.page-header-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 28px 28px 24px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.header-left h1 {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: var(--text);
+  margin-bottom: 5px;
+}
+.header-left .sub {
+  font-size: 12.5px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.header-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 5px;
+}
+
+/* ─── BADGES ─────────────────────────────────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 3px;
+  line-height: 1.4;
+}
+.badge-exp    { background: var(--accent-faint); color: var(--accent); }
+.badge-src    { background: var(--paper-2); color: var(--text-muted); border: 1px solid var(--border); }
+.badge-inv    { background: var(--red-bg); color: var(--red); }
+.badge-warn   { background: var(--amber-bg); color: var(--amber); }
+
+/* ─── CALLOUT ────────────────────────────────────────────── */
+.callout {
+  border-radius: 6px;
+  padding: 12px 16px;
+  font-size: 13px;
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  margin-bottom: 24px;
+}
+.callout-warn { background: var(--amber-bg); border-left: 3px solid var(--amber); }
+.callout strong { font-weight: 700; }
+
+/* ─── SECTION ────────────────────────────────────────────── */
+.section { margin-bottom: 40px; }
+.section-hdr {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--border);
+}
+.section-title { font-size: 15px; font-weight: 800; letter-spacing: -0.01em; }
+.section-src   { font-size: 11px; color: var(--text-dim); font-family: var(--mono); }
+
+/* ─── OVERVIEW TABLE ─────────────────────────────────────── */
+.table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+table.dt {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--paper);
+  font-size: 12.5px;
+}
+.dt thead { background: var(--paper-2); }
+.dt th {
+  text-align: left;
+  font-size: 10.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.045em;
+  color: var(--text-muted);
+  padding: 9px 14px;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+.dt td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: middle;
+  white-space: nowrap;
+}
+.dt tr:last-child td { border-bottom: none; }
+.dt tr.inv { opacity: 0.38; }
+.dt tr:not(.inv):hover td { background: var(--paper-2); }
+
+.mono { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+.dim  { color: var(--text-dim); }
+
+/* ─── MULTIPLIER BAR ─────────────────────────────────────── */
+.bar-wrap { display: flex; align-items: center; gap: 8px; min-width: 130px; }
+.bar-track {
+  flex: 1;
+  height: 7px;
+  background: var(--border-light);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: var(--accent);
+}
+.bar-fill.hi  { background: var(--green); }
+.bar-fill.lo  { background: var(--text-dim); }
+.bar-lbl { font-family: var(--mono); font-size: 12px; font-weight: 700; min-width: 38px; }
+
+/* ─── DELTA ──────────────────────────────────────────────── */
+.delta { font-family: var(--mono); font-weight: 700; font-size: 12px; }
+.pos   { color: var(--green); }
+.neg   { color: var(--red); }
+.neu   { color: var(--text-muted); }
+
+/* ─── RISK CHIP ──────────────────────────────────────────── */
+.risk {
+  display: inline-flex;
+  align-items: center;
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+.r-hi  { background: var(--red-bg);   color: var(--red);   }
+.r-mid { background: var(--amber-bg); color: var(--amber); }
+.r-lo  { background: var(--green-bg); color: var(--green); }
+
+/* ─── ANNUAL DELTA PAIR ──────────────────────────────────── */
+.ann-pair { display: flex; flex-direction: column; gap: 1px; }
+.ann-pair .case-ann { font-family: var(--mono); font-size: 12.5px; font-weight: 700; }
+.ann-pair .ctrl-ann { font-family: var(--mono); font-size: 11px; color: var(--text-muted); }
+
+/* ─── RENEWAL GRID ───────────────────────────────────────── */
+.renewal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(165px, 1fr));
+  gap: 10px;
+}
+.rc {
+  background: var(--paper);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 12px 14px;
+}
+.rc-mkt  { font-weight: 800; font-size: 13px; margin-bottom: 9px; display: flex; align-items: center; justify-content: space-between; }
+.rc-row  { display: flex; justify-content: space-between; font-size: 12px; color: var(--text-muted); margin-top: 4px; }
+.rc-val  { font-family: var(--mono); font-weight: 700; color: var(--text); font-size: 12.5px; }
+.rc-note { font-size: 10.5px; color: var(--amber); margin-top: 5px; }
+.rc-na   { font-size: 12px; color: var(--text-dim); margin-top: 6px; }
+
+/* ─── MARKET HERO CARD ───────────────────────────────────── */
+.mhero {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.mhero-hdr {
+  background: var(--text);
+  color: #fff;
+  padding: 20px 24px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.mhero-hdr .code   { font-size: 36px; font-weight: 900; letter-spacing: -0.03em; line-height: 1; }
+.mhero-hdr .name   { font-size: 14px; opacity: 0.55; margin-top: 3px; }
+.mhero-hdr .meta   { margin-left: auto; display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
+.mhero-hdr .mau    { font-family: var(--mono); font-size: 11.5px; opacity: 0.5; }
+
+/* ─── PRICING BAR ────────────────────────────────────────── */
+.pricing-strip {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding: 16px 24px;
+  background: var(--paper-2);
+  border-bottom: 1px solid var(--border-light);
+}
+@media (max-width: 640px) { .pricing-strip { grid-template-columns: 1fr; } }
+.pc {
+  background: var(--paper);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 13px 15px;
+}
+.pc .pc-lbl  { font-size: 10.5px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 9px; }
+.pc .pc-row  { display: flex; justify-content: space-between; align-items: baseline; font-size: 12.5px; margin-top: 5px; }
+.pc .pc-amt  { font-family: var(--mono); font-weight: 800; font-size: 14.5px; }
+.pc .pc-per  { font-size: 11px; color: var(--text-muted); }
+.pc .pc-save { font-size: 10.5px; font-weight: 700; color: var(--green); margin-top: 8px; }
+.pc.dim      { opacity: 0.6; }
+
+/* ─── FRAMEWORK LAYERS ───────────────────────────────────── */
+.layer {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border-light);
+}
+.layer:last-child { border-bottom: none; }
+.layer.alt { background: var(--paper-2); }
+.layer-hdr { display: flex; align-items: baseline; gap: 10px; margin-bottom: 16px; flex-wrap: wrap; }
+.layer-num { font-family: var(--mono); font-size: 10.5px; font-weight: 700; color: var(--text-dim); letter-spacing: 0.06em; }
+.layer-ttl { font-size: 14px; font-weight: 800; }
+.layer-q   { font-size: 12.5px; color: var(--text-muted); font-style: italic; }
+.layer-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+@media (max-width: 680px) { .layer-body { grid-template-columns: 1fr; } }
+
+/* ─── MINI TABLE ─────────────────────────────────────────── */
+table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
+.mt th {
+  text-align: left;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.045em;
+  color: var(--text-muted);
+  padding: 4px 9px;
+  border-bottom: 1px solid var(--border-light);
+}
+.mt td {
+  padding: 7px 9px;
+  border-bottom: 1px solid var(--border-light);
+  vertical-align: middle;
+}
+.mt tr:last-child td { border-bottom: none; }
+.mt td.case-bg { background: var(--accent-faint); }
+.mt td.red-bg  { background: var(--red-bg); color: var(--red); }
+
+/* ─── INSIGHT PANEL ──────────────────────────────────────── */
+.insight {
+  background: var(--paper);
+  border: 1px solid var(--border-light);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  padding: 14px 16px;
+  font-size: 13px;
+  line-height: 1.65;
+}
+.insight.red { border-left-color: var(--red); }
+.insight p + p { margin-top: 8px; }
+.insight strong { font-weight: 700; }
+
+/* ─── CALC BOX ───────────────────────────────────────────── */
+.calc {
+  background: var(--paper-2);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 13px 15px;
+  margin-top: 12px;
+}
+.calc-lbl { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 9px; }
+.calc-row { display: flex; justify-content: space-between; font-size: 12px; gap: 12px; margin-top: 5px; color: var(--text-muted); }
+.calc-val { font-family: var(--mono); font-weight: 700; color: var(--text); font-size: 12.5px; }
+.calc-hl  { margin-top: 10px; padding-top: 10px; border-top: 1px solid var(--border); font-family: var(--mono); font-size: 12.5px; font-weight: 800; color: var(--accent); }
+
+/* ─── ELASTICITY NOTE ────────────────────────────────────── */
+.elasticity-note {
+  background: var(--paper);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 13px 16px;
+  margin-bottom: 16px;
+  font-size: 13px;
+  line-height: 1.65;
+}
+.elasticity-note .en-lbl { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); margin-bottom: 6px; }
+
+/* ─── PATH CARDS ─────────────────────────────────────────── */
+.paths { display: flex; flex-direction: column; gap: 10px; }
+.path-card {
+  background: var(--paper);
+  border: 1px solid var(--border-light);
+  border-radius: 6px;
+  padding: 13px 16px;
+  display: grid;
+  grid-template-columns: 30px 1fr auto;
+  gap: 12px;
+  align-items: start;
+}
+.path-id {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+.pid-a { background: var(--green-bg); color: var(--green); }
+.pid-b { background: var(--amber-bg); color: var(--amber); }
+.pid-c { background: var(--border-light); color: var(--text-muted); }
+.path-ttl  { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+.path-desc { font-size: 12.5px; color: var(--text-muted); line-height: 1.55; }
+.path-calc {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  color: var(--accent);
+  background: var(--accent-faint);
+  padding: 4px 8px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-top: 7px;
+}
+.path-tag {
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 10px;
+  white-space: nowrap;
+  align-self: flex-start;
+  margin-top: 2px;
+}
+.tag-first  { background: var(--green-bg); color: var(--green); }
+.tag-second { background: var(--amber-bg); color: var(--amber); }
+.tag-last   { background: var(--border-light); color: var(--text-muted); }
+
+/* ─── FOOTER ─────────────────────────────────────────────── */
+.page-footer {
+  margin-top: 48px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 11.5px;
+  color: var(--text-dim);
+}
+
+/* ─── FOOTNOTE ───────────────────────────────────────────── */
+.footnote { font-size: 11.5px; color: var(--text-dim); margin-top: 8px; padding: 0 2px; }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════════════
+     PAGE HEADER
+═══════════════════════════════════════════════════════ -->
+<div class="page-header">
+  <div class="page-header-inner">
+    <div class="header-left">
+      <h1>T3 Country Analysis</h1>
+      <div class="sub">
+        Case：預設販售 Lite（低價低階）&ensp;·&ensp;
+        Control：預設販售 STD（分國別、分平台定價）<br>
+        Playback 入口：Case &amp; Control 統一販售調價後 STD
+      </div>
+    </div>
+    <div class="header-right">
+      <span class="badge badge-exp">T3 Pricing Experiment</span>
+      <span class="badge badge-src">26/06/23 updated</span>
+      <span class="badge badge-src">續訂表現 26/06/24 updated</span>
+    </div>
+  </div>
+</div>
+
+<div class="page-wrap">
+
+<!-- ══════════════════════════════════════════════════════
+     BR WARNING
+═══════════════════════════════════════════════════════ -->
+<div class="callout callout-warn">
+  <span style="font-size:16px;line-height:1">⚠</span>
+  <div>
+    <strong>BR 數據無效，已從分析排除。</strong>
+    BR Case 組的 Lite 年方案定價錯誤（年費 = 月費），導致年約訂閱比例與轉換數字嚴重膨脹，不可作為實驗成效依據。資料仍列於表格中，但以灰色標示。
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════
+     SECTION 1 — CROSS-MARKET OVERVIEW
+     Source: 26/06/23 updated
+═══════════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="section-hdr">
+    <span class="section-title">跨市場概覽</span>
+    <span class="section-src">Source: 26/06/23 updated</span>
+  </div>
+
+  <div class="table-wrap">
+    <table class="dt">
+      <thead>
+        <tr>
+          <th style="min-width:56px">市場</th>
+          <th>MAU-CVR<br><span class="dim" style="font-size:10px;font-weight:400">Case / Control</span></th>
+          <th style="min-width:155px">轉換倍數<br><span class="dim" style="font-size:10px;font-weight:400">最大刻度 3×</span></th>
+          <th>Paywall CVR<br><span class="dim" style="font-size:10px;font-weight:400">Case / Control</span></th>
+          <th>年約佔比<br><span class="dim" style="font-size:10px;font-weight:400">Case ↑ Control</span></th>
+          <th>Rev / 主活<br><span class="dim" style="font-size:10px;font-weight:400">Case / Control / Δ</span></th>
+          <th>月方案<br>首次續訂率</th>
+          <th>風險評估</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <!-- BR (invalid) -->
+        <tr class="inv">
+          <td>
+            <strong style="font-size:14px;font-weight:800">BR</strong>
+            <div style="margin-top:3px"><span class="badge badge-inv">定價錯誤</span></div>
+          </td>
+          <td class="mono">10.02% / 0.70%</td>
+          <td>
+            <div class="bar-wrap">
+              <div class="bar-track"><div class="bar-fill lo" style="width:100%"></div></div>
+              <span class="bar-lbl dim">14.3×</span>
+            </div>
+          </td>
+          <td class="mono">7.79% / 0.83%</td>
+          <td>
+            <div class="ann-pair">
+              <span class="case-ann dim">74.7%</span>
+              <span class="ctrl-ann">↑ 29.9%</span>
+            </div>
+          </td>
+          <td>
+            <span class="mono">$0.20 / $0.29</span>
+            <span class="delta neg" style="margin-left:5px">−31%</span>
+          </td>
+          <td class="mono dim">50.2%</td>
+          <td>—</td>
+        </tr>
+
+        <!-- IN -->
+        <tr>
+          <td><strong style="font-size:14px;font-weight:800">IN</strong></td>
+          <td class="mono">3.15% / 0.30%</td>
+          <td>
+            <div class="bar-wrap">
+              <div class="bar-track"><div class="bar-fill" style="width:100%"></div></div>
+              <span class="bar-lbl">10.5×</span>
+            </div>
+            <div class="footnote" style="margin-top:3px">Bar capped · ①</div>
+          </td>
+          <td class="mono">2.40% / 0.29%</td>
+          <td>
+            <div class="ann-pair">
+              <span class="case-ann neg">16.5%</span>
+              <span class="ctrl-ann">↑ 29.7%</span>
+            </div>
+          </td>
+          <td>
+            <span class="mono">$0.06 / $0.07</span>
+            <span class="delta neg" style="margin-left:5px">−14%</span>
+          </td>
+          <td class="mono" style="color:var(--red)">40.7%</td>
+          <td><span class="risk r-hi">高風險</span></td>
+        </tr>
+
+        <!-- TR -->
+        <tr>
+          <td><strong style="font-size:14px;font-weight:800">TR</strong></td>
+          <td class="mono">4.47% / 2.16%</td>
+          <td>
+            <div class="bar-wrap">
+              <div class="bar-track"><div class="bar-fill" style="width:69%"></div></div>
+              <span class="bar-lbl">2.07×</span>
+            </div>
+          </td>
+          <td class="mono">5.40% / 3.00%</td>
+          <td>
+            <div class="ann-pair">
+              <span class="case-ann pos">60.7%</span>
+              <span class="ctrl-ann">↑ 23.7%</span>
+            </div>
+          </td>
+          <td>
+            <span class="mono">$0.16 / $0.17</span>
+            <span class="delta neg" style="margin-left:5px">−6%</span>
+          </td>
+          <td class="mono">48.2%</td>
+          <td><span class="risk r-lo">低風險</span></td>
+        </tr>
+
+        <!-- AR -->
+        <tr>
+          <td><strong style="font-size:14px;font-weight:800">AR</strong></td>
+          <td class="mono">2.77% / 0.97%</td>
+          <td>
+            <div class="bar-wrap">
+              <div class="bar-track"><div class="bar-fill hi" style="width:95%"></div></div>
+              <span class="bar-lbl" style="color:var(--green)">2.85×</span>
+            </div>
+          </td>
+          <td class="mono">4.73% / 2.21%</td>
+          <td>
+            <div class="ann-pair">
+              <span class="case-ann pos">52.9%</span>
+              <span class="ctrl-ann">↑ 27.7%</span>
+            </div>
+          </td>
+          <td>
+            <span class="mono">$0.11 / $0.09</span>
+            <span class="delta pos" style="margin-left:5px">+22%</span>
+          </td>
+          <td class="mono">52.9%</td>
+          <td><span class="risk r-lo">低風險</span></td>
+        </tr>
+
+        <!-- CL -->
+        <tr>
+          <td><strong style="font-size:14px;font-weight:800">CL</strong></td>
+          <td class="mono">5.70% / 2.48%</td>
+          <td>
+            <div class="bar-wrap">
+              <div class="bar-track"><div class="bar-fill" style="width:76.7%"></div></div>
+              <span class="bar-lbl">2.30×</span>
+            </div>
+          </td>
+          <td class="mono">8.90% / 4.97%</td>
+          <td>
+            <div class="ann-pair">
+              <span class="case-ann pos">44.2%</span>
+              <span class="ctrl-ann">↑ 35.3%</span>
+            </div>
+          </td>
+          <td>
+            <span class="mono">$0.19 / $0.31</span>
+            <span class="delta neg" style="margin-left:5px">−39%</span>
+          </td>
+          <td class="mono" style="color:var(--green)">58.8%</td>
+          <td><span class="risk r-mid">觀察中</span></td>
+        </tr>
+
+        <!-- CO -->
+        <tr>
+          <td><strong style="font-size:14px;font-weight:800">CO</strong></td>
+          <td class="mono">3.88% / 2.15%</td>
+          <td>
+            <div class="bar-wrap">
+              <div class="bar-track"><div class="bar-fill" style="width:60%"></div></div>
+              <span class="bar-lbl">1.80×</span>
+            </div>
+          </td>
+          <td class="mono">4.60% / 3.39%</td>
+          <td>
+            <div class="ann-pair">
+              <span class="case-ann pos">44.9%</span>
+              <span class="ctrl-ann">↑ 11.6%</span>
+            </div>
+          </td>
+          <td>
+            <span class="mono">$0.13 / $0.09</span>
+            <span class="delta pos" style="margin-left:5px">+44%</span>
+          </td>
+          <td class="mono">57.2% <span class="badge badge-warn" style="font-size:9px;padding:1px 5px">⚠</span></td>
+          <td><span class="risk r-lo">低風險</span></td>
+        </tr>
+
+        <!-- ID -->
+        <tr>
+          <td><strong style="font-size:14px;font-weight:800">ID</strong></td>
+          <td class="mono">5.38% / 4.43%</td>
+          <td>
+            <div class="bar-wrap">
+              <div class="bar-track"><div class="bar-fill" style="width:40.3%"></div></div>
+              <span class="bar-lbl">1.21×</span>
+            </div>
+          </td>
+          <td class="mono">2.89% / 3.49%</td>
+          <td>
+            <div class="ann-pair">
+              <span class="case-ann dim">25.7%</span>
+              <span class="ctrl-ann">↑ 28.8%</span>
+            </div>
+          </td>
+          <td>
+            <span class="mono">$0.11 / $0.11</span>
+            <span class="delta neu" style="margin-left:5px">±0%</span>
+          </td>
+          <td class="mono">53.2%</td>
+          <td><span class="risk r-mid">觀察中</span></td>
+        </tr>
+
+        <!-- TH -->
+        <tr>
+          <td><strong style="font-size:14px;font-weight:800">TH</strong></td>
+          <td class="mono">6.01% / 2.66%</td>
+          <td>
+            <div class="bar-wrap">
+              <div class="bar-track"><div class="bar-fill" style="width:75.3%"></div></div>
+              <span class="bar-lbl">2.26×</span>
+            </div>
+          </td>
+          <td class="mono">6.69% / 3.57%</td>
+          <td>
+            <div class="ann-pair">
+              <span class="case-ann pos">33.7%</span>
+              <span class="ctrl-ann">↑ 14.0%</span>
+            </div>
+          </td>
+          <td>
+            <span class="mono">$0.19 / $0.18</span>
+            <span class="delta pos" style="margin-left:5px">+6%</span>
+          </td>
+          <td class="mono dim">—</td>
+          <td><span class="risk r-mid">觀察中</span></td>
+        </tr>
+
+        <!-- VN -->
+        <tr>
+          <td><strong style="font-size:14px;font-weight:800">VN</strong></td>
+          <td class="mono">3.85% / 3.07%</td>
+          <td>
+            <div class="bar-wrap">
+              <div class="bar-track"><div class="bar-fill" style="width:41.7%"></div></div>
+              <span class="bar-lbl">1.25×</span>
+            </div>
+          </td>
+          <td class="mono">4.55% / 4.50%</td>
+          <td>
+            <div class="ann-pair">
+              <span class="case-ann pos">47.4%</span>
+              <span class="ctrl-ann">↑ 31.0%</span>
+            </div>
+          </td>
+          <td>
+            <span class="mono">$0.18 / $0.35</span>
+            <span class="delta neg" style="margin-left:5px">−49%</span>
+          </td>
+          <td class="mono" style="color:var(--red)">33.8%</td>
+          <td><span class="risk r-hi">高風險</span></td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+
+  <div class="footnote">
+    ① IN 的 Control MAU-CVR（0.30%）與 Paywall CVR（0.29%）相較原始訂閱人數計算結果明顯偏低（預期約 1.9%），可能反映不同用戶母體或統計口徑，待確認。<br>
+    CL Rev/MAU 差距（−39%）值得單獨深挖：CVR 與年約佔比均優於 Control，但 Rev/MAU 仍輸較多，需確認方案組成與定價設定。
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     SECTION 2 — RENEWAL PERFORMANCE
+     Source: 續訂表現 26/06/24 updated
+═══════════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="section-hdr">
+    <span class="section-title">月方案歷史續訂表現</span>
+    <span class="section-src">Source: 續訂表現 26/06/24 updated</span>
+  </div>
+
+  <div class="footnote" style="margin-bottom:14px">
+    以舊月方案訂閱者為基準。用於估算 Case 組 Lite 月訂用戶的預期流失風險——歷史首次續訂率愈低，月訂主導型市場的 LTV 風險愈高。
+  </div>
+
+  <div class="renewal-grid">
+    <!-- VN — worst -->
+    <div class="rc" style="border-top:3px solid var(--red)">
+      <div class="rc-mkt">VN <span class="risk r-hi" style="font-size:10px">最低</span></div>
+      <div class="rc-row"><span>首次續訂率</span><span class="rc-val">33.8%</span></div>
+      <div class="rc-row"><span>全體平均續訂</span><span class="rc-val">1.27</span></div>
+      <div class="rc-row"><span>續訂者平均</span><span class="rc-val">3.75</span></div>
+      <div class="rc-note">樣本偏小（n=351）</div>
+    </div>
+    <!-- IN — low -->
+    <div class="rc" style="border-top:3px solid var(--red)">
+      <div class="rc-mkt">IN <span class="risk r-hi" style="font-size:10px">偏低</span></div>
+      <div class="rc-row"><span>首次續訂率</span><span class="rc-val">40.7%</span></div>
+      <div class="rc-row"><span>全體平均續訂</span><span class="rc-val">1.62</span></div>
+      <div class="rc-row"><span>續訂者平均</span><span class="rc-val">3.97</span></div>
+    </div>
+    <!-- TR -->
+    <div class="rc" style="border-top:3px solid var(--border)">
+      <div class="rc-mkt">TR</div>
+      <div class="rc-row"><span>首次續訂率</span><span class="rc-val">48.2%</span></div>
+      <div class="rc-row"><span>全體平均續訂</span><span class="rc-val">1.91</span></div>
+      <div class="rc-row"><span>續訂者平均</span><span class="rc-val">3.96</span></div>
+    </div>
+    <!-- ID -->
+    <div class="rc" style="border-top:3px solid var(--border)">
+      <div class="rc-mkt">ID</div>
+      <div class="rc-row"><span>首次續訂率</span><span class="rc-val">53.2%</span></div>
+      <div class="rc-row"><span>全體平均續訂</span><span class="rc-val">2.36</span></div>
+      <div class="rc-row"><span>續訂者平均</span><span class="rc-val">4.44</span></div>
+    </div>
+    <!-- AR -->
+    <div class="rc" style="border-top:3px solid var(--green)">
+      <div class="rc-mkt">AR</div>
+      <div class="rc-row"><span>首次續訂率</span><span class="rc-val">52.9%</span></div>
+      <div class="rc-row"><span>全體平均續訂</span><span class="rc-val">2.24</span></div>
+      <div class="rc-row"><span>續訂者平均</span><span class="rc-val">4.24</span></div>
+    </div>
+    <!-- CO -->
+    <div class="rc" style="border-top:3px solid var(--green)">
+      <div class="rc-mkt">CO <span style="font-size:11px;color:var(--amber)">⚠</span></div>
+      <div class="rc-row"><span>首次續訂率</span><span class="rc-val">57.2%</span></div>
+      <div class="rc-row"><span>全體平均續訂</span><span class="rc-val">4.37</span></div>
+      <div class="rc-row"><span>續訂者平均</span><span class="rc-val">7.64</span></div>
+      <div class="rc-note">P9↑ 異常已排除；尾部持續上升</div>
+    </div>
+    <!-- CL — best -->
+    <div class="rc" style="border-top:3px solid var(--green)">
+      <div class="rc-mkt">CL <span class="risk r-lo" style="font-size:10px">最高</span></div>
+      <div class="rc-row"><span>首次續訂率</span><span class="rc-val">58.8%</span></div>
+      <div class="rc-row"><span>全體平均續訂</span><span class="rc-val">3.03</span></div>
+      <div class="rc-row"><span>續訂者平均</span><span class="rc-val">5.14</span></div>
+    </div>
+    <!-- BR (ref only) -->
+    <div class="rc" style="border-top:3px solid var(--border);opacity:0.45">
+      <div class="rc-mkt">BR <span class="dim" style="font-size:10px">定價錯誤</span></div>
+      <div class="rc-row"><span>首次續訂率</span><span class="rc-val">50.2%</span></div>
+      <div class="rc-row"><span>全體平均續訂</span><span class="rc-val">2.42</span></div>
+      <div class="rc-row"><span>續訂者平均</span><span class="rc-val">4.82</span></div>
+    </div>
+    <!-- TH (not in tab) -->
+    <div class="rc" style="border-top:3px solid var(--border-light);background:var(--ground)">
+      <div class="rc-mkt dim">TH</div>
+      <div class="rc-na">不在此 tab 資料內</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     SECTION 3 — IN DEEP DIVE
+═══════════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="section-hdr">
+    <span class="section-title">IN 解讀框架（可套用至其他市場）</span>
+    <span class="section-src">India · 四層分析</span>
+  </div>
+
+  <div class="mhero">
+
+    <!-- Hero Header -->
+    <div class="mhero-hdr">
+      <div>
+        <div class="code">IN</div>
+        <div class="name">India</div>
+      </div>
+      <div class="meta">
+        <span class="risk r-hi" style="font-size:12px;padding:5px 14px">高風險</span>
+        <span class="mau">MAU：Case 34,499 / Control 34,904</span>
+      </div>
+    </div>
+
+    <!-- Pricing Reference Strip -->
+    <div class="pricing-strip">
+      <div class="pc" style="border-top:2px solid var(--accent)">
+        <div class="pc-lbl">Lite（Case 預設）</div>
+        <div class="pc-row"><span class="pc-per">月方案</span><span class="pc-amt">₹90</span></div>
+        <div class="pc-row"><span class="pc-per">年方案</span><span class="pc-amt">₹550</span></div>
+        <div class="pc-save">年約省 49%（月均 ₹45.8）</div>
+      </div>
+      <div class="pc">
+        <div class="pc-lbl">STD 新定價（Playback upsell 及 Case 組）</div>
+        <div class="pc-row"><span class="pc-per">月方案</span><span class="pc-amt">₹149</span></div>
+        <div class="pc-row"><span class="pc-per">年方案</span><span class="pc-amt">₹829</span></div>
+        <div class="pc-save">年約省 54%（月均 ₹69.1）</div>
+      </div>
+      <div class="pc dim">
+        <div class="pc-lbl">STD 舊定價（Control 主力）</div>
+        <div class="pc-row"><span class="pc-per">月方案</span><span class="pc-amt">₹199</span></div>
+        <div class="pc-row"><span class="pc-per">年方案</span><span class="pc-amt">₹799</span></div>
+        <div class="pc-save" style="color:var(--text-muted)">年約省 67%（月均 ₹66.6）</div>
+      </div>
+    </div>
+
+    <!-- ─ LAYER 01: Conversion ─ -->
+    <div class="layer">
+      <div class="layer-hdr">
+        <span class="layer-num">LAYER 01</span>
+        <span class="layer-ttl">轉換效果有多強？</span>
+        <span class="layer-q">低價是否真的降低了訂閱門檻？</span>
+      </div>
+      <div class="layer-body">
+        <div>
+          <table class="mt">
+            <thead>
+              <tr><th>指標</th><th>Case</th><th>Control</th><th>倍數</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>MAU → 新訂 CVR</td>
+                <td class="mono case-bg">3.15%</td>
+                <td class="mono">0.30% ①</td>
+                <td class="mono" style="color:var(--accent);font-weight:800">10.5×</td>
+              </tr>
+              <tr>
+                <td>Paywall → 新訂 CVR</td>
+                <td class="mono case-bg">2.40%</td>
+                <td class="mono">0.29% ①</td>
+                <td class="mono" style="color:var(--accent);font-weight:800">8.3×</td>
+              </tr>
+              <tr>
+                <td>Paywall 觸及率（PV/MAU）</td>
+                <td class="mono case-bg">131%</td>
+                <td class="mono">104%</td>
+                <td class="mono dim">1.26×</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="footnote" style="margin-top:6px">① Control CVR 數值異常偏低，可能為不同統計口徑，待確認</div>
+        </div>
+        <div class="insight">
+          <p>Case 同時在兩個維度取得優勢：<strong>更多 paywall 觸及</strong>（+26%）以及<strong>更高的每次展示轉換率</strong>。</p>
+          <p>低價不只讓更多人願意訂閱，也讓更多人主動點進付費頁——雙層效果。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─ LAYER 02: User Quality ─ -->
+    <div class="layer alt">
+      <div class="layer-hdr">
+        <span class="layer-num">LAYER 02</span>
+        <span class="layer-ttl">進來的用戶質量如何？</span>
+        <span class="layer-q">年約佔比 × 歷史續訂率 → 預期 LTV</span>
+      </div>
+      <div class="layer-body">
+        <div>
+          <table class="mt">
+            <thead>
+              <tr><th>指標</th><th>Case</th><th>Control</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>年約佔比</td>
+                <td class="mono red-bg">16.5%</td>
+                <td class="mono">29.7%</td>
+              </tr>
+              <tr>
+                <td>月訂佔比</td>
+                <td class="mono" style="color:var(--amber)">83.5%</td>
+                <td class="mono">70.3%</td>
+              </tr>
+              <tr>
+                <td>歷史首次續訂率</td>
+                <td colspan="2" class="mono" style="color:var(--red)">40.7%（全市場第二低）</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="calc">
+            <div class="calc-lbl">月訂 vs 年訂的預期 LTV（INR）</div>
+            <div class="calc-row">
+              <span>月訂預期 LTV（歷史 2.62 次付款）</span>
+              <span class="calc-val">₹90 × 2.62 = ₹236</span>
+            </div>
+            <div class="calc-row">
+              <span>年訂首年收益</span>
+              <span class="calc-val">₹550</span>
+            </div>
+            <div class="calc-hl">年訂是月訂預期 LTV 的 2.33 倍</div>
+          </div>
+        </div>
+        <div class="insight red">
+          <p>IN 歷史月訂用戶有 <strong>59.3% 不會在第一個月後續訂</strong>（首次續訂率 40.7%）。</p>
+          <p>Case 組 83.5% 是月訂，代表多數新用戶可能在第一個月後流失。</p>
+          <p>年訂 LTV 幾乎是月訂的 2.3 倍，但 Case 的年訂佔比反而比 Control 更低——這是 IN 最核心的問題。</p>
+          <p style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border-light);font-size:12px;color:var(--text-muted)">
+            舊 STD 年約折扣（67%）遠大於 Lite 年約（49%），這可能解釋了為什麼 Control 用戶更傾向選年約。
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─ LAYER 03: Revenue Gap ─ -->
+    <div class="layer">
+      <div class="layer-hdr">
+        <span class="layer-num">LAYER 03</span>
+        <span class="layer-ttl">現在的收益缺口有多大？</span>
+        <span class="layer-q">CVR 優勢能否補上 ARPU 差距？</span>
+      </div>
+      <div class="layer-body">
+        <div>
+          <table class="mt">
+            <thead>
+              <tr><th>指標</th><th>Case</th><th>Control</th><th>Δ</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Rev / 主活</td>
+                <td class="mono case-bg">$0.06</td>
+                <td class="mono">$0.07</td>
+                <td class="mono neg">−14%</td>
+              </tr>
+              <tr>
+                <td>Rev / Sub. Pageview</td>
+                <td class="mono case-bg">$0.04</td>
+                <td class="mono">$0.07</td>
+                <td class="mono neg">−43%</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="calc">
+            <div class="calc-lbl">收益追平所需的訂閱量倍數</div>
+            <div class="calc-row">
+              <span>Control ARPU（以舊 STD 月訂為主）</span>
+              <span class="calc-val">₹199 × 2.62 = ₹522</span>
+            </div>
+            <div class="calc-row">
+              <span>Case ARPU（Lite 加權）</span>
+              <span class="calc-val">₹288</span>
+            </div>
+            <div class="calc-row">
+              <span style="font-size:11px;color:var(--text-dim)">0.835×(90×2.62) + 0.165×550</span>
+              <span></span>
+            </div>
+            <div class="calc-row">
+              <span>追平所需倍數</span>
+              <span class="calc-val">₹522 ÷ ₹288 = <strong>1.81×</strong></span>
+            </div>
+            <div class="calc-hl">目前 Case 訂閱量倍數：~1.75× → 缺口僅剩 3%</div>
+          </div>
+        </div>
+        <div class="insight">
+          <p>Rev/MAU 差距僅 <strong>−14%</strong>，但這個數字偏樂觀——它是基於第一筆付款，沒有反映月訂的高流失率。</p>
+          <p>Rev/Pageview 的 <strong>−43%</strong> 是更誠實的效率指標：Case 需要更多次 paywall 展示才能拿到相近的收益。</p>
+          <p>好消息是：追平所需的倍數（1.81×）與目前實際倍數（~1.75×）非常接近，<strong>只需改善一個環節就有機會翻正</strong>。</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─ LAYER 04: Pricing Paths ─ -->
+    <div class="layer alt">
+      <div class="layer-hdr">
+        <span class="layer-num">LAYER 04</span>
+        <span class="layer-ttl">調價空間在哪裡？</span>
+        <span class="layer-q">CVR 彈性預算 × 三條可選路徑</span>
+      </div>
+
+      <div class="elasticity-note">
+        <div class="en-lbl">CVR 彈性預算</div>
+        月費調漲後，若 CVR 下降不超過 <strong>約 35%</strong>（訂閱倍數從 1.75× 降至 1.14×），Rev/MAU 仍可維持在 Control 水準。這是調漲月費的最大安全空間。
+      </div>
+
+      <div class="paths">
+        <!-- Path A -->
+        <div class="path-card">
+          <div class="path-id pid-a">A</div>
+          <div>
+            <div class="path-ttl">提高年約吸引力（不動月費）</div>
+            <div class="path-desc">
+              Lite 年約（₹550）折扣率 49%，遠低於舊 STD 的 67%。
+              優化年約在付費頁的呈現方式，或小幅降低年費至 ₹490–₹520。
+              CVR 不受影響，為最低風險路徑。
+            </div>
+            <span class="path-calc">年約佔比 16.5% → 30%，預期 LTV/sub 提升 +14.6%，恰好填補缺口</span>
+          </div>
+          <span class="path-tag tag-first">優先嘗試</span>
+        </div>
+
+        <!-- Path B -->
+        <div class="path-card">
+          <div class="path-id pid-b">B</div>
+          <div>
+            <div class="path-ttl">月費調漲 + 年約小改善（並行）</div>
+            <div class="path-desc">
+              年約佔比小幅提升至 23%，同時月費調至 ₹100（+11%）。
+              各自幅度較小，合力填補缺口，CVR 風險分散。
+            </div>
+            <span class="path-calc">月費 ₹90 → ₹100 (+11%) + 年約 16.5% → 23%</span>
+          </div>
+          <span class="path-tag tag-second">備選方案</span>
+        </div>
+
+        <!-- Path C -->
+        <div class="path-card">
+          <div class="path-id pid-c">C</div>
+          <div>
+            <div class="path-ttl">月費單獨調漲（最後手段）</div>
+            <div class="path-desc">
+              要靠月費漲價單獨填補缺口，需漲至約 ₹109（+21%）。
+              IN 為高度價格敏感市場，建議等有 CVR 彈性的實驗數據後才考慮。
+            </div>
+            <span class="path-calc">月費 ₹90 → ₹109（+21%），保持年費不變</span>
+          </div>
+          <span class="path-tag tag-last">需數據支撐</span>
+        </div>
+      </div>
+
+    </div><!-- /layer 04 -->
+
+  </div><!-- /mhero -->
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════════════ -->
+<div class="page-footer">
+  <div>T3 Country Analysis v2 &nbsp;·&nbsp; 2026-06-24</div>
+  <div>IN 框架可套用至：TR · AR · CL · CO · ID · TH · VN</div>
+</div>
+
+</div><!-- /page-wrap -->
+</body>
+</html>
