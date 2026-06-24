@@ -393,6 +393,55 @@ table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
 .tag-second { background: var(--amber-bg); color: var(--amber); }
 .tag-last   { background: var(--border-light); color: var(--text-muted); }
 
+/* ─── STRATEGY GRID ──────────────────────────────────────── */
+.strat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 16px;
+}
+@media (max-width: 700px) { .strat-grid { grid-template-columns: 1fr; } }
+.s-card {
+  background: var(--paper);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+.s-card-hdr {
+  padding: 11px 14px 9px;
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+}
+.s-card-title { font-size: 17px; font-weight: 800; line-height: 1.2; }
+.s-card-sub   { font-size: 11px; color: var(--text-dim); margin-top: 1px; }
+.s-card-stats {
+  display: flex;
+  gap: 10px;
+  padding: 7px 14px;
+  background: var(--paper-2);
+  border-bottom: 1px solid var(--border-light);
+  flex-wrap: wrap;
+}
+.s-stat { font-size: 11.5px; color: var(--text-muted); }
+.s-stat strong { color: var(--text); font-weight: 700; }
+.s-opts { }
+.s-opt {
+  display: grid;
+  grid-template-columns: 18px 1fr auto;
+  gap: 4px 8px;
+  align-items: start;
+  padding: 8px 14px;
+  border-bottom: 1px solid var(--border-light);
+}
+.s-opt:last-child { border-bottom: none; }
+.s-opt-num  { font-size: 10px; font-weight: 800; color: var(--text-dim); padding-top: 2px; }
+.s-opt-lbl  { font-size: 12.5px; font-weight: 700; line-height: 1.3; }
+.s-opt-note { font-size: 11px; color: var(--text-muted); margin-top: 1px; grid-column: 2; }
+.rec-lo { background: var(--red-bg); color: var(--red); font-size: 10.5px; font-weight: 700; padding: 2px 7px; border-radius: 10px; white-space: nowrap; }
+
 /* ─── FOOTER ─────────────────────────────────────────────── */
 .page-footer {
   margin-top: 48px;
@@ -1570,7 +1619,335 @@ table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
 </section>
 
 <!-- ══════════════════════════════════════════════════════
-     SECTION 2 — RENEWAL PERFORMANCE
+     SECTION 2 — PRICING STRATEGY
+═══════════════════════════════════════════════════════ -->
+<section class="section">
+  <div class="section-hdr">
+    <span class="section-title">各市場後續定價策略</span>
+    <span class="section-src">依年月佔比分布推算 · 四選項框架</span>
+  </div>
+
+  <div class="break-note" style="margin-bottom:16px">
+    <strong>四個選項定義：</strong>
+    ① 回復 STD 舊價格（Control 的原始定價）／
+    ② 套用 Lite 新價格（Case 現況，$0.99/mo · $5.99/yr）／
+    ③ 基於 Lite 微調（在 Lite 基礎上調整月費或年費結構）／
+    ④ 基於 STD 舊微調（在舊 STD 基礎上降低以擴大 CVR）。
+    <br>
+    <strong>推薦邏輯：</strong>年約佔比高（>40%）且 Rev/MAU 正向 → ② 維持；年約低（<25%）→ ③ 強化年約；Rev/MAU 大幅負向（>−30%）→ ③↑ 或 ④。
+  </div>
+
+  <div class="strat-grid">
+
+    <!-- IN -->
+    <div class="s-card">
+      <div class="s-card-hdr">
+        <div>
+          <div class="s-card-title">IN <span style="font-size:13px;font-weight:400;color:var(--text-muted)">India</span></div>
+          <div class="s-card-sub">$2.39/mo → $0.99/mo（Lite）· 定價差 2.4×</div>
+        </div>
+        <span class="risk r-hi">高風險</span>
+      </div>
+      <div class="s-card-stats">
+        <span class="s-stat">年約 Case <strong class="metric-lo">16.5%</strong> vs Ctrl 29.7%</span>
+        <span class="s-stat">CVR <strong>1.75×</strong></span>
+        <span class="s-stat">Rev/MAU <strong class="metric-lo">−14%</strong></span>
+      </div>
+      <div class="s-opts">
+        <div class="s-opt">
+          <span class="s-opt-num">①</span>
+          <div><div class="s-opt-lbl">回復 STD 舊（₹199/mo）</div><div class="s-opt-note">喪失 1.75× CVR 優勢，訂閱量大幅下滑</div></div>
+          <span class="rec-lo">不建議</span>
+        </div>
+        <div class="s-opt">
+          <span class="s-opt-num">②</span>
+          <div><div class="s-opt-lbl">套用 Lite 新（₹90/mo）</div><div class="s-opt-note">月訂 83.5% 主導，長期流失風險；Rev/MAU 仍落後</div></div>
+          <span class="rec-mid">備選</span>
+        </div>
+        <div class="s-opt">
+          <span class="s-opt-num">③</span>
+          <div><div class="s-opt-lbl">Lite 微調：強化年約誘因</div><div class="s-opt-note">降低年費折扣率（₹490 vs ₹550），或 paywall 視覺強推年約；目標年約比 ≥25%</div></div>
+          <span class="rec-hi">推薦</span>
+        </div>
+        <div class="s-opt">
+          <span class="s-opt-num">④</span>
+          <div><div class="s-opt-lbl">STD 舊微調（₹149/mo 對齊新 STD）</div><div class="s-opt-note">縮小與 Lite 價差，定位更清晰；但 CVR 效果有限</div></div>
+          <span class="rec-mid">備選</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TR -->
+    <div class="s-card">
+      <div class="s-card-hdr">
+        <div>
+          <div class="s-card-title">TR <span style="font-size:13px;font-weight:400;color:var(--text-muted)">Türkiye</span></div>
+          <div class="s-card-sub">$6.25/mo → $0.99/mo（Lite）· 定價差 6.3×</div>
+        </div>
+        <span class="risk r-lo">低風險</span>
+      </div>
+      <div class="s-card-stats">
+        <span class="s-stat">年約 Case <strong class="metric-hi">47.1%</strong> vs Ctrl 24.0%</span>
+        <span class="s-stat">CVR <strong>2.54×</strong></span>
+        <span class="s-stat">Rev/MAU <strong class="metric-lo">−6%</strong></span>
+      </div>
+      <div class="s-opts">
+        <div class="s-opt">
+          <span class="s-opt-num">①</span>
+          <div><div class="s-opt-lbl">回復 STD 舊（₺199.99/mo）</div><div class="s-opt-note">喪失 2.54× CVR 優勢；土耳其用戶對高通膨極度敏感</div></div>
+          <span class="rec-lo">不建議</span>
+        </div>
+        <div class="s-opt">
+          <span class="s-opt-num">②</span>
+          <div><div class="s-opt-lbl">套用 Lite 新（₺35/mo）</div><div class="s-opt-note">Rev/MAU 缺口僅 −6%，年約 47% 出色；接近損益平衡</div></div>
+          <span class="rec-hi">可接受</span>
+        </div>
+        <div class="s-opt">
+          <span class="s-opt-num">③</span>
+          <div><div class="s-opt-lbl">Lite 微調：小漲年費（₺214.99→₺249）</div><div class="s-opt-note">年約佔比高（47%），年費微調最直接補缺口；CVR 不受影響</div></div>
+          <span class="rec-hi">推薦</span>
+        </div>
+        <div class="s-opt">
+          <span class="s-opt-num">④</span>
+          <div><div class="s-opt-lbl">STD 舊微調（₺199.99→₺89.99）</div><div class="s-opt-note">Lite 和 STD 之間建立中間價位；但可能造成定位混淆</div></div>
+          <span class="rec-mid">備選</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- AR -->
+    <div class="s-card">
+      <div class="s-card-hdr">
+        <div>
+          <div class="s-card-title">AR <span style="font-size:13px;font-weight:400;color:var(--text-muted)">Argentina</span></div>
+          <div class="s-card-sub">$4.99/mo → $0.99/mo（Lite）· 定價差 5.0×</div>
+        </div>
+        <span class="risk r-lo">低風險</span>
+      </div>
+      <div class="s-card-stats">
+        <span class="s-stat">年約 Case <strong class="metric-hi">52.9%</strong> vs Ctrl 27.7%</span>
+        <span class="s-stat">CVR <strong>2.85×</strong></span>
+        <span class="s-stat">Rev/MAU <strong class="metric-hi">+22%</strong></span>
+      </div>
+      <div class="s-opts">
+        <div class="s-opt">
+          <span class="s-opt-num">①</span>
+          <div><div class="s-opt-lbl">回復 STD 舊（$4.99/mo）</div><div class="s-opt-note">Case 已在 CVR、年約、Rev/MAU 全面領先，無需回頭</div></div>
+          <span class="rec-lo">不建議</span>
+        </div>
+        <div class="s-opt">
+          <span class="s-opt-num">②</span>
+          <div><div class="s-opt-lbl">套用 Lite 新（$0.99/mo）</div><div class="s-opt-note">全方位勝出：CVR 2.85×、年約 53%、Rev/MAU +22%</div></div>
+          <span class="rec-hi">強烈推薦</span>
+        </div>
+        <div class="s-opt">
+          <span class="s-opt-num">③</span>
+          <div><div class="s-opt-lbl">Lite 微調（$0.99→$1.29/mo）</div><div class="s-opt-note">表現已優，小漲有空間；需監控 CVR 是否下滑</div></div>
+          <span class="rec-mid">可考慮</span>
+        </div>
+        <div class="s-opt">
+          <span class="s-opt-num">④</span>
+          <div><div class="s-opt-lbl">STD 舊微調</div><div class="s-opt-note">無需要；Case 已解決原本 STD 的問題</div></div>
+          <span class="rec-lo">不需要</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CL -->
+    <div class="s-card">
+      <div class="s-card-hdr">
+        <div>
+          <div class="s-card-title">CL <span style="font-size:13px;font-weight:400;color:var(--text-muted)">Chile</span></div>
+          <div class="s-card-sub">$5.54/mo → $0.99/mo（Lite）· 定價差 5.6×</div>
+        </div>
+        <span class="risk r-mid">觀察中</span>
+      </div>
+      <div class="s-card-stats">
+        <span class="s-stat">年約 Case <strong class="metric-hi">44.2%</strong> vs Ctrl 35.3%</span>
+        <span class="s-stat">CVR <strong>2.30×</strong></span>
+        <span class="s-stat">Rev/MAU <strong class="metric-lo">−39%</strong></span>
+      </div>
+      <div class="s-opts">
+        <div class="s-opt">
+          <span class="s-opt-num">①</span>
+          <div><div class="s-opt-lbl">回復 STD 舊（$5.54/mo）</div><div class="s-opt-note">喪失 2.30× CVR；雖 Rev/MAU 可能回正，但放棄訂閱量成長</div></div>
+          <span class="rec-lo">不建議</span>
+        </div>
+        <div class="s-opt">
+          <span class="s-opt-num">②</span>
+          <div><div class="s-opt-lbl">套用 Lite 新（$0.99/mo）</div><div class="s-opt-note">年約佔比 44% 算好，但 Rev/MAU −39% 過大；定價差距 5.6× 難以靠訂閱量補平</div></div>
+          <span class="rec-lo">問題大</span>
+        </div>
+        <div class="s-opt">
+          <span class="s-opt-num">③</span>
+          <div><div class="s-opt-lbl">Lite 微調（$0.99→$1.99/mo）</div><div class="s-opt-note">大幅縮小 Lite vs STD 舊價差，保持 CVR 優勢同時提升 ARPU</div></div>
+          <span class="rec-hi">推薦</span>
+        </div>
+        <div class="s-opt">
+          <span class="s-opt-num">④</span>
+          <div><div class="s-opt-lbl">STD 舊微調（$5.54→$2.99/mo）</div><div class="s-opt-note">大幅降低 STD 門檻；與 Lite 建立 3× 合理溢價</div></div>
+          <span class="rec-hi">備選</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CO -->
+    <div class="s-card">
+      <div class="s-card-hdr">
+        <div>
+          <div class="s-card-title">CO <span style="font-size:13px;font-weight:400;color:var(--text-muted)">Colombia</span></div>
+          <div class="s-card-sub">$4.87/mo → $0.99/mo（Lite）· 定價差 4.9×</div>
+        </div>
+        <span class="risk r-lo">低風險</span>
+      </div>
+      <div class="s-card-stats">
+        <span class="s-stat">年約 Case <strong class="metric-hi">44.9%</strong> vs Ctrl 11.6%</span>
+        <span class="s-stat">CVR <strong>1.80×</strong></span>
+        <span class="s-stat">Rev/MAU <strong class="metric-hi">+44%</strong></span>
+      </div>
+      <div class="s-opts">
+        <div class="s-opt">
+          <span class="s-opt-num">①</span>
+          <div><div class="s-opt-lbl">回復 STD 舊（$4.87/mo）</div><div class="s-opt-note">Case 各項指標均領先；回復會大幅降低訂閱量</div></div>
+          <span class="rec-lo">不建議</span>
+        </div>
+        <div class="s-opt">
+          <span class="s-opt-num">②</span>
+          <div><div class="s-opt-lbl">套用 Lite 新（$0.99/mo）</div><div class="s-opt-note">Rev/MAU +44% 且年約 45%（Control 僅 12%）——全面領先</div></div>
+          <span class="rec-hi">強烈推薦</span>
+        </div>
+        <div class="s-opt">
+          <span class="s-opt-num">③</span>
+          <div><div class="s-opt-lbl">Lite 微調（$0.99→$1.19/mo）</div><div class="s-opt-note">有空間小漲；注意 CO 續訂率數據有 P9 異常，需謹慎</div></div>
+          <span class="rec-mid">可考慮</span>
+        </div>
+        <div class="s-opt">
+          <span class="s-opt-num">④</span>
+          <div><div class="s-opt-lbl">STD 舊微調</div><div class="s-opt-note">Lite 已全面優勝，不需要 STD 舊調整</div></div>
+          <span class="rec-lo">不需要</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ID -->
+    <div class="s-card">
+      <div class="s-card-hdr">
+        <div>
+          <div class="s-card-title">ID <span style="font-size:13px;font-weight:400;color:var(--text-muted)">Indonesia</span></div>
+          <div class="s-card-sub">$1.21/mo → $0.99/mo（Lite）· 定價差 1.2×</div>
+        </div>
+        <span class="risk r-mid">觀察中</span>
+      </div>
+      <div class="s-card-stats">
+        <span class="s-stat">年約 Case <strong class="metric-lo">24.5%</strong> vs Ctrl 27.1%</span>
+        <span class="s-stat">CVR <strong>1.31×</strong></span>
+        <span class="s-stat">Rev/MAU <strong>±0%</strong></span>
+      </div>
+      <div class="s-opts">
+        <div class="s-opt">
+          <span class="s-opt-num">①</span>
+          <div><div class="s-opt-lbl">回復 STD 舊（Rp 25,000/mo）</div><div class="s-opt-note">與 Lite 僅 22% 差距，CVR 代價大於 ARPU 收益</div></div>
+          <span class="rec-mid">低優先</span>
+        </div>
+        <div class="s-opt">
+          <span class="s-opt-num">②</span>
+          <div><div class="s-opt-lbl">套用 Lite 新（Rp 16,500/mo）</div><div class="s-opt-note">CVR 1.31× 已超越追平點 1.23×；Rev/MAU 持平</div></div>
+          <span class="rec-hi">推薦</span>
+        </div>
+        <div class="s-opt">
+          <span class="s-opt-num">③</span>
+          <div><div class="s-opt-lbl">Lite 微調（Rp 16,500→19,000/mo）</div><div class="s-opt-note">已超追平點，有空間小漲；年約佔比略低需同步優化</div></div>
+          <span class="rec-mid">可選</span>
+        </div>
+        <div class="s-opt">
+          <span class="s-opt-num">④</span>
+          <div><div class="s-opt-lbl">STD 舊微調（Rp 25,000→22,000/mo）</div><div class="s-opt-note">兩者價差本就很小，微調效果有限</div></div>
+          <span class="rec-mid">低優先</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TH -->
+    <div class="s-card">
+      <div class="s-card-hdr">
+        <div>
+          <div class="s-card-title">TH <span style="font-size:13px;font-weight:400;color:var(--text-muted)">Thailand</span></div>
+          <div class="s-card-sub">$5.53/mo → $0.99/mo（Lite）· 定價差 5.6×</div>
+        </div>
+        <span class="risk r-mid">觀察中</span>
+      </div>
+      <div class="s-card-stats">
+        <span class="s-stat">年約 Case <strong class="metric-hi">33.7%</strong> vs Ctrl 14.0%</span>
+        <span class="s-stat">CVR <strong>2.26×</strong></span>
+        <span class="s-stat">Rev/MAU <strong class="metric-hi">+6%</strong></span>
+      </div>
+      <div class="s-opts">
+        <div class="s-opt">
+          <span class="s-opt-num">①</span>
+          <div><div class="s-opt-lbl">回復 STD 舊（$5.53/mo）</div><div class="s-opt-note">Case 年約 +20pp、Rev/MAU +6%；回復無必要</div></div>
+          <span class="rec-lo">不建議</span>
+        </div>
+        <div class="s-opt">
+          <span class="s-opt-num">②</span>
+          <div><div class="s-opt-lbl">套用 Lite 新（$0.99/mo）</div><div class="s-opt-note">整體正向；年約比 34% 有進步空間，但 Rev/MAU 已正</div></div>
+          <span class="rec-hi">推薦</span>
+        </div>
+        <div class="s-opt">
+          <span class="s-opt-num">③</span>
+          <div><div class="s-opt-lbl">Lite 微調（$0.99→$1.29/mo）</div><div class="s-opt-note">年約佔比 34% 中等，若能同步拉升年約比，漲月費風險較低</div></div>
+          <span class="rec-mid">可考慮</span>
+        </div>
+        <div class="s-opt">
+          <span class="s-opt-num">④</span>
+          <div><div class="s-opt-lbl">STD 舊微調</div><div class="s-opt-note">Case 表現正向，無明確需求</div></div>
+          <span class="rec-lo">不需要</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- VN -->
+    <div class="s-card">
+      <div class="s-card-hdr">
+        <div>
+          <div class="s-card-title">VN <span style="font-size:13px;font-weight:400;color:var(--text-muted)">Vietnam</span></div>
+          <div class="s-card-sub">$5.10/mo → $0.99/mo（Lite）· 定價差 5.2×</div>
+        </div>
+        <span class="risk r-hi">高風險</span>
+      </div>
+      <div class="s-card-stats">
+        <span class="s-stat">年約 Case <strong class="metric-hi">47.4%</strong> vs Ctrl 31.0%</span>
+        <span class="s-stat">CVR <strong>1.25×</strong></span>
+        <span class="s-stat">Rev/MAU <strong class="metric-lo">−49%</strong></span>
+      </div>
+      <div class="s-opts">
+        <div class="s-opt">
+          <span class="s-opt-num">①</span>
+          <div><div class="s-opt-lbl">回復 STD 舊（$5.10/mo）</div><div class="s-opt-note">CVR 優勢只有 1.25×，無法補平 5.2× 定價差；Rev/MAU 可能回正但損失大量訂閱者</div></div>
+          <span class="rec-mid">可考慮</span>
+        </div>
+        <div class="s-opt">
+          <span class="s-opt-num">②</span>
+          <div><div class="s-opt-lbl">套用 Lite 新（$0.99/mo）</div><div class="s-opt-note">Rev/MAU −49% 嚴重；樣本小（n=57），但趨勢仍需改善</div></div>
+          <span class="rec-lo">問題大</span>
+        </div>
+        <div class="s-opt">
+          <span class="s-opt-num">③</span>
+          <div><div class="s-opt-lbl">Lite 微調（$0.99→$1.49/mo）</div><div class="s-opt-note">年約 47% 算好；大幅漲 Lite 月費縮小差距，但效果可能有限</div></div>
+          <span class="rec-mid">備選</span>
+        </div>
+        <div class="s-opt">
+          <span class="s-opt-num">④</span>
+          <div><div class="s-opt-lbl">STD 舊微調（$5.10→$2.49/mo）</div><div class="s-opt-note">大幅降低 STD 門檻，在 Lite 之上建立合理溢價；適合 VN 低收入市場</div></div>
+          <span class="rec-hi">推薦</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /strat-grid -->
+</section>
+
+<!-- ══════════════════════════════════════════════════════
+     SECTION 3 — RENEWAL PERFORMANCE
      Source: 續訂表現 26/06/24 updated
 ═══════════════════════════════════════════════════════ -->
 <section class="section">
