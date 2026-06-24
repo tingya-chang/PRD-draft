@@ -240,6 +240,15 @@ table.dt {
 .mhero-hdr .name   { font-size: 14px; opacity: 0.55; margin-top: 3px; }
 .mhero-hdr .meta   { margin-left: auto; display: flex; flex-direction: column; align-items: flex-end; gap: 6px; }
 .mhero-hdr .mau    { font-family: var(--mono); font-size: 11.5px; opacity: 0.5; }
+.mhero-hdr .summary {
+  width: 100%;
+  font-size: 12.5px;
+  opacity: 0.7;
+  line-height: 1.55;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+  margin-top: 2px;
+}
 
 /* ─── PRICING BAR ────────────────────────────────────────── */
 .pricing-strip {
@@ -760,6 +769,7 @@ table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
         <span class="risk r-hi" style="font-size:12px;padding:5px 14px">高風險</span>
         <span class="mau">主活：Case 34,499 / Control 34,904</span>
       </div>
+      <div class="summary">轉換率有提升，但進來的用戶品質更差（月訂多、年訂少），而且月訂本身留存率又偏低。即使訂閱量成長，長期收益不樂觀。</div>
     </div>
 
     <!-- Pricing Reference Strip -->
@@ -962,6 +972,7 @@ table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
         <span class="risk r-mid" style="font-size:12px;padding:5px 14px">觀察中</span>
         <span class="mau">主活：Case 5,258 / Control 5,255</span>
       </div>
+      <div class="summary">短期收益正向，但年約結構的問題若不修正，長期 LTV 改善空間受限——不算危險，但還需觀察年費調整後的效果。</div>
     </div>
 
     <!-- Pricing Reference Strip -->
@@ -1155,6 +1166,7 @@ table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
         <span class="risk r-lo" style="font-size:12px;padding:5px 14px">低風險</span>
         <span class="mau">主活：Case 8,247 / Control 8,293</span>
       </div>
+      <div class="summary">數據面整體樂觀，唯一的動作是微調年費往上補一點缺口，方向明確、風險低。</div>
     </div>
 
     <!-- Pricing Reference Strip -->
@@ -1363,7 +1375,6 @@ table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
         <span class="s-stat">CVR <strong>1.31×</strong></span>
         <span class="s-stat">Rev/主活 <strong>±0%</strong></span>
       </div>
-      <div class="s-card-summary">短期收益正向，但年約結構的問題若不修正，長期 LTV 改善空間受限——不算危險，但還需觀察年費調整後的效果。</div>
       <div class="s-opts">
         <div class="s-opt">
           <span class="s-opt-num">①</span>
@@ -1402,7 +1413,6 @@ table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
         <span class="s-stat">CVR <strong>2.54×</strong></span>
         <span class="s-stat">Rev/主活 <strong class="metric-lo">−6%</strong></span>
       </div>
-      <div class="s-card-summary">數據面整體樂觀，唯一的動作是微調年費往上補一點缺口，方向明確、風險低。</div>
       <div class="s-opts">
         <div class="s-opt">
           <span class="s-opt-num">①</span>
@@ -1441,7 +1451,6 @@ table.mt { width: 100%; border-collapse: collapse; font-size: 12.5px; }
         <span class="s-stat">CVR <strong>1.75×</strong></span>
         <span class="s-stat">Rev/主活 <strong class="metric-lo">−14%</strong></span>
       </div>
-      <div class="s-card-summary">轉換率有提升，但進來的用戶品質更差（月訂多、年訂少），而且月訂本身留存率又偏低。即使訂閱量成長，長期收益不樂觀。</div>
       <div class="s-opts">
         <div class="s-opt">
           <span class="s-opt-num">①</span>
